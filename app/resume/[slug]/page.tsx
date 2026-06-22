@@ -63,16 +63,28 @@ export default async function ResumePage({
         {/* Summary */}
         <section className="mb-8">
           <h2 className="text-xs font-semibold uppercase tracking-widest text-neutral-400 mb-3">Summary</h2>
-          <p className="text-sm leading-relaxed text-neutral-700">{siteConfig.bio}</p>
+          <p className="text-sm leading-relaxed text-neutral-700">{variant.summary}</p>
+        </section>
+
+        {/* Skills */}
+        <section className="mb-8">
+          <h2 className="text-xs font-semibold uppercase tracking-widest text-neutral-400 mb-3">Skills</h2>
+          <div className="space-y-1.5">
+            {variant.skillGroups.map((group) => (
+              <p key={group.label} className="text-sm text-neutral-700 leading-relaxed">
+                <span className="font-semibold text-neutral-900">{group.label}:</span> {group.items}
+              </p>
+            ))}
+          </div>
         </section>
 
         {/* Experience */}
         <section className="mb-8">
           <h2 className="text-xs font-semibold uppercase tracking-widest text-neutral-400 mb-4">Experience</h2>
           <div className="space-y-7">
-            {resumeData.experience.map((job) => (
+            {variant.experience.map((job) => (
               <div key={`${job.company}-${job.start}`}>
-                <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 mb-2">
+                <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 mb-1">
                   <div>
                     <span className="font-semibold text-neutral-900">{job.role}</span>
                     <span className="text-neutral-400 mx-2">·</span>
@@ -80,6 +92,9 @@ export default async function ResumePage({
                   </div>
                   <span className="text-sm text-neutral-400 whitespace-nowrap">{job.start} – {job.end}</span>
                 </div>
+                {job.tagline && (
+                  <p className="text-sm italic text-neutral-500 mb-2">{job.tagline}</p>
+                )}
                 <ul className="space-y-1.5 pl-1">
                   {job.bullets.map((b, i) => (
                     <li key={i} className="text-sm text-neutral-600 flex gap-2.5">
@@ -93,17 +108,9 @@ export default async function ResumePage({
           </div>
         </section>
 
-        {/* Skills */}
-        <section className="mb-8">
-          <h2 className="text-xs font-semibold uppercase tracking-widest text-neutral-400 mb-3">Skills</h2>
-          <p className="text-sm text-neutral-700 leading-relaxed">
-            {resumeData.skills.join(" · ")}
-          </p>
-        </section>
-
-        {/* Education */}
+        {/* Education & Certifications */}
         <section>
-          <h2 className="text-xs font-semibold uppercase tracking-widest text-neutral-400 mb-4">Education</h2>
+          <h2 className="text-xs font-semibold uppercase tracking-widest text-neutral-400 mb-4">Education &amp; Certifications</h2>
           <div className="space-y-3">
             {resumeData.education.map((edu) => (
               <div key={edu.institution} className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
@@ -116,6 +123,14 @@ export default async function ResumePage({
               </div>
             ))}
           </div>
+          <ul className="mt-3 space-y-1.5 pl-1">
+            {resumeData.certifications.map((cert) => (
+              <li key={cert} className="text-sm text-neutral-600 flex gap-2.5">
+                <span className="text-neutral-300 mt-0.5 shrink-0">–</span>
+                {cert}
+              </li>
+            ))}
+          </ul>
         </section>
       </div>
     </div>

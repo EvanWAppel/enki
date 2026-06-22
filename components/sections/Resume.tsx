@@ -90,7 +90,7 @@ export default function Resume() {
         </div>
       </div>
 
-      {/* Education */}
+      {/* Education & Certifications */}
       <div>
         <h3 className="text-lg font-semibold text-neutral-900 dark:text-white mb-4">Education</h3>
         <div className="space-y-3">
@@ -104,6 +104,16 @@ export default function Resume() {
             </div>
           ))}
         </div>
+
+        <h4 className="text-sm font-semibold text-neutral-900 dark:text-white mt-6 mb-3">Certifications</h4>
+        <ul className="space-y-1.5">
+          {resumeData.certifications.map((cert) => (
+            <li key={cert} className="text-sm text-neutral-600 dark:text-neutral-400 flex gap-2">
+              <span className="text-muted mt-0.5 shrink-0">–</span>
+              {cert}
+            </li>
+          ))}
+        </ul>
       </div>
     </SectionWrapper>
   );

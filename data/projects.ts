@@ -7,9 +7,65 @@ export const projects: Project[] = [
     description:
       "This site — a clean, data-driven portfolio built with Next.js App Router, Tailwind CSS v4, and TypeScript. Zero-config Vercel deployment.",
     tech: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
-    github: "https://github.com/EvanWAppel/website",
+    github: "https://github.com/EvanWAppel/enki",
     featured: true,
     logo: "/assets/logos/projects/enki.svg",
+  },
+  {
+    id: "bartleby",
+    title: "Bartleby — Collaborative Notes",
+    description:
+      "A self-hosted, real-time collaborative notes app for a small group of friends, with two first-class clients — a SvelteKit web editor and a Python TUI — editing the same documents live via a shared CRDT.",
+    tech: ["SvelteKit", "Node", "Python", "CRDT (Yjs)", "SQLite", "Docker"],
+    github: "https://github.com/EvanWAppel/bartleby",
+    // live: "TODO — Evan to provide deployed URL",
+    featured: true,
+    // logo: "/assets/logos/projects/bartleby.svg", // TODO — Evan to provide SVG
+  },
+  {
+    id: "mccoy",
+    title: "McCoy — Spotify Listening Dashboard",
+    description:
+      "A personal Spotify listening-habits dashboard with a DJ-style record-flipping playlist builder. Visualizes weekly listening trends and turns them into new playlists.",
+    tech: ["Python", "Plotly Dash", "Spotify API", "Railway"],
+    github: "https://github.com/EvanWAppel/mccoy",
+    live: "https://web-production-bee9a.up.railway.app/",
+    featured: true,
+    logo: "/assets/logos/projects/mccoy.png",
+  },
+  {
+    id: "lucre",
+    title: "Lucre — Personal Finance PWA",
+    description:
+      "A single-user personal-finance PWA — balances, net worth, subscriptions, spending, and bill alerts — backed by Plaid for bank data and continuously-replicated SQLite.",
+    tech: ["Python", "FastAPI", "HTMX", "Plaid", "SQLite + Litestream", "Railway"],
+    github: "https://github.com/EvanWAppel/lucre",
+    live: "https://lucre-rust.vercel.app/login",
+    featured: true,
+    // No graphical logo in repo (text wordmark only) — left logo-less.
+  },
+  {
+    id: "olympic",
+    title: "Olympic — Health Tracker",
+    // TODO — Evan to confirm/replace: drafted from career source (repo README is boilerplate).
+    description:
+      "A health-tracking app surfacing insights from activity, steps, and workouts.",
+    tech: ["Next.js", "TypeScript"],
+    github: "https://github.com/EvanWAppel/olympic",
+    live: "https://olympic-lime-six.vercel.app/",
+    featured: true,
+    logo: "/assets/logos/projects/olympic.png",
+  },
+  {
+    id: "guzzolene",
+    title: "Guzzolene — Gas Economics Tracker",
+    description:
+      "Tracks personal gas purchase history for a Mazda 3 Sport to see whether fuel economy has measurably changed — and to put price swings in the context of geopolitical events. Plots cost per mile overlaid with WTI crude oil prices.",
+    tech: ["Python", "Jupyter", "pandas", "Matplotlib"],
+    github: "https://github.com/EvanWAppel/guzzolene",
+    live: "https://guzzo-lene.com/",
+    featured: true,
+    logo: "/assets/logos/projects/guzzolene.svg",
   },
   {
     id: "elvis",
@@ -20,46 +76,5 @@ export const projects: Project[] = [
     github: "https://github.com/EvanWAppel/elvis",
     featured: true,
     logo: "/assets/logos/projects/elvis.svg",
-  },
-  {
-    id: "guzzolene",
-    title: "Guzzolene — Gas Economics Tracker",
-    description:
-      "Tracks personal gas purchase history for a Mazda 3 Sport to see whether fuel economy has measurably changed — and to put price swings in the context of geopolitical events. Plots cost per mile overlaid with WTI crude oil prices.",
-    tech: ["Python", "Jupyter", "pandas", "Matplotlib"],
-    github: "https://github.com/EvanWAppel/guzzolene",
-    live: "https://web-eta-six-52.vercel.app/",
-    featured: true,
-    logo: "/assets/logos/projects/guzzolene.svg",
-  },
-  {
-    id: "prometheus",
-    title: "Prometheus — Campaign Data Aggregator",
-    description:
-      "Consolidates advertising performance data from Meta, Google Ads, TikTok, LinkedIn, and more into a unified dataset. Standardizes currencies and time zones, deduplicates cross-platform reach, and calculates CTR, spend, and ROI across all channels.",
-    tech: ["Python", "pandas", "BigQuery", "Power BI"],
-    github: "https://github.com/EvanWAppel/prometheus",
-    featured: true,
-    logo: "/assets/logos/projects/prometheus.svg",
-  },
-  {
-    id: "feynman",
-    title: "Feynman — Query Abstraction Library",
-    description:
-      "A unified SQL query library for analysts working across Oracle, MSSQL, and Snowflake. Exposes a consistent dot-notation API for ad-hoc queries, schema exploration, and preset database calls — with Polars and SQLAlchemy under the hood.",
-    tech: ["Python", "Jupyter", "SQL", "Polars", "SQLAlchemy"],
-    github: "https://github.com/EvanWAppel/feynman",
-    featured: true,
-    logo: "/assets/logos/projects/feynman.svg",
-  },
-  {
-    id: "skunkworks",
-    title: "Skunkworks — Disclosure Form Automation",
-    description:
-      "Automates the disclosure form update process when changing prime rates. Reads Word documents, cycles through rate specs, replaces old values with new ones, saves updated files to a destination folder, and generates an Excel validation report.",
-    tech: ["Python", "python-docx", "openpyxl", "PyScript"],
-    github: "https://github.com/EvanWAppel/skunkworks",
-    featured: true,
-    logo: "/assets/logos/projects/skunkworks.svg",
   },
 ];
