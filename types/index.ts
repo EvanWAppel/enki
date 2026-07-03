@@ -3,6 +3,7 @@ import type React from "react";
 export interface SiteConfig {
   name: string;
   title: string;
+  url: string;
   bio: string;
   photo: string;
   email: string;

@@ -10,12 +10,20 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteConfig.url),
   title: `${siteConfig.name} — ${siteConfig.title}`,
   description: siteConfig.bio,
   openGraph: {
     title: `${siteConfig.name} — ${siteConfig.title}`,
     description: siteConfig.bio,
+    url: siteConfig.url,
+    siteName: siteConfig.name,
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${siteConfig.name} — ${siteConfig.title}`,
+    description: siteConfig.bio,
   },
 };
 
