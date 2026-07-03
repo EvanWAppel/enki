@@ -18,6 +18,8 @@ export interface Project {
   tech: string[];
   github?: string;
   live?: string;
+  /** Sign-in-free, sandboxed demo recruiters can click through. */
+  demo?: string;
   featured?: boolean;
   logo?: string;
 }

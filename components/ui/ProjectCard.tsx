@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, PlayCircle } from "lucide-react";
 import { GithubIcon } from "./icons";
 import type { Project } from "@/types";
 import TechTag from "./TechTag";
@@ -25,7 +25,19 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             <TechTag key={t} label={t} />
           ))}
         </div>
-        <div className="flex gap-2">
+        <div className="flex flex-wrap gap-2">
+          {project.demo && (
+            <Button
+              href={project.demo}
+              variant="primary"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Try the ${project.title} demo — no sign-in`}
+            >
+              <PlayCircle size={14} />
+              Try demo
+            </Button>
+          )}
           {project.github && (
             <Button
               href={project.github}

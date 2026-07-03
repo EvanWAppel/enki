@@ -41,15 +41,15 @@ export const projects: Project[] = [
     tech: ["Python", "FastAPI", "HTMX", "Plaid", "SQLite + Litestream", "Railway"],
     github: "https://github.com/EvanWAppel/lucre",
     live: "https://lucre-rust.vercel.app/login",
+    demo: "https://lucre-rust.vercel.app/demo/connect",
     featured: true,
     // No graphical logo in repo (text wordmark only) — left logo-less.
   },
   {
     id: "olympic",
     title: "Olympic — Health Tracker",
-    // TODO — Evan to confirm/replace: drafted from career source (repo README is boilerplate).
     description:
-      "A health-tracking app surfacing insights from activity, steps, and workouts.",
+      "A personal health-tracking app that ingests data from multiple sources — including ResMed/CPAP therapy data — into one unified dashboard.",
     tech: ["Next.js", "TypeScript"],
     github: "https://github.com/EvanWAppel/olympic",
     live: "https://olympic-lime-six.vercel.app/",
@@ -64,6 +64,7 @@ export const projects: Project[] = [
     tech: ["Python", "Jupyter", "pandas", "Matplotlib"],
     github: "https://github.com/EvanWAppel/guzzolene",
     live: "https://guzzo-lene.com/",
+    demo: "https://guzzo-lene.com/demo",
     featured: true,
     logo: "/assets/logos/projects/guzzolene.svg",
   },
