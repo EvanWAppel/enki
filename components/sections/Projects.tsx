@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { projects } from "@/data/projects";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import ProjectCard from "@/components/ui/ProjectCard";
@@ -76,6 +77,17 @@ export default function Projects() {
         <p className="text-center text-xs text-muted mt-3 tabular-nums">
           {current + 1} / {projects.length}
         </p>
+
+        {/* Link to the full, scannable projects page */}
+        <div className="flex justify-center mt-6">
+          <Link
+            href="/projects"
+            className="inline-flex items-center gap-1.5 text-sm font-medium text-accent hover:gap-2.5 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded"
+          >
+            See all projects
+            <ArrowRight size={15} />
+          </Link>
+        </div>
       </div>
 
       <style>{`
