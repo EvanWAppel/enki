@@ -29,4 +29,20 @@ describe("projects data", () => {
     expect(demos.has("lucre")).toBe(true);
     expect(demos.has("guzzolene")).toBe(true);
   });
+
+  it("every project carries a method line describing the agentic build", () => {
+    for (const p of projects) {
+      expect(p.method, `${p.id} is missing a method line`).toBeTruthy();
+    }
+  });
+
+  it("copy follows Evan's em-dash-free house style", () => {
+    for (const p of projects) {
+      for (const text of [p.title, p.description, p.method]) {
+        expect(text ?? "", `${p.id} prose contains an em-dash`).not.toContain(
+          "—",
+        );
+      }
+    }
+  });
 });

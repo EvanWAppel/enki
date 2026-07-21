@@ -8,12 +8,14 @@ import ThemeToggle from "@/components/ui/ThemeToggle";
 
 const navLinks = [
   { label: "About", href: "/#hero" },
-  { label: "Projects", href: "/#projects" },
   { label: "Resume", href: "/#resume" },
   { label: "Contact", href: "/#contact" },
 ];
 
-const externalLinks = [{ label: "Fiction", href: "/fiction" }];
+const externalLinks = [
+  { label: "Projects", href: "/projects" },
+  { label: "Fiction", href: "/fiction" },
+];
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);

@@ -21,6 +21,8 @@ export interface Project {
   live?: string;
   /** Sign-in-free, sandboxed demo recruiters can click through. */
   demo?: string;
+  /** One-line note on the agentic build method (RECL loop, tests, etc.). */
+  method?: string;
   featured?: boolean;
   logo?: string;
 }
