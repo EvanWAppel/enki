@@ -86,12 +86,39 @@ export const projects: Project[] = [
     id: "elvis",
     title: "Elvis: dbt + Snowflake Portfolio",
     description:
-      "Named after Las Vegas's most recognizable figure, this project explores free datasets about the Las Vegas Valley using dbt and Snowflake. Built to learn analytics-engineering patterns: modular transformations, testing, and dimensional modeling.",
-    tech: ["dbt", "Snowflake", "SQL", "Python"],
+      "Named after Las Vegas's most recognizable figure, this project explores free datasets about the Las Vegas Valley using dbt and Snowflake, surfaced through a Streamlit app. Built to learn analytics-engineering patterns: modular transformations, testing, and dimensional modeling.",
+    tech: ["dbt", "Snowflake", "Streamlit", "SQL", "Python", "Railway"],
     github: "https://github.com/EvanWAppel/elvis",
+    live: "https://elvis-production-e07a.up.railway.app/",
     method:
       "Claude Code, analytics-engineering patterns, with dbt tests on every model.",
     featured: true,
     logo: "/assets/logos/projects/elvis.svg",
+  },
+  {
+    id: "spooky",
+    title: "Spooky: X-Files Episode Explorer",
+    description:
+      "An episode data explorer for The X-Files, built around the fact that nobody agrees which episodes are 'mythology.' It stores three sources' verdicts per episode, derives a defensible label by vote, and renders the disagreement as a first-class feature with contested-episode badges and per-source breakdowns.",
+    tech: ["Python", "Plotly Dash", "pandas", "Railway"],
+    github: "https://github.com/EvanWAppel/spooky",
+    live: "https://web-production-61a00.up.railway.app/",
+    method:
+      "Claude Code with TDD against recorded API payloads, plus legal-shape and provenance tests in CI.",
+    featured: true,
+    logo: "/assets/logos/projects/spooky.svg",
+  },
+  {
+    id: "benten",
+    title: "Benten: Music Workshop",
+    description:
+      "A personal music workshop named after the Japanese goddess of music: practice logs, theory notes, a riff library, and composition sketches, paired with an interactive app for playing chord progressions on a fretboard, recording and overdubbing takes, building effect chains, and searching tabs. Everything it writes stays clean, hand-editable Markdown.",
+    tech: ["Python", "JavaScript", "Web Audio API", "Node", "Railway"],
+    github: "https://github.com/EvanWAppel/benten",
+    demo: "https://benten-production.up.railway.app/",
+    method:
+      "Claude Code, logic tested first with pytest and Node, then the interface, then a full walk through in a real browser.",
+    featured: true,
+    // No graphical logo in repo yet; card falls back to a monogram.
   },
 ];
