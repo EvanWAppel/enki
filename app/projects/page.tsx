@@ -8,12 +8,12 @@ import { siteConfig } from "@/data/site";
 export const metadata: Metadata = {
   title: `Projects — ${siteConfig.name}`,
   description:
-    "Seven working applications designed, built, and shipped with agentic command-line tools, primarily Claude Code, and kept honest with tests.",
+    "Nine working applications designed, built, and shipped with agentic command-line tools, primarily Claude Code, and kept honest with tests.",
   alternates: { canonical: "/projects" },
   openGraph: {
     title: `Projects — ${siteConfig.name}`,
     description:
-      "Seven working applications built with AI agents and kept honest with tests.",
+      "Nine working applications built with AI agents and kept honest with tests.",
     type: "website",
   },
 };
@@ -31,7 +31,7 @@ export default function ProjectsPage() {
             </h1>
             <p className="text-muted leading-relaxed">
               I build software with AI agents, and I keep it honest with tests.
-              Below are seven working applications I designed, built, and shipped
+              Below are nine working applications I designed, built, and shipped
               on my own time using agentic command-line tools, primarily Claude
               Code. They span web apps, a terminal interface, data pipelines, and
               integrations with both external APIs and local data. Each one
