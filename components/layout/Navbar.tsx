@@ -14,6 +14,7 @@ const navLinks = [
 
 const externalLinks = [
   { label: "Projects", href: "/projects" },
+  { label: "How I Work", href: "/how-i-work" },
   { label: "Fiction", href: "/fiction" },
 ];
 
