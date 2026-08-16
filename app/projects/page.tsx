@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Download } from "lucide-react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import ProjectGridCard from "@/components/ui/ProjectGridCard";
@@ -52,6 +53,24 @@ export default function ProjectsPage() {
               result against a test, and loop until it holds. The tools move
               fast. The tests are what make the speed safe.
             </p>
+
+            {/* Persistent CTA: a recruiter deep-linking here still sees
+                availability and can grab the resume in one click. */}
+            <div className="mt-6 flex flex-wrap items-center gap-3">
+              <span className="inline-flex items-center gap-2 rounded-full border border-green-500/30 bg-green-500/10 px-3 py-1 text-sm font-medium text-green-700 dark:text-green-400">
+                <span className="h-2 w-2 rounded-full bg-green-500" aria-hidden="true" />
+                Available for work
+              </span>
+              <a
+                href={siteConfig.resume}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 rounded-full border border-neutral-300 dark:border-neutral-600 px-3 py-1 text-sm font-medium text-neutral-700 dark:text-neutral-200 hover:border-accent hover:text-accent transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+              >
+                <Download size={14} />
+                Resume
+              </a>
+            </div>
           </header>
 
           {/* Showcase grid: the curated lead set */}

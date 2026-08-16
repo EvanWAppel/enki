@@ -9,4 +9,5 @@ export const siteConfig: SiteConfig = {
   github: "https://github.com/EvanWAppel",
   linkedin: "https://www.linkedin.com/in/evanwebsterappel/",
   resume: "/resume.pdf",
+  url: "https://evanappel.me",
 };

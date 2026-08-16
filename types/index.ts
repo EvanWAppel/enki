@@ -9,6 +9,8 @@ export interface SiteConfig {
   github: string;
   linkedin: string;
   resume: string;
+  /** Canonical production origin, used for metadataBase and OG image URLs. */
+  url: string;
 }
 
 export interface Project {
