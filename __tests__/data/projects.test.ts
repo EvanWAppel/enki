@@ -54,6 +54,15 @@ describe("projects data", () => {
     expect(ranked.every((p) => !p.wip)).toBe(true);
   });
 
+  it("every showcased project leads with a real screenshot", () => {
+    const showcased = projects.filter((p) => p.showcase != null);
+    for (const p of showcased) {
+      expect(p.screenshot, `${p.id} is missing a screenshot`).toMatch(
+        /^\/assets\/screenshots\/.+\.(png|jpg|gif)$/,
+      );
+    }
+  });
+
   it("copy follows Evan's em-dash-free house style", () => {
     for (const p of projects) {
       for (const text of [p.title, p.description, p.method]) {

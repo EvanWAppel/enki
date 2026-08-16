@@ -42,6 +42,7 @@ export const projects: Project[] = [
       "Claude Code with external-API integration (Spotify), tested end to end.",
     featured: true,
     showcase: 5,
+    screenshot: "/assets/screenshots/mccoy.png",
     logo: "/assets/logos/projects/mccoy.png",
   },
   {
@@ -95,6 +96,7 @@ export const projects: Project[] = [
       "Claude Code, analytics-engineering patterns, with dbt tests on every model.",
     featured: true,
     showcase: 1,
+    screenshot: "/assets/screenshots/elvis.png",
     logo: "/assets/logos/projects/elvis.svg",
   },
   {
@@ -109,7 +111,8 @@ export const projects: Project[] = [
       "Claude Code, a reproducible ELT-plus-dbt warehouse baked at build time, with the city-specific config isolated to one file.",
     featured: true,
     showcase: 3,
-    // No graphical logo in repo yet; card falls back to a monogram.
+    screenshot: "/assets/screenshots/groening.png",
+    // No graphical logo in repo yet; the card leads with the screenshot.
   },
   {
     id: "robbins",
@@ -123,7 +126,8 @@ export const projects: Project[] = [
       "Claude Code, multi-source ingestion across two public-data APIs, warehouse baked fresh on every deploy.",
     featured: true,
     showcase: 2,
-    // No graphical logo in repo yet; card falls back to a monogram.
+    screenshot: "/assets/screenshots/robbins.png",
+    // No graphical logo in repo yet; the card leads with the screenshot.
   },
   {
     id: "spooky",
@@ -137,6 +141,7 @@ export const projects: Project[] = [
       "Claude Code with TDD against recorded API payloads, plus legal-shape and provenance tests in CI.",
     featured: true,
     showcase: 4,
+    screenshot: "/assets/screenshots/spooky.png",
     logo: "/assets/logos/projects/spooky.svg",
   },
   {
@@ -151,7 +156,8 @@ export const projects: Project[] = [
       "Claude Code, logic tested first with pytest and Node, then the interface, then a full walk through in a real browser.",
     featured: true,
     showcase: 6,
-    // No graphical logo in repo yet; card falls back to a monogram.
+    screenshot: "/assets/screenshots/benten.png",
+    // No graphical logo in repo yet; the card leads with the screenshot.
   },
   // --- Work in progress ---------------------------------------------------
   // Specs written and scaffolding up, but not yet shippable. These render in
