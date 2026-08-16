@@ -66,9 +66,33 @@ export default function ProjectGridCard({ project }: ProjectGridCardProps) {
         </p>
 
         {project.method && (
-          <p className="text-xs italic text-muted leading-relaxed mb-4">
+          <p className="text-xs italic text-muted leading-relaxed mb-3">
             {project.method}
           </p>
+        )}
+
+        {/* "What it proves": the recruiter-facing capability claim. */}
+        {project.proves && (
+          <p className="flex gap-1.5 text-xs text-neutral-700 dark:text-neutral-300 leading-relaxed mb-3">
+            <span aria-hidden="true" className="text-accent font-semibold">
+              →
+            </span>
+            <span>{project.proves}</span>
+          </p>
+        )}
+
+        {/* Role-family tags, styled distinctly from the tech tags below. */}
+        {project.roleTags && project.roleTags.length > 0 && (
+          <div className="flex flex-wrap gap-1.5 mb-4">
+            {project.roleTags.map((role) => (
+              <span
+                key={role}
+                className="inline-block px-2 py-0.5 rounded-md text-[10px] font-semibold uppercase tracking-wide text-muted border border-neutral-300 dark:border-neutral-600"
+              >
+                {role}
+              </span>
+            ))}
+          </div>
         )}
 
         {/* Push tech + links to the bottom so cards align in the grid. */}

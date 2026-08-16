@@ -29,6 +29,12 @@ export interface Project {
   /** Real preview image of the running app, shown in the card media panel
    * ahead of the logo/monogram fallback. Lives under /assets/screenshots. */
   screenshot?: string;
+  /** One sentence naming the capability this project demonstrates, so a
+   * recruiter does not have to infer it from the description. */
+  proves?: string;
+  /** Role families this project is evidence for (e.g. "Analytics
+   * Engineering"), rendered distinctly from the implementation tech tags. */
+  roleTags?: string[];
   /** Showcase rank on /projects (lower shows first). Present means this is one
    * of the curated lead projects; absent means it lives under "More projects". */
   showcase?: number;

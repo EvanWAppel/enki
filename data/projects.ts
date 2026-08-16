@@ -40,6 +40,9 @@ export const projects: Project[] = [
     live: "https://web-production-bee9a.up.railway.app/",
     method:
       "Claude Code with external-API integration (Spotify), tested end to end.",
+    proves:
+      "External-API integration end to end, from an OAuth data pipeline to weekly snapshots and a live dashboard.",
+    roleTags: ["Full-Stack", "Forward Deployed"],
     featured: true,
     showcase: 5,
     screenshot: "/assets/screenshots/mccoy.png",
@@ -94,6 +97,9 @@ export const projects: Project[] = [
     live: "https://elvis-production-e07a.up.railway.app/",
     method:
       "Claude Code, analytics-engineering patterns, with dbt tests on every model.",
+    proves:
+      "Production analytics engineering, an extract, load, model, test, and serve pipeline run the way a data team runs it.",
+    roleTags: ["Analytics Engineering", "Data Engineering"],
     featured: true,
     showcase: 1,
     screenshot: "/assets/screenshots/elvis.png",
@@ -109,6 +115,9 @@ export const projects: Project[] = [
     live: "https://groening-production.up.railway.app/",
     method:
       "Claude Code, a reproducible ELT-plus-dbt warehouse baked at build time, with the city-specific config isolated to one file.",
+    proves:
+      "A reproducible dbt warehouse baked fresh at build time, with the city-specific config isolated to one file.",
+    roleTags: ["Analytics Engineering", "Forward Deployed"],
     featured: true,
     showcase: 3,
     screenshot: "/assets/screenshots/groening.png",
@@ -124,6 +133,9 @@ export const projects: Project[] = [
     live: "https://robbins-production.up.railway.app/",
     method:
       "Claude Code, multi-source ingestion across two public-data APIs, warehouse baked fresh on every deploy.",
+    proves:
+      "Multi-source ingestion and dimensional modeling, pulling two public-data APIs into one tested warehouse.",
+    roleTags: ["Analytics Engineering", "Data Engineering"],
     featured: true,
     showcase: 2,
     screenshot: "/assets/screenshots/robbins.png",
@@ -139,6 +151,9 @@ export const projects: Project[] = [
     live: "https://web-production-61a00.up.railway.app/",
     method:
       "Claude Code with TDD against recorded API payloads, plus legal-shape and provenance tests in CI.",
+    proves:
+      "Test-driven data work, with recorded-payload TDD plus provenance and legal-shape checks running in CI.",
+    roleTags: ["Data Engineering", "Developer Advocacy"],
     featured: true,
     showcase: 4,
     screenshot: "/assets/screenshots/spooky.png",
@@ -154,6 +169,9 @@ export const projects: Project[] = [
     demo: "https://benten-production.up.railway.app/",
     method:
       "Claude Code, logic tested first with pytest and Node, then the interface, then a full walk through in a real browser.",
+    proves:
+      "An interactive full-stack build, Web Audio in the browser with logic tested first in pytest and Node.",
+    roleTags: ["Full-Stack", "Developer Advocacy"],
     featured: true,
     showcase: 6,
     screenshot: "/assets/screenshots/benten.png",

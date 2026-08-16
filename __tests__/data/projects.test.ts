@@ -63,9 +63,21 @@ describe("projects data", () => {
     }
   });
 
+  it("every showcased project maps to roles with a proves line", () => {
+    const showcased = projects.filter((p) => p.showcase != null);
+    for (const p of showcased) {
+      expect(p.proves, `${p.id} is missing a proves line`).toBeTruthy();
+      expect(
+        p.roleTags?.length,
+        `${p.id} is missing role tags`,
+      ).toBeGreaterThan(0);
+    }
+  });
+
   it("copy follows Evan's em-dash-free house style", () => {
     for (const p of projects) {
-      for (const text of [p.title, p.description, p.method]) {
+      const strings = [p.title, p.description, p.method, p.proves, ...(p.roleTags ?? [])];
+      for (const text of strings) {
         expect(text ?? "", `${p.id} prose contains an em-dash`).not.toContain(
           "—",
         );
