@@ -36,8 +36,8 @@ const formsDirect: Job = {
 const education = [
   {
     institution: "University of Nevada, Las Vegas",
-    degree: "B.A. Journalism, Minor in Sociology",
-    year: "2007 – 2012",
+    degree: "B.A.",
+    year: "2007 to 2012",
   },
 ];
 

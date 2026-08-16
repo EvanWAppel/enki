@@ -4,24 +4,26 @@ import Footer from "@/components/layout/Footer";
 import ProjectGridCard from "@/components/ui/ProjectGridCard";
 import { projects } from "@/data/projects";
 import { siteConfig } from "@/data/site";
+import { capitalize, numberToWord } from "@/lib/numberWords";
+
+// Count derived from the data so the copy never drifts as projects are added.
+const shipped = projects.filter((p) => !p.wip);
+const inProgress = projects.filter((p) => p.wip);
+const shippedWord = numberToWord(shipped.length);
+const ShippedWord = capitalize(shippedWord);
 
 export const metadata: Metadata = {
   title: `Projects — ${siteConfig.name}`,
-  description:
-    "Eleven working applications designed, built, and shipped with agentic command-line tools, primarily Claude Code, and kept honest with tests.",
+  description: `${ShippedWord} working applications designed, built, and shipped with agentic command-line tools, primarily Claude Code, and kept honest with tests.`,
   alternates: { canonical: "/projects" },
   openGraph: {
     title: `Projects — ${siteConfig.name}`,
-    description:
-      "Eleven working applications built with AI agents and kept honest with tests.",
+    description: `${ShippedWord} working applications built with AI agents and kept honest with tests.`,
     type: "website",
   },
 };
 
 export default function ProjectsPage() {
-  const shipped = projects.filter((p) => !p.wip);
-  const inProgress = projects.filter((p) => p.wip);
-
   return (
     <>
       <Navbar />
@@ -34,8 +36,8 @@ export default function ProjectsPage() {
             </h1>
             <p className="text-muted leading-relaxed">
               I build software with AI agents, and I keep it honest with tests.
-              Below are eleven working applications I designed, built, and shipped
-              on my own time using agentic command-line tools, primarily Claude
+              Below are {shippedWord} working applications I designed, built, and
+              shipped on my own time using agentic command-line tools, primarily Claude
               Code. They span web apps, a terminal interface, data pipelines, and
               integrations with both external APIs and local data. Each one
               answers a small real question in my life, and each was built the

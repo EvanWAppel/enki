@@ -7,6 +7,6 @@ export const siteConfig: SiteConfig = {
   photo: "/photo.jpg",
   email: "appelew@gmail.com",
   github: "https://github.com/EvanWAppel",
-  linkedin: "https://www.linkedin.com/in/evan-appel-8885569b/",
+  linkedin: "https://www.linkedin.com/in/evanwebsterappel/",
   resume: "/resume.pdf",
 };

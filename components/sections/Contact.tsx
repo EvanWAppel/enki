@@ -14,13 +14,13 @@ const links = [
     Icon: GithubIcon,
     label: "GitHub",
     href: siteConfig.github,
-    display: "github.com/evanappel",
+    display: "github.com/EvanWAppel",
   },
   {
     Icon: LinkedinIcon,
     label: "LinkedIn",
     href: siteConfig.linkedin,
-    display: "linkedin.com/in/evanappel",
+    display: "linkedin.com/in/evanwebsterappel",
   },
 ];
 
