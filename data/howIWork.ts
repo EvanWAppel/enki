@@ -1,8 +1,9 @@
 // Copy for the /how-i-work page, kept here so it is easy to edit and testable
 // in isolation. House style: em-dash-free, plain declarative sentences, first
-// person. Claims are calibrated: the portfolio is built on personal time; the
-// method is also applied and taught at work. No claim implies the employer's
-// software is built with agents.
+// person. Claims are calibrated: the portfolio is built with agents on personal
+// time; the underlying engineering discipline predates the AI tools and informed
+// a manual written for analysts at work. At work, AI adoption is advocated for,
+// not used to build the employer's software.
 
 export const howIWorkIntro: string[] = [
   "I build software with AI agents, and I keep it honest with tests. That is the whole method, and every project on this site was built that way.",
@@ -30,7 +31,7 @@ export const reclSteps: ReclStep[] = [
   {
     key: "check",
     label: "Check",
-    body: "Every change is checked against a test. Pytest is my verification layer, with cached fixtures so the checks run in CI without a live database. If it is not tested, it is not done.",
+    body: "Every change is checked against a test. Pytest for the Python projects and Vitest for the TypeScript ones, with cached fixtures and recorded payloads so the checks run in CI without a live service. If it is not tested, it is not done.",
   },
   {
     key: "loop",
@@ -55,6 +56,6 @@ export const principles: Principle[] = [
   },
   {
     title: "The pairing that lasts",
-    body: "Agent fluency on its own is common now. What makes it durable is pairing it with ordinary engineering discipline: test-driven development, CI/CD, structured logging, version control. The projects on this site I built on my own time. The same method I apply and teach at work, where I run workshops and wrote the manual that helped a 100-analyst organization adopt these tools.",
+    body: "Agent fluency on its own is common now. What makes it durable is pairing it with ordinary engineering discipline: test-driven development, CI/CD, structured logging, version control. I was working this way well before I started using AI, and that engineering practice is what I wrote up in a 100-page manual for analysts at the bank. At work I advocate for adopting these tools. The projects on this site I built with agents, on my own time.",
   },
 ];
