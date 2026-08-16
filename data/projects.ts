@@ -41,6 +41,7 @@ export const projects: Project[] = [
     method:
       "Claude Code with external-API integration (Spotify), tested end to end.",
     featured: true,
+    showcase: 5,
     logo: "/assets/logos/projects/mccoy.png",
   },
   {
@@ -93,6 +94,7 @@ export const projects: Project[] = [
     method:
       "Claude Code, analytics-engineering patterns, with dbt tests on every model.",
     featured: true,
+    showcase: 1,
     logo: "/assets/logos/projects/elvis.svg",
   },
   {
@@ -106,6 +108,7 @@ export const projects: Project[] = [
     method:
       "Claude Code, a reproducible ELT-plus-dbt warehouse baked at build time, with the city-specific config isolated to one file.",
     featured: true,
+    showcase: 3,
     // No graphical logo in repo yet; card falls back to a monogram.
   },
   {
@@ -119,6 +122,7 @@ export const projects: Project[] = [
     method:
       "Claude Code, multi-source ingestion across two public-data APIs, warehouse baked fresh on every deploy.",
     featured: true,
+    showcase: 2,
     // No graphical logo in repo yet; card falls back to a monogram.
   },
   {
@@ -132,6 +136,7 @@ export const projects: Project[] = [
     method:
       "Claude Code with TDD against recorded API payloads, plus legal-shape and provenance tests in CI.",
     featured: true,
+    showcase: 4,
     logo: "/assets/logos/projects/spooky.svg",
   },
   {
@@ -145,6 +150,7 @@ export const projects: Project[] = [
     method:
       "Claude Code, logic tested first with pytest and Node, then the interface, then a full walk through in a real browser.",
     featured: true,
+    showcase: 6,
     // No graphical logo in repo yet; card falls back to a monogram.
   },
   // --- Work in progress ---------------------------------------------------

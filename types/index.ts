@@ -24,6 +24,12 @@ export interface Project {
   method?: string;
   featured?: boolean;
   logo?: string;
+  /** Real preview image of the running app, shown in the card media panel
+   * ahead of the logo/monogram fallback. Lives under /assets/screenshots. */
+  screenshot?: string;
+  /** Showcase rank on /projects (lower shows first). Present means this is one
+   * of the curated lead projects; absent means it lives under "More projects". */
+  showcase?: number;
   /** Still in the workshop: shown in the /projects Work-in-progress section,
    * hidden from the homepage carousel. */
   wip?: boolean;

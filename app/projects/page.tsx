@@ -12,6 +12,13 @@ const inProgress = projects.filter((p) => p.wip);
 const shippedWord = numberToWord(shipped.length);
 const ShippedWord = capitalize(shippedWord);
 
+// Curated lead set (by showcase rank) up top; everything else is one click away
+// under "More projects" so nothing is lost but the strongest work leads.
+const showcase = shipped
+  .filter((p) => p.showcase != null)
+  .sort((a, b) => (a.showcase ?? 0) - (b.showcase ?? 0));
+const more = shipped.filter((p) => p.showcase == null);
+
 export const metadata: Metadata = {
   title: `Projects — ${siteConfig.name}`,
   description: `${ShippedWord} working applications designed, built, and shipped with agentic command-line tools, primarily Claude Code, and kept honest with tests.`,
@@ -47,12 +54,31 @@ export default function ProjectsPage() {
             </p>
           </header>
 
-          {/* Grid */}
+          {/* Showcase grid: the curated lead set */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {shipped.map((project) => (
+            {showcase.map((project) => (
               <ProjectGridCard key={project.id} project={project} />
             ))}
           </div>
+
+          {/* More projects: everything else, one click away */}
+          {more.length > 0 && (
+            <details className="group mt-8">
+              <summary className="cursor-pointer list-none inline-flex items-center gap-1.5 text-sm font-medium text-accent hover:underline">
+                <span>
+                  More projects ({numberToWord(more.length)})
+                </span>
+                <span className="transition-transform group-open:rotate-90" aria-hidden="true">
+                  ›
+                </span>
+              </summary>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-6">
+                {more.map((project) => (
+                  <ProjectGridCard key={project.id} project={project} />
+                ))}
+              </div>
+            </details>
+          )}
 
           {/* Work in progress */}
           {inProgress.length > 0 && (

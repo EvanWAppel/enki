@@ -65,17 +65,28 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         </div>
       </div>
 
-      {/* Right: logo panel */}
-      {project.logo && (
-        <div className="shrink-0 w-36 flex items-center justify-center bg-neutral-50 dark:bg-neutral-700 border-l border-neutral-100 dark:border-neutral-600">
-          <Image
-            src={project.logo}
-            alt={`${project.title} logo`}
-            width={120}
-            height={120}
-            className="max-w-[80%] max-h-[70%] w-auto h-auto object-contain"
-            unoptimized
-          />
+      {/* Right: media panel — screenshot preview when we have one, else logo. */}
+      {(project.screenshot || project.logo) && (
+        <div className="shrink-0 w-36 flex items-center justify-center overflow-hidden bg-neutral-50 dark:bg-neutral-700 border-l border-neutral-100 dark:border-neutral-600">
+          {project.screenshot ? (
+            <Image
+              src={project.screenshot}
+              alt={`Screenshot of ${project.title}`}
+              width={288}
+              height={280}
+              className="w-full h-full object-cover object-top"
+              unoptimized
+            />
+          ) : (
+            <Image
+              src={project.logo as string}
+              alt={`${project.title} logo`}
+              width={120}
+              height={120}
+              className="max-w-[80%] max-h-[70%] w-auto h-auto object-contain"
+              unoptimized
+            />
+          )}
         </div>
       )}
     </div>

@@ -25,9 +25,19 @@ export default function ProjectGridCard({ project }: ProjectGridCardProps) {
         </span>
       )}
 
-      {/* Media panel: logo when we have one, otherwise a subtle monogram. */}
-      <div className="h-32 flex items-center justify-center bg-neutral-50 dark:bg-neutral-700/50 border-b border-neutral-100 dark:border-neutral-700">
-        {project.logo ? (
+      {/* Media panel: a real screenshot when we have one, else the logo, else a
+          subtle monogram. */}
+      <div className="h-32 flex items-center justify-center overflow-hidden bg-neutral-50 dark:bg-neutral-700/50 border-b border-neutral-100 dark:border-neutral-700">
+        {project.screenshot ? (
+          <Image
+            src={project.screenshot}
+            alt={`Screenshot of ${project.title}`}
+            width={480}
+            height={270}
+            className="w-full h-full object-cover object-top"
+            unoptimized
+          />
+        ) : project.logo ? (
           <Image
             src={project.logo}
             alt={`${project.title} logo`}
