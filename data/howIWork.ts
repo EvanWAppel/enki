@@ -56,6 +56,6 @@ export const principles: Principle[] = [
   },
   {
     title: "The pairing that lasts",
-    body: "Agent fluency on its own is common now. What makes it durable is pairing it with ordinary engineering discipline: test-driven development, CI/CD, structured logging, version control. I was working this way well before I started using AI, and that engineering practice is what I wrote up in a 100-page manual for analysts at the bank. At work I advocate for adopting these tools. The projects on this site I built with agents, on my own time.",
+    body: "Agent fluency on its own is common now. What makes it durable is pairing it with ordinary engineering discipline: test-driven development, CI/CD, structured logging, version control. I was working this way well before I started using AI, and that engineering practice is what I wrote up in a 100-page manual for fellow analysts at work. AI adoption is what I advocate for there. The projects on this site I built with agents, on my own time.",
   },
 ];
