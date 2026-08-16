@@ -93,10 +93,10 @@ export const projects: Project[] = [
   },
   {
     id: "elvis",
-    title: "Elvis: dbt + Snowflake Portfolio",
+    title: "Elvis: dbt + DuckDB Portfolio",
     description:
-      "Named after Las Vegas's most recognizable figure, this project explores free datasets about the Las Vegas Valley using dbt and Snowflake, surfaced through a Streamlit app. Built to learn analytics-engineering patterns: modular transformations, testing, and dimensional modeling.",
-    tech: ["dbt", "Snowflake", "Streamlit", "SQL", "Python", "Railway"],
+      "Named after Las Vegas's most recognizable figure, this project explores free datasets about the Las Vegas Valley using dbt and DuckDB, surfaced through a Streamlit app. Built to learn analytics-engineering patterns: modular transformations, testing, and dimensional modeling.",
+    tech: ["dbt", "DuckDB", "Streamlit", "SQL", "Python", "Railway"],
     github: "https://github.com/EvanWAppel/elvis",
     live: "https://elvis-production-e07a.up.railway.app/",
     method:
@@ -104,7 +104,7 @@ export const projects: Project[] = [
     proves:
       "Production analytics engineering, an extract, load, model, test, and serve pipeline run the way a data team runs it.",
     detail:
-      "Elvis takes free open data about the Las Vegas Valley, loads it into a warehouse, models it with dbt, and serves it through a Streamlit app. Every number on every page is a dbt model queried live, so the whole thing runs on the same extract, load, model, test, and serve workflow a data team uses in production. I built it to learn analytics-engineering patterns by shipping them end to end: modular transformations, a test on every model, and dimensional modeling.",
+      "Elvis takes free open data about the Las Vegas Valley, loads it into a DuckDB warehouse, models it with dbt, and serves it through a Streamlit app. Every number on every page is a dbt model queried live, so the whole thing runs on the same extract, load, model, test, and serve workflow a data team uses in production. I built it to learn analytics-engineering patterns by shipping them end to end: modular transformations, a test on every model, and dimensional modeling.",
     honestNote:
       "What is real: the pipeline runs, every model is tested, and the app is live. Where I was learning: this is portfolio work built to practice dbt patterns, not a system with production traffic behind it.",
     roleTags: ["Analytics Engineering", "Data Engineering"],
