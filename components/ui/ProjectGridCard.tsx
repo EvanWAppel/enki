@@ -1,5 +1,6 @@
 import Image from "next/image";
-import { ExternalLink, PlayCircle } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight, ExternalLink, PlayCircle } from "lucide-react";
 import { GithubIcon } from "./icons";
 import type { Project } from "@/types";
 import TechTag from "./TechTag";
@@ -140,6 +141,17 @@ export default function ProjectGridCard({ project }: ProjectGridCardProps) {
               </Button>
             )}
           </div>
+
+          {project.detail && (
+            <Link
+              href={`/projects/${project.id}`}
+              className="inline-flex items-center gap-1.5 mt-3 text-sm font-medium text-accent hover:gap-2.5 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded"
+              aria-label={`Read more about ${project.title}`}
+            >
+              Details
+              <ArrowRight size={14} />
+            </Link>
+          )}
         </div>
       </div>
     </article>

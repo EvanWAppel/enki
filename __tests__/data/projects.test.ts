@@ -74,9 +74,30 @@ describe("projects data", () => {
     }
   });
 
+  it("every detail page has a narrative and an honest note", () => {
+    // Presence of `detail` is what creates a /projects/[slug] page, so it must
+    // come with the honest note the page renders. Showcased projects all qualify.
+    const withDetail = projects.filter((p) => p.detail);
+    expect(withDetail.length).toBeGreaterThanOrEqual(6);
+    for (const p of withDetail) {
+      expect(p.honestNote, `${p.id} has a detail page but no honest note`).toBeTruthy();
+    }
+    for (const p of projects.filter((p) => p.showcase != null)) {
+      expect(p.detail, `showcased ${p.id} is missing a detail page`).toBeTruthy();
+    }
+  });
+
   it("copy follows Evan's em-dash-free house style", () => {
     for (const p of projects) {
-      const strings = [p.title, p.description, p.method, p.proves, ...(p.roleTags ?? [])];
+      const strings = [
+        p.title,
+        p.description,
+        p.method,
+        p.proves,
+        p.detail,
+        p.honestNote,
+        ...(p.roleTags ?? []),
+      ];
       for (const text of strings) {
         expect(text ?? "", `${p.id} prose contains an em-dash`).not.toContain(
           "—",

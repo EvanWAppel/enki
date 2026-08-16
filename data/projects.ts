@@ -42,6 +42,10 @@ export const projects: Project[] = [
       "Claude Code with external-API integration (Spotify), tested end to end.",
     proves:
       "External-API integration end to end, from an OAuth data pipeline to weekly snapshots and a live dashboard.",
+    detail:
+      "McCoy is a personal Spotify listening dashboard with a DJ-style, record-flipping playlist builder. It captures my real listening data on a weekly snapshot pipeline, visualizes the trends, and turns them into new playlists. It is my end-to-end external-API project: OAuth, a scheduled data pull, storage, and a live front end, tested through.",
+    honestNote:
+      "What is real: the OAuth integration, the weekly snapshots, and the live dashboard run on my own listening data. Where I was learning: it is single-user by design, built for one account rather than hardened for many.",
     roleTags: ["Full-Stack", "Forward Deployed"],
     featured: true,
     showcase: 5,
@@ -99,6 +103,10 @@ export const projects: Project[] = [
       "Claude Code, analytics-engineering patterns, with dbt tests on every model.",
     proves:
       "Production analytics engineering, an extract, load, model, test, and serve pipeline run the way a data team runs it.",
+    detail:
+      "Elvis takes free open data about the Las Vegas Valley, loads it into a warehouse, models it with dbt, and serves it through a Streamlit app. Every number on every page is a dbt model queried live, so the whole thing runs on the same extract, load, model, test, and serve workflow a data team uses in production. I built it to learn analytics-engineering patterns by shipping them end to end: modular transformations, a test on every model, and dimensional modeling.",
+    honestNote:
+      "What is real: the pipeline runs, every model is tested, and the app is live. Where I was learning: this is portfolio work built to practice dbt patterns, not a system with production traffic behind it.",
     roleTags: ["Analytics Engineering", "Data Engineering"],
     featured: true,
     showcase: 1,
@@ -117,6 +125,10 @@ export const projects: Project[] = [
       "Claude Code, a reproducible ELT-plus-dbt warehouse baked at build time, with the city-specific config isolated to one file.",
     proves:
       "A reproducible dbt warehouse baked fresh at build time, with the city-specific config isolated to one file.",
+    detail:
+      "Groening is a Portland port of Elvis: the same architecture, a DuckDB warehouse modeled with dbt, aimed at free public data for the Portland metro across Multnomah, Washington, and Clackamas counties. The design goal was reproducibility. The warehouse is baked fresh at build time, and everything city-specific is isolated to a single config file, so pointing the whole thing at a new city is a small, contained change.",
+    honestNote:
+      "What is real: the build is reproducible, and the config isolation actually holds, which is the point I was testing. Where I was learning: it reuses the Elvis pattern deliberately, so the novelty is in the portability, not a from-scratch design.",
     roleTags: ["Analytics Engineering", "Forward Deployed"],
     featured: true,
     showcase: 3,
@@ -135,6 +147,10 @@ export const projects: Project[] = [
       "Claude Code, multi-source ingestion across two public-data APIs, warehouse baked fresh on every deploy.",
     proves:
       "Multi-source ingestion and dimensional modeling, pulling two public-data APIs into one tested warehouse.",
+    detail:
+      "Robbins is a multi-page explorer over public data about the Seattle metro, from the King County core out to Pierce and Snohomish. The interesting part is ingestion: it pulls from two different access patterns, Socrata's SODA API and ArcGIS FeatureServers, and lands both in a DuckDB warehouse modeled with dbt. It is the same architecture as Elvis, pointed at a harder data-sourcing problem.",
+    honestNote:
+      "What is real: both ingestion paths work, and the warehouse is modeled and tested. Where I was learning: it is a portfolio build, so the emphasis is on covering the ingestion patterns cleanly rather than on scale.",
     roleTags: ["Analytics Engineering", "Data Engineering"],
     featured: true,
     showcase: 2,
@@ -153,6 +169,10 @@ export const projects: Project[] = [
       "Claude Code with TDD against recorded API payloads, plus legal-shape and provenance tests in CI.",
     proves:
       "Test-driven data work, with recorded-payload TDD plus provenance and legal-shape checks running in CI.",
+    detail:
+      "Spooky is an episode data explorer for The X-Files, built around the fact that nobody agrees which episodes count as 'mythology.' Instead of picking a side, it stores three sources' verdicts per episode, derives a defensible label by vote, and renders the disagreement itself as a feature, with contested-episode badges and per-source breakdowns. It was an exercise in modeling provenance honestly rather than flattening it away.",
+    honestNote:
+      "What is real: the provenance model, the vote logic, and the tests, built with TDD against recorded API payloads plus legal-shape and provenance checks in CI. Where I was learning: the subject is deliberately low-stakes so I could focus on the data-modeling and testing ideas.",
     roleTags: ["Data Engineering", "Developer Advocacy"],
     featured: true,
     showcase: 4,
@@ -171,6 +191,10 @@ export const projects: Project[] = [
       "Claude Code, logic tested first with pytest and Node, then the interface, then a full walk through in a real browser.",
     proves:
       "An interactive full-stack build, Web Audio in the browser with logic tested first in pytest and Node.",
+    detail:
+      "Benten is a personal music workshop named after the Japanese goddess of music. Alongside practice logs, theory notes, and a riff library kept as clean Markdown, it has an interactive app for playing chord progressions on a fretboard, recording and overdubbing takes, building effect chains, and searching tabs, all in the browser with the Web Audio API. I built the logic first and tested it, then the interface, then walked the whole thing through in a real browser.",
+    honestNote:
+      "What is real: the audio tools work in the browser, and the logic is tested first in pytest and Node. Where I was learning: it is a personal tool built for how I practice, so it favors my own workflow over general-purpose polish.",
     roleTags: ["Full-Stack", "Developer Advocacy"],
     featured: true,
     showcase: 6,

@@ -35,6 +35,11 @@ export interface Project {
   /** Role families this project is evidence for (e.g. "Analytics
    * Engineering"), rendered distinctly from the implementation tech tags. */
   roleTags?: string[];
+  /** Longer narrative for the project's own /projects/[slug] detail page.
+   * Presence of `detail` is what gives a project a detail page and a card link. */
+  detail?: string;
+  /** Candid "what is real vs. still learning-in-public" note on the detail page. */
+  honestNote?: string;
   /** Showcase rank on /projects (lower shows first). Present means this is one
    * of the curated lead projects; absent means it lives under "More projects". */
   showcase?: number;
