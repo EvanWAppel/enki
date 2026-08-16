@@ -24,6 +24,9 @@ export interface Project {
   method?: string;
   featured?: boolean;
   logo?: string;
+  /** Still in the workshop: shown in the /projects Work-in-progress section,
+   * hidden from the homepage carousel. */
+  wip?: boolean;
 }
 
 export interface Job {

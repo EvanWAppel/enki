@@ -8,17 +8,20 @@ import { siteConfig } from "@/data/site";
 export const metadata: Metadata = {
   title: `Projects — ${siteConfig.name}`,
   description:
-    "Nine working applications designed, built, and shipped with agentic command-line tools, primarily Claude Code, and kept honest with tests.",
+    "Eleven working applications designed, built, and shipped with agentic command-line tools, primarily Claude Code, and kept honest with tests.",
   alternates: { canonical: "/projects" },
   openGraph: {
     title: `Projects — ${siteConfig.name}`,
     description:
-      "Nine working applications built with AI agents and kept honest with tests.",
+      "Eleven working applications built with AI agents and kept honest with tests.",
     type: "website",
   },
 };
 
 export default function ProjectsPage() {
+  const shipped = projects.filter((p) => !p.wip);
+  const inProgress = projects.filter((p) => p.wip);
+
   return (
     <>
       <Navbar />
@@ -31,7 +34,7 @@ export default function ProjectsPage() {
             </h1>
             <p className="text-muted leading-relaxed">
               I build software with AI agents, and I keep it honest with tests.
-              Below are nine working applications I designed, built, and shipped
+              Below are eleven working applications I designed, built, and shipped
               on my own time using agentic command-line tools, primarily Claude
               Code. They span web apps, a terminal interface, data pipelines, and
               integrations with both external APIs and local data. Each one
@@ -44,10 +47,30 @@ export default function ProjectsPage() {
 
           {/* Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {projects.map((project) => (
+            {shipped.map((project) => (
               <ProjectGridCard key={project.id} project={project} />
             ))}
           </div>
+
+          {/* Work in progress */}
+          {inProgress.length > 0 && (
+            <section className="mt-16">
+              <h2 className="text-2xl font-bold text-neutral-900 dark:text-white mb-3">
+                Work in progress
+              </h2>
+              <p className="text-muted leading-relaxed max-w-3xl mb-8">
+                A few projects still in the workshop: specs written, scaffolding
+                up, not yet something I would call shippable. They are here for
+                the same reason the rest are, so you can see how I work, and the
+                source is on GitHub as it lands.
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                {inProgress.map((project) => (
+                  <ProjectGridCard key={project.id} project={project} />
+                ))}
+              </div>
+            </section>
+          )}
 
           {/* Footer note */}
           <p className="text-sm text-muted mt-12">

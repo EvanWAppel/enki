@@ -7,6 +7,9 @@ import { projects } from "@/data/projects";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import ProjectCard from "@/components/ui/ProjectCard";
 
+// The carousel shows shipped work only; work-in-progress lives on /projects.
+const carousel = projects.filter((p) => !p.wip);
+
 export default function Projects() {
   const [current, setCurrent] = useState(0);
   const [dir, setDir] = useState<1 | -1>(1);
@@ -16,8 +19,8 @@ export default function Projects() {
     setCurrent(idx);
   };
 
-  const prev = () => go((current - 1 + projects.length) % projects.length, -1);
-  const next = () => go((current + 1) % projects.length, 1);
+  const prev = () => go((current - 1 + carousel.length) % carousel.length, -1);
+  const next = () => go((current + 1) % carousel.length, 1);
 
   return (
     <SectionWrapper id="projects" className="bg-surface dark:bg-neutral-800">
@@ -53,13 +56,13 @@ export default function Projects() {
             key={current}
             className={`h-full ${dir === 1 ? "proj-slide-right" : "proj-slide-left"}`}
           >
-            <ProjectCard project={projects[current]} />
+            <ProjectCard project={carousel[current]} />
           </div>
         </div>
 
         {/* Pill dots */}
         <div className="flex justify-center gap-2 mt-6">
-          {projects.map((_, i) => (
+          {carousel.map((_, i) => (
             <button
               key={i}
               onClick={() => go(i, i > current ? 1 : -1)}
@@ -75,7 +78,7 @@ export default function Projects() {
 
         {/* Counter */}
         <p className="text-center text-xs text-muted mt-3 tabular-nums">
-          {current + 1} / {projects.length}
+          {current + 1} / {carousel.length}
         </p>
 
         {/* Link to the full, scannable projects page */}

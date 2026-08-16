@@ -18,7 +18,13 @@ export default function ProjectGridCard({ project }: ProjectGridCardProps) {
   const monogram = project.title.trim().charAt(0).toUpperCase();
 
   return (
-    <article className="flex flex-col h-full bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 rounded-xl overflow-hidden hover:shadow-md hover:border-neutral-300 dark:hover:border-neutral-600 transition-all">
+    <article className="relative flex flex-col h-full bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 rounded-xl overflow-hidden hover:shadow-md hover:border-neutral-300 dark:hover:border-neutral-600 transition-all">
+      {project.wip && (
+        <span className="absolute top-2 left-2 z-10 rounded-full bg-amber-100 dark:bg-amber-500/15 text-amber-700 dark:text-amber-300 text-[10px] font-semibold uppercase tracking-wide px-2 py-0.5 ring-1 ring-amber-200 dark:ring-amber-500/30">
+          Work in progress
+        </span>
+      )}
+
       {/* Media panel: logo when we have one, otherwise a subtle monogram. */}
       <div className="h-32 flex items-center justify-center bg-neutral-50 dark:bg-neutral-700/50 border-b border-neutral-100 dark:border-neutral-700">
         {project.logo ? (
