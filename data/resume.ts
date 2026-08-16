@@ -36,8 +36,8 @@ const formsDirect: Job = {
 const education = [
   {
     institution: "University of Nevada, Las Vegas",
-    degree: "B.A. Journalism, Minor in Sociology",
-    year: "2007 – 2012",
+    degree: "B.A.",
+    year: "2007 to 2012",
   },
 ];
 
@@ -54,7 +54,7 @@ export const resumeVariants: ResumeVariant[] = [
     path: "/resumes/evan_appel_ai_engineer.pdf",
     icon: Bot,
     summary:
-      "Applied-AI engineer who builds with agents across the full stack. 15+ months working agentically through research, frontend, backend, and data; built nine non-trivial applications with agentic CLI harnesses (Claude Code primary). Led a team to a 3rd-place, C-suite-judged AI hackathon finish. Pairs agent fluency with the engineering discipline — TDD, CI/CD, validation — that makes agent-built software durable.",
+      "Applied-AI engineer who builds with agents across the full stack. 15+ months working agentically through research, frontend, backend, and data; built eleven non-trivial applications with agentic CLI harnesses (Claude Code primary). Led a team to a 3rd-place, C-suite-judged AI hackathon finish. Pairs agent fluency with the engineering discipline — TDD, CI/CD, validation — that makes agent-built software durable.",
     skillGroups: [
       {
         label: "Agentic development",

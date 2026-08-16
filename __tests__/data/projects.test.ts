@@ -36,9 +36,69 @@ describe("projects data", () => {
     }
   });
 
+  it("curates the expected showcase set with unique ranks", () => {
+    const ranked = projects
+      .filter((p) => p.showcase != null)
+      .sort((a, b) => (a.showcase ?? 0) - (b.showcase ?? 0));
+    expect(ranked.map((p) => p.id)).toEqual([
+      "elvis",
+      "robbins",
+      "groening",
+      "spooky",
+      "mccoy",
+      "benten",
+    ]);
+    const ranks = ranked.map((p) => p.showcase);
+    expect(new Set(ranks).size).toBe(ranks.length);
+    // Showcased projects are shipped, never work-in-progress.
+    expect(ranked.every((p) => !p.wip)).toBe(true);
+  });
+
+  it("every showcased project leads with a real screenshot", () => {
+    const showcased = projects.filter((p) => p.showcase != null);
+    for (const p of showcased) {
+      expect(p.screenshot, `${p.id} is missing a screenshot`).toMatch(
+        /^\/assets\/screenshots\/.+\.(png|jpg|gif)$/,
+      );
+    }
+  });
+
+  it("every showcased project maps to roles with a proves line", () => {
+    const showcased = projects.filter((p) => p.showcase != null);
+    for (const p of showcased) {
+      expect(p.proves, `${p.id} is missing a proves line`).toBeTruthy();
+      expect(
+        p.roleTags?.length,
+        `${p.id} is missing role tags`,
+      ).toBeGreaterThan(0);
+    }
+  });
+
+  it("every detail page has a narrative and an honest note", () => {
+    // Presence of `detail` is what creates a /projects/[slug] page, so it must
+    // come with the honest note the page renders. Showcased projects all qualify.
+    const withDetail = projects.filter((p) => p.detail);
+    expect(withDetail.length).toBeGreaterThanOrEqual(6);
+    for (const p of withDetail) {
+      expect(p.honestNote, `${p.id} has a detail page but no honest note`).toBeTruthy();
+    }
+    for (const p of projects.filter((p) => p.showcase != null)) {
+      expect(p.detail, `showcased ${p.id} is missing a detail page`).toBeTruthy();
+    }
+  });
+
   it("copy follows Evan's em-dash-free house style", () => {
     for (const p of projects) {
-      for (const text of [p.title, p.description, p.method]) {
+      const strings = [
+        p.title,
+        p.description,
+        p.method,
+        p.proves,
+        p.detail,
+        p.honestNote,
+        ...(p.roleTags ?? []),
+      ];
+      for (const text of strings) {
         expect(text ?? "", `${p.id} prose contains an em-dash`).not.toContain(
           "—",
         );
