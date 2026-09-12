@@ -7,10 +7,10 @@ import { Download, FileText } from "lucide-react";
 
 export default function Resume() {
   return (
-    <SectionWrapper id="resume" className="bg-white dark:bg-neutral-900">
-      <div className="mb-12">
-        <h2 className="text-3xl font-bold text-neutral-900 dark:text-white mb-2">Resume</h2>
-        <p className="text-muted">Experience, skills, and education</p>
+    <SectionWrapper id="resume" className="resume-section">
+      <div className="section-heading">
+        <div><p className="eyebrow">02 / Experience</p><h2>A foundation in data.<br />An instinct to build.</h2></div>
+        <p className="text-muted max-w-xs text-sm leading-relaxed">Experience, skills, and education. Explore a resume tailored to the work you have in mind.</p>
       </div>
 
       {/* Resume variants */}
@@ -22,7 +22,7 @@ export default function Resume() {
             return (
               <div
                 key={variant.slug}
-                className="flex items-center gap-4 p-4 rounded-lg border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-800"
+                className="flex items-center gap-4 p-4 rounded-lg border border-line bg-surface"
               >
                 <Icon size={20} className="shrink-0 text-muted" />
                 <span className="flex-1 text-sm font-medium text-neutral-700 dark:text-neutral-300 leading-tight">
@@ -67,7 +67,7 @@ export default function Resume() {
         <h3 className="text-lg font-semibold text-neutral-900 dark:text-white mb-6">Experience</h3>
         <div className="space-y-8">
           {resumeData.experience.map((job) => (
-            <div key={`${job.company}-${job.start}`} className="relative pl-4 border-l-2 border-blue-100 dark:border-blue-900">
+            <div key={`${job.company}-${job.start}`} className="relative pl-5 border-l-2 border-accent/25">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-2">
                 <div>
                   <h4 className="font-semibold text-neutral-900 dark:text-white">{job.role}</h4>

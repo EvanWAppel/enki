@@ -13,7 +13,8 @@ interface ProjectGridCardProps {
 /**
  * Vertical, scannable card for the standalone /projects grid: media panel on
  * top, then title, one-paragraph description, the "method" line, tech tags, and
- * links. Distinct from the homepage carousel's horizontal ProjectCard.
+ * links. The homepage uses its own inline "selected work" grid (see
+ * components/sections/Projects.tsx).
  */
 export default function ProjectGridCard({ project }: ProjectGridCardProps) {
   const monogram = project.title.trim().charAt(0).toUpperCase();

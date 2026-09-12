@@ -11,7 +11,7 @@ export default function SectionWrapper({
 }: SectionWrapperProps) {
   return (
     <section id={id} className={`py-20 md:py-28 ${className}`}>
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">{children}</div>
+      <div className="site-container">{children}</div>
     </section>
   );
 }

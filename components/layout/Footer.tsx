@@ -6,8 +6,8 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 py-8">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+    <footer className="border-t border-neutral-200 dark:border-neutral-800 py-8">
+      <div className="site-container flex flex-col sm:flex-row items-center justify-between gap-4">
         <p className="text-sm text-muted">
           &copy; {year} {siteConfig.name}. All rights reserved.
         </p>

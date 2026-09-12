@@ -1,110 +1,34 @@
-"use client";
-
-import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowUpRight, ArrowRight } from "lucide-react";
 import { projects } from "@/data/projects";
 import SectionWrapper from "@/components/ui/SectionWrapper";
-import ProjectCard from "@/components/ui/ProjectCard";
 
-// The carousel shows shipped work only; work-in-progress lives on /projects.
-const carousel = projects.filter((p) => !p.wip);
+const selected = projects.filter((project) => !project.wip && project.showcase != null)
+  .sort((a, b) => a.showcase! - b.showcase!).slice(0, 3);
 
 export default function Projects() {
-  const [current, setCurrent] = useState(0);
-  const [dir, setDir] = useState<1 | -1>(1);
-
-  const go = (idx: number, direction: 1 | -1) => {
-    setDir(direction);
-    setCurrent(idx);
-  };
-
-  const prev = () => go((current - 1 + carousel.length) % carousel.length, -1);
-  const next = () => go((current + 1) % carousel.length, 1);
-
   return (
-    <SectionWrapper id="projects" className="bg-surface dark:bg-neutral-800">
-      <div className="text-center mb-12">
-        <h2 className="text-3xl font-bold text-neutral-900 dark:text-white mb-3">Projects</h2>
-        <p className="text-muted max-w-xl mx-auto">
-          A selection of things I&apos;ve built. All source code is on GitHub.
-        </p>
+    <SectionWrapper id="projects" className="selected-section">
+      <div className="section-heading">
+        <div><p className="eyebrow">01 / Selected work</p><h2>Built with purpose.</h2></div>
+        <Link href="/projects" className="section-link">All projects <ArrowRight size={17} aria-hidden /></Link>
       </div>
-
-      <div className="relative max-w-2xl mx-auto">
-        {/* Arrow: prev */}
-        <button
-          onClick={prev}
-          aria-label="Previous project"
-          className="absolute -left-5 top-1/2 -translate-y-1/2 z-10 w-10 h-10 flex items-center justify-center rounded-full bg-white dark:bg-neutral-700 border border-neutral-200 dark:border-neutral-600 shadow-sm hover:shadow-md hover:border-neutral-300 dark:hover:border-neutral-500 transition-all"
-        >
-          <ChevronLeft size={18} className="text-neutral-600 dark:text-neutral-300" />
-        </button>
-
-        {/* Arrow: next */}
-        <button
-          onClick={next}
-          aria-label="Next project"
-          className="absolute -right-5 top-1/2 -translate-y-1/2 z-10 w-10 h-10 flex items-center justify-center rounded-full bg-white dark:bg-neutral-700 border border-neutral-200 dark:border-neutral-600 shadow-sm hover:shadow-md hover:border-neutral-300 dark:hover:border-neutral-500 transition-all"
-        >
-          <ChevronRight size={18} className="text-neutral-600 dark:text-neutral-300" />
-        </button>
-
-        {/* Sliding card — key change triggers remount + fresh animation */}
-        <div className="overflow-hidden rounded-xl min-h-[280px]">
-          <div
-            key={current}
-            className={`h-full ${dir === 1 ? "proj-slide-right" : "proj-slide-left"}`}
-          >
-            <ProjectCard project={carousel[current]} />
-          </div>
-        </div>
-
-        {/* Pill dots */}
-        <div className="flex justify-center gap-2 mt-6">
-          {carousel.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => go(i, i > current ? 1 : -1)}
-              aria-label={`Go to project ${i + 1}`}
-              className={`h-2 rounded-full transition-all duration-300 ${
-                i === current
-                  ? "w-5 bg-accent"
-                  : "w-2 bg-neutral-300 dark:bg-neutral-600 hover:bg-neutral-400 dark:hover:bg-neutral-500"
-              }`}
-            />
-          ))}
-        </div>
-
-        {/* Counter */}
-        <p className="text-center text-xs text-muted mt-3 tabular-nums">
-          {current + 1} / {carousel.length}
-        </p>
-
-        {/* Link to the full, scannable projects page */}
-        <div className="flex justify-center mt-6">
-          <Link
-            href="/projects"
-            className="inline-flex items-center gap-1.5 text-sm font-medium text-accent hover:gap-2.5 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded"
-          >
-            See all projects
-            <ArrowRight size={15} />
-          </Link>
-        </div>
+      <div className="selected-grid">
+        {selected.map((project, index) => (
+          <article key={project.id} className="selected-project">
+            <Link href={`/projects/${project.id}`} className="project-preview" aria-label={`Read about ${project.title}`}>
+              <span className="project-number">0{index + 1}</span>
+              {project.screenshot && <Image src={project.screenshot} alt={`${project.title} application preview`} fill sizes="(max-width: 767px) 90vw, 360px" className="object-contain p-5 pt-10" />}
+              <span className="project-open"><ArrowUpRight size={18} aria-hidden /></span>
+            </Link>
+            <p className="eyebrow mt-6 mb-3">{project.roleTags?.[0] ?? "Software engineering"}</p>
+            <h3><Link href={`/projects/${project.id}`}>{project.title.split(":")[0]} <ArrowUpRight size={20} aria-hidden /></Link></h3>
+            <p className="project-summary">{project.proves ?? project.description}</p>
+            <p className="project-stack">{project.tech.slice(0, 4).join(" / ")}</p>
+          </article>
+        ))}
       </div>
-
-      <style>{`
-        @keyframes projSlideRight {
-          from { opacity: 0; transform: translateX(36px); }
-          to   { opacity: 1; transform: translateX(0); }
-        }
-        @keyframes projSlideLeft {
-          from { opacity: 0; transform: translateX(-36px); }
-          to   { opacity: 1; transform: translateX(0); }
-        }
-        .proj-slide-right { animation: projSlideRight 300ms cubic-bezier(0.4,0,0.2,1) both; }
-        .proj-slide-left  { animation: projSlideLeft  300ms cubic-bezier(0.4,0,0.2,1) both; }
-      `}</style>
     </SectionWrapper>
   );
 }

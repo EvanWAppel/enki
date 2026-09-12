@@ -50,11 +50,11 @@ export default function HowIWorkPage() {
               {reclSteps.map((step, i) => (
                 <li
                   key={step.key}
-                  className="flex gap-4 rounded-xl border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-800 p-5"
+                  className="flex gap-4 rounded-xl border border-line bg-surface p-5"
                 >
                   <span
                     aria-hidden="true"
-                    className="shrink-0 flex items-center justify-center w-9 h-9 rounded-full bg-blue-50 dark:bg-blue-950 text-accent font-semibold"
+                    className="shrink-0 flex items-center justify-center w-9 h-9 rounded-full bg-accent/10 text-accent font-semibold"
                   >
                     {i + 1}
                   </span>
