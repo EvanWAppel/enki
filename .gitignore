@@ -43,3 +43,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# local planning / strategy docs — this repo is public, so keep these
+# working files out of git history (job-search strategy, infra runbook).
+/RECRUITER-PRIMER.md
+/DOMAIN-MIGRATION.md

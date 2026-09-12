@@ -1,48 +1,35 @@
 import Image from "next/image";
+import Link from "next/link";
+import { ArrowDown, ArrowUpRight } from "lucide-react";
 import { siteConfig } from "@/data/site";
 import Button from "@/components/ui/Button";
-import { ArrowDown } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section className="py-24 md:py-32 bg-white dark:bg-neutral-900">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col-reverse md:flex-row items-center gap-10 md:gap-16">
-          <div className="flex-1 text-center md:text-left">
-            <p className="text-accent font-medium text-sm uppercase tracking-widest mb-3">
-              Available for work
-            </p>
-            <h1 className="text-4xl sm:text-5xl font-bold text-neutral-900 dark:text-white mb-4 leading-tight">
-              {siteConfig.name}
-            </h1>
-            <p className="text-xl text-muted dark:text-neutral-400 font-medium mb-6">
-              {siteConfig.title}
-            </p>
-            <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed max-w-lg mx-auto md:mx-0 mb-8">
-              {siteConfig.bio}
-            </p>
-            <div className="flex flex-wrap gap-3 justify-center md:justify-start">
-              <Button href="#projects">
-                <ArrowDown size={16} />
-                View my work
-              </Button>
-              <Button href="#contact" variant="outline">
-                Get in touch
-              </Button>
+    <section id="hero" className="hero-section">
+      <div className="site-container">
+        <div className="hero-grid">
+          <div>
+            <p className="eyebrow mb-7">{siteConfig.title}</p>
+            <h1 className="hero-title">Thoughtful systems.<br /><em>Useful software.</em></h1>
+            <p className="hero-intro">I’m {siteConfig.name}. I turn complex data into clear decisions, and build software that holds up in the real world.</p>
+            <p className="hero-description">A decade in data. A hands-on approach to applied AI. From pipelines to products, I pair the speed of agentic tools with the discipline of good engineering.</p>
+            <div className="flex flex-wrap items-center gap-5 mt-8">
+              <Button href="#projects">Explore my work <ArrowDown size={16} aria-hidden /></Button>
+              <Link href="/how-i-work" className="text-sm font-medium inline-flex items-center gap-2 hover:text-accent">How I work <ArrowUpRight size={16} aria-hidden /></Link>
             </div>
           </div>
-          <div className="shrink-0">
-            <div className="relative w-40 h-40 md:w-52 md:h-52 rounded-2xl overflow-hidden ring-1 ring-neutral-200 dark:ring-neutral-700">
-              <Image
-                src={siteConfig.photo}
-                alt={`Photo of ${siteConfig.name}`}
-                fill
-                sizes="(max-width: 768px) 160px, 208px"
-                className="object-cover"
-                priority
-              />
+          <figure className="hero-portrait">
+            <div className="portrait-frame">
+              <Image src={siteConfig.photo} alt={`Photo of ${siteConfig.name}`} fill sizes="(max-width: 767px) 80vw, 340px" className="object-cover" preload />
             </div>
-          </div>
+            <figcaption><span className="availability-dot" aria-hidden /> Available for work <ArrowUpRight size={14} className="ml-auto" aria-hidden /></figcaption>
+          </figure>
+        </div>
+        <div className="hero-facts">
+          <div><strong>10+ years</strong><span>Turning data into decisions</span></div>
+          <div><strong>30 projects</strong><span>Leading a SAS-to-Python migration</span></div>
+          <div><strong>100 analysts</strong><span>Python &amp; Git technical authority</span></div>
         </div>
       </div>
     </section>

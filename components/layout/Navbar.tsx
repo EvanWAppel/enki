@@ -22,18 +22,18 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 inset-x-0 z-50 bg-white/90 dark:bg-neutral-900/90 backdrop-blur-sm border-b border-neutral-100 dark:border-neutral-800 transition-colors duration-200">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <header className="site-nav fixed top-0 inset-x-0 z-50 backdrop-blur-md border-b border-neutral-200 dark:border-neutral-800 transition-colors duration-200">
+      <div className="site-container">
         <div className="flex items-center justify-between h-14">
           <a
             href="/#hero"
-            className="font-semibold text-neutral-900 dark:text-white hover:text-accent transition-colors"
+            className="brand font-semibold text-neutral-900 dark:text-white hover:text-accent transition-colors"
           >
-            {siteConfig.name}
+            <span className="brand-mark" aria-hidden="true">ea</span>{siteConfig.name}
           </a>
 
           {/* Desktop nav */}
-          <nav className="hidden sm:flex items-center gap-6">
+          <nav aria-label="Main navigation" className="hidden md:flex items-center gap-5">
             {navLinks.map(({ label, href }) => (
               <a
                 key={label}
@@ -56,7 +56,7 @@ export default function Navbar() {
           </nav>
 
           {/* Mobile: toggle + hamburger */}
-          <div className="sm:hidden flex items-center gap-3">
+          <div className="md:hidden flex items-center gap-3">
             <ThemeToggle />
             <button
               className="p-2 rounded-lg text-neutral-600 dark:text-neutral-400 hover:text-accent hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
@@ -72,8 +72,8 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="sm:hidden border-t border-neutral-100 dark:border-neutral-800 bg-white dark:bg-neutral-900">
-          <nav className="max-w-5xl mx-auto px-4 py-3 flex flex-col gap-1">
+        <div className="md:hidden border-t border-line bg-paper">
+          <nav aria-label="Mobile navigation" className="site-container py-3 flex flex-col gap-1">
             {navLinks.map(({ label, href }) => (
               <a
                 key={label}

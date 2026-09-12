@@ -52,7 +52,7 @@ export default async function ResumePage({
         {/* Header */}
         <div className="mb-8 pb-6 border-b border-neutral-200">
           <h1 className="text-3xl font-bold text-neutral-900 mb-1">{siteConfig.name}</h1>
-          <p className="text-lg text-blue-600 font-medium mb-3">{variant.label}</p>
+          <p className="text-lg text-[#285348] font-medium mb-3">{variant.label}</p>
           <div className="flex flex-wrap gap-x-5 gap-y-1 text-sm text-neutral-600">
             <a href={`mailto:${siteConfig.email}`} className="hover:text-accent">{siteConfig.email}</a>
             <a href={siteConfig.github} className="hover:text-accent">github.com/EvanWAppel</a>
@@ -88,7 +88,7 @@ export default async function ResumePage({
                   <div>
                     <span className="font-semibold text-neutral-900">{job.role}</span>
                     <span className="text-neutral-400 mx-2">·</span>
-                    <span className="text-blue-600 text-sm font-medium">{job.company}</span>
+                    <span className="text-[#285348] text-sm font-medium">{job.company}</span>
                   </div>
                   <span className="text-sm text-neutral-400 whitespace-nowrap">{job.start} – {job.end}</span>
                 </div>
@@ -117,7 +117,7 @@ export default async function ResumePage({
                 <div>
                   <span className="font-semibold text-neutral-900">{edu.degree}</span>
                   <span className="text-neutral-400 mx-2">·</span>
-                  <span className="text-blue-600 text-sm">{edu.institution}</span>
+                  <span className="text-[#285348] text-sm">{edu.institution}</span>
                 </div>
                 <span className="text-sm text-neutral-400">{edu.year}</span>
               </div>
