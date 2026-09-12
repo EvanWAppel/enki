@@ -3,18 +3,24 @@ import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import { howIWorkIntro, principles, reclSteps } from "@/data/howIWork";
+import {
+  disciplines,
+  disciplinesIntro,
+  howIWorkIntro,
+  principles,
+  reclSteps,
+} from "@/data/howIWork";
 import { siteConfig } from "@/data/site";
 
 export const metadata: Metadata = {
   title: `How I Work — ${siteConfig.name}`,
   description:
-    "How I build software with AI agents and keep it honest with tests: the RECL loop and a verification-first discipline.",
+    "How I build software with AI agents and keep it honest with tests: the RECL loop, and where prompt engineering, context engineering, orchestration, and a model-agnostic method fit into it.",
   alternates: { canonical: "/how-i-work" },
   openGraph: {
     title: `How I Work — ${siteConfig.name}`,
     description:
-      "Building with agents, kept honest with tests: the RECL loop and a verification-first discipline.",
+      "Building with agents, kept honest with tests: the RECL loop, plus the vocabulary behind it (prompt and context engineering, loop engineering, multi-agent orchestration, model-agnostic).",
     type: "website",
   },
 };
@@ -69,6 +75,22 @@ export default function HowIWorkPage() {
                 </li>
               ))}
             </ol>
+          </section>
+
+          {/* The vocabulary, mapped onto the loop */}
+          <section className="mb-14">
+            <h2 className="text-2xl font-bold text-neutral-900 dark:text-white mb-2">
+              The vocabulary, mapped
+            </h2>
+            <p className="text-muted leading-relaxed mb-8">{disciplinesIntro}</p>
+            <dl className="space-y-6">
+              {disciplines.map((d) => (
+                <div key={d.term}>
+                  <dt className="font-semibold text-accent mb-1">{d.term}</dt>
+                  <dd className="text-muted leading-relaxed">{d.body}</dd>
+                </div>
+              ))}
+            </dl>
           </section>
 
           {/* Principles */}

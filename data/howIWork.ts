@@ -45,6 +45,41 @@ export interface Principle {
   body: string;
 }
 
+export interface Discipline {
+  term: string;
+  body: string;
+}
+
+// The industry vocabulary, mapped onto the loop I already run. Framed as
+// "these are names for parts of RECL" rather than a buzzword list, so the page
+// keeps its calibrated voice. Claims stay honest: multi-agent orchestration and
+// the model spread (Claude, Codex, Grok) are things I actually do.
+export const disciplinesIntro =
+  "The field has picked up a vocabulary for all of this. None of it is new to the loop. Here is where each piece actually lives.";
+
+export const disciplines: Discipline[] = [
+  {
+    term: "Prompt engineering",
+    body: "The Requirements step is prompt engineering by another name. Before any code I write down what the thing has to do: a short PRD, an AGENTS file, a task list. The clearer the instruction, the less the agent has to guess.",
+  },
+  {
+    term: "Context engineering",
+    body: "An agent is only as good as what it can see. I curate that context on purpose: repo conventions in an AGENTS file, cached fixtures and recorded payloads for the tests, and pointers to the real docs when the model's training is stale. This site's AGENTS file opens by warning the agent that it is not the Next.js it knows, and telling it to read the docs first.",
+  },
+  {
+    term: "Loop engineering",
+    body: "The loop itself is the design. I keep each cycle short: refine the requirements, run it, check against a test, tighten. Errors surface in minutes instead of after a thousand-line diff. Short loops are what keep agent speed from turning into agent chaos.",
+  },
+  {
+    term: "Orchestration",
+    body: "On a task bigger than one context, I do not drive a single agent. I split the work across specialized agents and subagents, each with its own scope, and keep them coordinated against shared requirements and the same tests. The loop is what holds the pieces together.",
+  },
+  {
+    term: "Model-agnostic",
+    body: "The method does not depend on any one model. Requirements, tests, and short loops travel across tools. The projects on this site were built with Claude, this redesign with Codex, and lately I reach for Grok as often as not. When a better model arrives, the process absorbs it instead of breaking.",
+  },
+];
+
 export const principles: Principle[] = [
   {
     title: "Verification first",
