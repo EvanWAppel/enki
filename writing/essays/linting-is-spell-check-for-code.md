@@ -1,0 +1,15 @@
+# Linting Is Spell-Check for Code. So Why Do We Resent It?
+
+Nobody argues with spell-check. You misspell a word, a red line appears, you fix it, and what do you feel? Nothing. Mild gratitude, at most. You do not experience the red line as an insult to your intelligence. You do not compose a rebuttal explaining that you *know* how to spell, that you were simply moving fast, that in *this particular case* the misspelling was a stylistic choice. You just fix it and move on, because the tool caught something you'd have been embarrassed to send, and it caught it silently, and it asked nothing of you but two seconds.
+
+Now watch what happens when a linter flags a line of code. Watch the ego arrive.
+
+Because it does arrive, and it arrives in force, and I find that fact more interesting than the linting itself. Suggest an automated style check on a team and someone will fight it, not on the merits, though they'll dress it in the merits, but from somewhere lower and more honest. The linter feels like an accusation in a way spell-check never does. Trailing whitespace, an unused import, a function grown too long, a variable named `x` where a word would have served: the machine points at these and something in us flushes. *I'm a professional. I know what I'm doing. Who is this program to correct me?*
+
+The gap between those two reactions (the calm at spell-check, the heat at lint) is the whole subject, and it has nothing to do with code. It's about identity. We don't stake our sense of self on spelling. We stake it, quietly and completely, on being *good at the thing we do*, and a tool that catches our small sins in the thing we do reads, for a second, as a verdict on that. The resistance to linting is not really about linting. It's about the discomfort of being corrected in the one place we most need to feel competent.
+
+But here's the reframe worth sitting with, and it's the same reframe that makes spell-check feel like a friend instead of a critic: the guardrail is not there to constrain you. It's there to *free* you. Every ounce of attention you spend policing your own trailing whitespace, arguing tabs versus spaces, remembering the house style for import ordering is attention stolen from the only thing that actually matters, which is whether the logic is correct and the design is sound. The linter takes the small, tedious, endless vigilance off your plate entirely, so your finite, precious attention can go to the problems that genuinely require a mind. It's not a cage. It's a floor. You can stop watching your feet and look up.
+
+The discipline that offends the ego is almost always the discipline that was about to save you. And a mature engineer (this is the tell, honestly, more than any skill) is someone who has made peace with that. Someone who reads the linter's complaint the way they read spell-check's red line: not as a judgment, but as a favor. Fix it. Move on. Spend the reclaimed attention on something worthy of it.
+
+The tool that corrects your small mistakes is not your critic. It's the thing that lets you stop being your own. Let it. Then go think about something hard.
