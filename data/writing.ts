@@ -26,30 +26,45 @@ export const writingMeta: WritingMeta[] = [
     lane: "AI agents",
     order: 1,
     image: "/writing-images/junior-developer.jpg",
+    linkedInUrl:
+      "https://www.linkedin.com/pulse/junior-developer-who-never-sleeps-evan-appel-byovc",
+    publishedAt: "2026-07-22",
   },
   {
     slug: "the-tachometer-and-the-throttle",
     lane: "Responsible AI / cost",
     order: 2,
     image: "/writing-images/tachometer.jpg",
+    linkedInUrl:
+      "https://www.linkedin.com/pulse/tachometer-throttle-evan-appel-d0xwc",
+    publishedAt: "2026-08-26",
   },
   {
     slug: "the-philosophical-zombie-in-the-pull-request",
     lane: "Responsible AI / accountability",
     order: 3,
     image: "/writing-images/philosophical-zombie.jpg",
+    linkedInUrl:
+      "https://www.linkedin.com/pulse/philosophical-zombie-pull-request-evan-appel-3vwsc",
+    publishedAt: "2026-07-29",
   },
   {
     slug: "every-pipeline-is-a-promise",
     lane: "Data engineering craft",
     order: 4,
     image: "/writing-images/pipeline.jpg",
+    linkedInUrl:
+      "https://www.linkedin.com/pulse/every-pipeline-promise-evan-appel-7hlkc",
+    publishedAt: "2026-08-05",
   },
   {
     slug: "the-second-law-of-data",
     lane: "Data engineering craft",
     order: 5,
     image: "/writing-images/second-law.jpg",
+    linkedInUrl:
+      "https://www.linkedin.com/pulse/second-law-data-evan-appel-ktcbc",
+    publishedAt: "2026-09-02",
   },
   {
     slug: "in-praise-of-the-boring-pipeline",
@@ -62,24 +77,36 @@ export const writingMeta: WritingMeta[] = [
     lane: "Git & dev practices",
     order: 7,
     image: "/writing-images/time-machine.jpg",
+    linkedInUrl:
+      "https://www.linkedin.com/pulse/git-time-machine-we-historians-evan-appel-j5ibc",
+    publishedAt: "2026-08-12",
   },
   {
     slug: "linting-is-spell-check-for-code",
     lane: "Git & dev practices",
     order: 8,
     image: "/writing-images/spell-check.jpg",
+    linkedInUrl:
+      "https://www.linkedin.com/pulse/linting-spell-check-code-so-why-do-we-resent-evan-appel-1r7wc",
+    publishedAt: "2026-08-19",
   },
   {
     slug: "why-do-we-work-when-the-machine-can-do-it",
     lane: "Work, meaning & craft",
     order: 9,
     image: "/writing-images/why-do-we-work.jpg",
+    linkedInUrl:
+      "https://www.linkedin.com/pulse/why-do-we-work-when-machine-can-evan-appel-sszvc",
+    publishedAt: "2026-09-09",
   },
   {
     slug: "code-as-composition",
     lane: "Work, meaning & craft",
     order: 10,
     image: "/writing-images/code-as-composition.jpg",
+    linkedInUrl:
+      "https://www.linkedin.com/pulse/code-composition-evan-appel-zlq2c",
+    publishedAt: "2026-09-16",
   },
 ];
 
