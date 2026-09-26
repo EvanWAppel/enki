@@ -209,6 +209,7 @@ export const projects: Project[] = [
     tech: ["Next.js", "TypeScript", "Neon Postgres", "Drizzle ORM", "Resend", "Web Push", "Vercel"],
     github: "https://github.com/EvanWAppel/wordly",
     live: "https://wordly-seven-rust.vercel.app/",
+    demo: "https://wordly-seven-rust.vercel.app/demo",
     method:
       "Claude Code from a written PRD, with the game rules and scoring tested first, then magic-link auth, a Postgres data model, and email plus web-push notifications wired end to end.",
     proves:

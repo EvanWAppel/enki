@@ -50,6 +50,10 @@ describe("projects data", () => {
     expect(wordly?.wip).toBeFalsy();
     expect(wordly?.featured).toBe(true);
     expect(wordly?.live, "wordly needs a live URL").toMatch(/^https:\/\//);
+    expect(
+      wordly?.demo,
+      "wordly needs a sign-in-free demo URL",
+    ).toMatch(/\/demo$/);
     expect(wordly?.proves, "wordly needs a proves line").toBeTruthy();
     expect((wordly?.roleTags?.length ?? 0), "wordly needs role tags").toBeGreaterThan(0);
     expect(wordly?.detail, "wordly needs a detail narrative").toBeTruthy();
