@@ -201,6 +201,47 @@ export const projects: Project[] = [
     screenshot: "/assets/screenshots/benten.png",
     // No graphical logo in repo yet; the card leads with the screenshot.
   },
+  {
+    id: "wordly",
+    title: "Wordly: Private Word Game",
+    description:
+      "A private, invite-only word game in the Words With Friends style for a small circle of friends and family, with no ads, no paywalls, and no power-ups to buy. It is an installable web app: async turn-based play, a faithful 15 by 15 board and tile bag, live dictionary-checked scoring, and a ping when it is your turn.",
+    tech: ["Next.js", "TypeScript", "Neon Postgres", "Drizzle ORM", "Resend", "Web Push", "Vercel"],
+    github: "https://github.com/EvanWAppel/wordly",
+    live: "https://wordly-seven-rust.vercel.app/",
+    demo: "https://wordly-seven-rust.vercel.app/demo",
+    method:
+      "Claude Code from a written PRD, with the game rules and scoring tested first, then magic-link auth, a Postgres data model, and email plus web-push notifications wired end to end.",
+    proves:
+      "A full-stack multiplayer app end to end, from magic-link auth and a Postgres data model to email and web-push notifications.",
+    detail:
+      "Wordly is a private, invite-only word game in the Words With Friends style, built so a small circle of friends and family can play with no ads, no paywalls, and no microtransactions, ever. It is an installable web app with async turn-based play, a faithful 15 by 15 board and 104-tile bag, live dictionary-checked scoring, and a turn notification by web push with an email fallback. New players join only by email invite from someone already in the game, so there is no public signup. Under it sits magic-link auth, a Neon Postgres store modeled with Drizzle, and Resend for mail.",
+    honestNote:
+      "What is real: v1 is shipped and played, with magic-link auth, the Postgres-backed game state, dictionary validation, and turn notifications all live. Where I was learning: it is invite-only by design and started as a single shared game, with concurrent games and wider invites the next step.",
+    roleTags: ["Full-Stack"],
+    featured: true,
+    logo: "/assets/logos/projects/wordly.svg",
+  },
+  {
+    id: "weather",
+    title: "Weather: Ad-Free Forecast and Radar",
+    description:
+      "An ad-free reproduction of the only two Weather Underground features worth keeping: a clean 10-day forecast and an interactive radar map. No ads, no trackers, no account. Every data source is keyless, so there are no secrets to configure.",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "MapLibre", "uPlot", "Vercel"],
+    github: "https://github.com/EvanWAppel/weather",
+    live: "https://weather-iota-murex.vercel.app/",
+    method:
+      "Claude Code from a PRD and task board, logic tested first, with data from keyless public APIs (Open-Meteo and RainViewer) so there are no secrets to configure.",
+    proves:
+      "A full front end built on keyless public APIs, pairing an interactive radar map with forecast charts and nothing to configure.",
+    detail:
+      "Weather keeps the only two Weather Underground features worth keeping, a clean 10-day forecast and an interactive radar map, and drops everything else: no ads, no trackers, no account. It renders forecast charts with uPlot and a live radar layer with MapLibre over OpenStreetMap. The design constraint was keylessness: every data source (Open-Meteo for forecast and geocoding, RainViewer for radar tiles) is public and needs no API key, so there is nothing to configure and no secret to leak.",
+    honestNote:
+      "What is real: the forecast, geocoding search, and animated radar all run live off keyless public APIs. Where I was learning: it deliberately reproduces two features rather than the whole of a weather site, so the scope is narrow by design.",
+    roleTags: ["Full-Stack"],
+    featured: true,
+    logo: "/assets/logos/projects/weather.svg",
+  },
   // --- Work in progress ---------------------------------------------------
   // Specs written and scaffolding up, but not yet shippable. These render in
   // the /projects Work-in-progress section and are kept off the homepage
@@ -225,17 +266,6 @@ export const projects: Project[] = [
     github: "https://github.com/EvanWAppel/seer",
     method:
       "Claude Code from a PRD, vision transcription with a human review gate before anything is committed.",
-    wip: true,
-  },
-  {
-    id: "weather",
-    title: "Weather: Ad-Free Forecast and Radar",
-    description:
-      "An ad-free reproduction of the only two Weather Underground features worth keeping: a clean 10-day forecast and an interactive radar map. No ads, no trackers, no account. Every data source is keyless, so there are no secrets to configure.",
-    tech: ["Next.js", "TypeScript", "Tailwind CSS", "MapLibre", "Vercel"],
-    github: "https://github.com/EvanWAppel/weather",
-    method:
-      "Claude Code from a PRD and task board, data from keyless public APIs (Open-Meteo, RainViewer).",
     wip: true,
   },
   {

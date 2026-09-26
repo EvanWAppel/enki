@@ -36,6 +36,30 @@ describe("projects data", () => {
     }
   });
 
+  it("lists weather as a shipped (non-wip) featured project", () => {
+    const weather = projects.find((p) => p.id === "weather");
+    expect(weather, "weather project is missing").toBeTruthy();
+    expect(weather?.wip, "weather should be shipped, not work-in-progress").toBeFalsy();
+    expect(weather?.featured).toBe(true);
+    expect(weather?.live, "weather needs a live URL").toMatch(/^https:\/\//);
+  });
+
+  it("lists wordly as a shipped featured project with a detail page", () => {
+    const wordly = projects.find((p) => p.id === "wordly");
+    expect(wordly, "wordly project is missing").toBeTruthy();
+    expect(wordly?.wip).toBeFalsy();
+    expect(wordly?.featured).toBe(true);
+    expect(wordly?.live, "wordly needs a live URL").toMatch(/^https:\/\//);
+    expect(
+      wordly?.demo,
+      "wordly needs a sign-in-free demo URL",
+    ).toMatch(/\/demo$/);
+    expect(wordly?.proves, "wordly needs a proves line").toBeTruthy();
+    expect((wordly?.roleTags?.length ?? 0), "wordly needs role tags").toBeGreaterThan(0);
+    expect(wordly?.detail, "wordly needs a detail narrative").toBeTruthy();
+    expect(wordly?.honestNote, "wordly needs an honest note").toBeTruthy();
+  });
+
   it("curates the expected showcase set with unique ranks", () => {
     const ranked = projects
       .filter((p) => p.showcase != null)
