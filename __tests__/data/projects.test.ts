@@ -26,7 +26,6 @@ describe("projects data", () => {
 
   it("surfaces sign-in-free demos for the recruiter-facing apps", () => {
     const demos = new Set(projects.filter((p) => p.demo).map((p) => p.id));
-    expect(demos.has("lucre")).toBe(true);
     expect(demos.has("guzzolene")).toBe(true);
   });
 
@@ -34,6 +33,26 @@ describe("projects data", () => {
     for (const p of projects) {
       expect(p.method, `${p.id} is missing a method line`).toBeTruthy();
     }
+  });
+
+  it("lists weather as a shipped (non-wip) featured project", () => {
+    const weather = projects.find((p) => p.id === "weather");
+    expect(weather, "weather project is missing").toBeTruthy();
+    expect(weather?.wip, "weather should be shipped, not work-in-progress").toBeFalsy();
+    expect(weather?.featured).toBe(true);
+    expect(weather?.live, "weather needs a live URL").toMatch(/^https:\/\//);
+  });
+
+  it("lists wordly as a shipped featured project with a detail page", () => {
+    const wordly = projects.find((p) => p.id === "wordly");
+    expect(wordly, "wordly project is missing").toBeTruthy();
+    expect(wordly?.wip).toBeFalsy();
+    expect(wordly?.featured).toBe(true);
+    expect(wordly?.live, "wordly needs a live URL").toMatch(/^https:\/\//);
+    expect(wordly?.proves, "wordly needs a proves line").toBeTruthy();
+    expect((wordly?.roleTags?.length ?? 0), "wordly needs role tags").toBeGreaterThan(0);
+    expect(wordly?.detail, "wordly needs a detail narrative").toBeTruthy();
+    expect(wordly?.honestNote, "wordly needs an honest note").toBeTruthy();
   });
 
   it("curates the expected showcase set with unique ranks", () => {

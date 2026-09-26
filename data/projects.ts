@@ -66,20 +66,6 @@ export const projects: Project[] = [
     logo: "/assets/logos/projects/olympic.png",
   },
   {
-    id: "lucre",
-    title: "Lucre: Personal Finance PWA",
-    description:
-      "A single-user personal-finance PWA covering balances, net worth, subscriptions, spending, and bill alerts, backed by Plaid for bank data and continuously-replicated SQLite.",
-    tech: ["Python", "FastAPI", "HTMX", "Plaid", "SQLite + Litestream", "Railway"],
-    github: "https://github.com/EvanWAppel/lucre",
-    live: "https://lucre-rust.vercel.app/login",
-    demo: "https://lucre-rust.vercel.app/demo/connect",
-    method:
-      "Claude Code, Plaid data ingestion and analysis, validated with pytest.",
-    featured: true,
-    // No graphical logo in repo (text wordmark only), left logo-less.
-  },
-  {
     id: "bartleby",
     title: "Bartleby: Collaborative Notes",
     description:
@@ -158,6 +144,19 @@ export const projects: Project[] = [
     // No graphical logo in repo yet; the card leads with the screenshot.
   },
   {
+    id: "gregan",
+    title: "Gregan: Glendora Open-Data Explorer",
+    description:
+      "An interactive, multi-page explorer over free public datasets about Glendora, CA and the surrounding San Gabriel Valley, surfaced as maps, charts, and searchable tables. Another city port of Elvis: the same DuckDB-plus-dbt warehouse architecture, baked fresh at build time, pointed at a new city.",
+    tech: ["dbt", "DuckDB", "Streamlit", "Altair", "PyDeck", "Railway"],
+    github: "https://github.com/EvanWAppel/gregan",
+    live: "https://gregan-production.up.railway.app/",
+    method:
+      "Claude Code, a reproducible ELT-plus-dbt warehouse baked at build time, with the city-specific config isolated to one file.",
+    featured: true,
+    // No graphical logo or screenshot in repo yet.
+  },
+  {
     id: "spooky",
     title: "Spooky: X-Files Episode Explorer",
     description:
@@ -201,6 +200,46 @@ export const projects: Project[] = [
     screenshot: "/assets/screenshots/benten.png",
     // No graphical logo in repo yet; the card leads with the screenshot.
   },
+  {
+    id: "wordly",
+    title: "Wordly: Private Word Game",
+    description:
+      "A private, invite-only word game in the Words With Friends style for a small circle of friends and family, with no ads, no paywalls, and no power-ups to buy. It is an installable web app: async turn-based play, a faithful 15 by 15 board and tile bag, live dictionary-checked scoring, and a ping when it is your turn.",
+    tech: ["Next.js", "TypeScript", "Neon Postgres", "Drizzle ORM", "Resend", "Web Push", "Vercel"],
+    github: "https://github.com/EvanWAppel/wordly",
+    live: "https://wordly-seven-rust.vercel.app/",
+    method:
+      "Claude Code from a written PRD, with the game rules and scoring tested first, then magic-link auth, a Postgres data model, and email plus web-push notifications wired end to end.",
+    proves:
+      "A full-stack multiplayer app end to end, from magic-link auth and a Postgres data model to email and web-push notifications.",
+    detail:
+      "Wordly is a private, invite-only word game in the Words With Friends style, built so a small circle of friends and family can play with no ads, no paywalls, and no microtransactions, ever. It is an installable web app with async turn-based play, a faithful 15 by 15 board and 104-tile bag, live dictionary-checked scoring, and a turn notification by web push with an email fallback. New players join only by email invite from someone already in the game, so there is no public signup. Under it sits magic-link auth, a Neon Postgres store modeled with Drizzle, and Resend for mail.",
+    honestNote:
+      "What is real: v1 is shipped and played, with magic-link auth, the Postgres-backed game state, dictionary validation, and turn notifications all live. Where I was learning: it is invite-only by design and started as a single shared game, with concurrent games and wider invites the next step.",
+    roleTags: ["Full-Stack"],
+    featured: true,
+    logo: "/assets/logos/projects/wordly.svg",
+  },
+  {
+    id: "weather",
+    title: "Weather: Ad-Free Forecast and Radar",
+    description:
+      "An ad-free reproduction of the only two Weather Underground features worth keeping: a clean 10-day forecast and an interactive radar map. No ads, no trackers, no account. Every data source is keyless, so there are no secrets to configure.",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "MapLibre", "uPlot", "Vercel"],
+    github: "https://github.com/EvanWAppel/weather",
+    live: "https://weather-iota-murex.vercel.app/",
+    method:
+      "Claude Code from a PRD and task board, logic tested first, with data from keyless public APIs (Open-Meteo and RainViewer) so there are no secrets to configure.",
+    proves:
+      "A full front end built on keyless public APIs, pairing an interactive radar map with forecast charts and nothing to configure.",
+    detail:
+      "Weather keeps the only two Weather Underground features worth keeping, a clean 10-day forecast and an interactive radar map, and drops everything else: no ads, no trackers, no account. It renders forecast charts with uPlot and a live radar layer with MapLibre over OpenStreetMap. The design constraint was keylessness: every data source (Open-Meteo for forecast and geocoding, RainViewer for radar tiles) is public and needs no API key, so there is nothing to configure and no secret to leak.",
+    honestNote:
+      "What is real: the forecast, geocoding search, and animated radar all run live off keyless public APIs. Where I was learning: it deliberately reproduces two features rather than the whole of a weather site, so the scope is narrow by design.",
+    roleTags: ["Full-Stack"],
+    featured: true,
+    logo: "/assets/logos/projects/weather.svg",
+  },
   // --- Work in progress ---------------------------------------------------
   // Specs written and scaffolding up, but not yet shippable. These render in
   // the /projects Work-in-progress section and are kept off the homepage
@@ -217,28 +256,6 @@ export const projects: Project[] = [
     wip: true,
   },
   {
-    id: "seer",
-    title: "Seer: Handwriting to Markdown",
-    description:
-      "Turns phone photos of handwritten notebook pages into clean, versioned Markdown in a Git repo. Claude's vision model transcribes each page verbatim, flags uncertain words, and the author reviews the result side by side with the original before it is committed. The original images are preserved alongside the text, so the archive stays greppable and future-proof.",
-    tech: ["Claude API", "Markdown", "Git"],
-    github: "https://github.com/EvanWAppel/seer",
-    method:
-      "Claude Code from a PRD, vision transcription with a human review gate before anything is committed.",
-    wip: true,
-  },
-  {
-    id: "weather",
-    title: "Weather: Ad-Free Forecast and Radar",
-    description:
-      "An ad-free reproduction of the only two Weather Underground features worth keeping: a clean 10-day forecast and an interactive radar map. No ads, no trackers, no account. Every data source is keyless, so there are no secrets to configure.",
-    tech: ["Next.js", "TypeScript", "Tailwind CSS", "MapLibre", "Vercel"],
-    github: "https://github.com/EvanWAppel/weather",
-    method:
-      "Claude Code from a PRD and task board, data from keyless public APIs (Open-Meteo, RainViewer).",
-    wip: true,
-  },
-  {
     id: "wormsworth",
     title: "Wormsworth: Poetry Commonplace Book",
     description:
@@ -250,47 +267,25 @@ export const projects: Project[] = [
     wip: true,
   },
   {
-    id: "learn-typescript",
-    title: "learn_typescript: Graded TypeScript Ladder",
+    id: "roodle",
+    title: "Roodle: Private Word Game",
     description:
-      "A graded-exercise learning ladder for TypeScript aimed at AI-development work. Each exercise ships a failing Vitest test as the spec, and you drive it green. The ladder starts at fundamentals like discriminated unions, narrowing, and generics, then climbs to runtime validation with zod, typed tool schemas, and a capstone agent loop that calls a live Anthropic model.",
-    tech: ["TypeScript", "Vitest", "zod", "Anthropic SDK"],
-    github: "https://github.com/EvanWAppel/learn_typescript",
+      "A private, ad-free Words-with-Friends-style word game for playing asynchronous matches with friends. Real accounts and sessions, friend invites, and multiple concurrent games, built on Next.js.",
+    tech: ["Next.js", "TypeScript", "Vercel"],
+    github: "https://github.com/EvanWAppel/roodle",
     method:
-      "Test-first by construction: every exercise is a failing spec you drive green, with a hidden reference generating the golden output.",
+      "Claude Code, real auth and session handling with asynchronous multiplayer game state.",
     wip: true,
   },
   {
-    id: "learn-sql",
-    title: "learn_sql: Graded SQL Ladder",
+    id: "learn",
+    title: "learn: Graded Learning Ladders",
     description:
-      "A graded-exercise learning ladder for advanced analytical SQL, backed by DuckDB. Each exercise ships a failing test as the spec, and you drive it green against real, messy public data (the Olist e-commerce dataset). The ladder starts at intermediate level and drills window functions, set-based joins, and analytical patterns like funnels, cohorts, and gaps-and-islands.",
-    tech: ["SQL", "DuckDB", "Python", "pytest"],
-    github: "https://github.com/EvanWAppel/learn_sql",
+      "One repo of graded, test-first learning ladders, each under its own subdirectory: advanced analytical SQL on DuckDB, a Polars/DuckDB-to-PySpark big-data ladder, a TypeScript-for-AI-development ladder, and a Spark & Databricks sprint. Every exercise ships a failing test as the spec and you drive it green, graded against a hidden reference so it runs offline and instantly.",
+    tech: ["TypeScript", "SQL", "DuckDB", "Python", "pytest", "Vitest"],
+    github: "https://github.com/EvanWAppel/learn",
     method:
-      "Golden-output grading against a hidden reference on committed sample data, so exercises run offline and instantly.",
-    wip: true,
-  },
-  {
-    id: "learn-ai",
-    title: "learn_AI: Project-Driven AI Path",
-    description:
-      "A project-driven path into modern AI and machine learning that works through the full stack of an AI application: model, API, context, tools and agents, retrieval, evaluation, and deployment. The method is deliberately hands-on: read just enough theory to unblock the next build, make it move, then look inside to see why it worked. Local inference runs CPU-only through Ollama.",
-    tech: ["Python", "Ollama", "Anthropic SDK"],
-    github: "https://github.com/EvanWAppel/learn_AI",
-    method:
-      "Every module ends in a build, with math taught just in time through code rather than as a prerequisite gate.",
-    wip: true,
-  },
-  {
-    id: "learn-spark-databricks",
-    title: "learn_spark-databricks: Spark in a Weekend",
-    description:
-      "A sprint-based plan to go from an experienced data engineer who has not touched Spark to someone who can talk about Spark and Databricks credibly, by building one real pipeline end to end. It maps existing data-engineering knowledge (partitioning, ETL, schemas, idempotency) onto Spark's names for things, then drills the handful of places where Spark's execution model genuinely differs.",
-    tech: ["Spark", "Databricks", "Python", "Delta Lake"],
-    github: "https://github.com/EvanWAppel/learn_spark-databricks",
-    method:
-      "One real pipeline end to end, mapping existing engineering intuition onto Spark's execution model.",
+      "Test-first by construction: every exercise is a failing spec driven green, with a hidden reference generating the golden output. Four former repos consolidated with full history.",
     wip: true,
   },
 ];
