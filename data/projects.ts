@@ -242,21 +242,38 @@ export const projects: Project[] = [
     featured: true,
     logo: "/assets/logos/projects/weather.svg",
   },
-  // --- Work in progress ---------------------------------------------------
-  // Specs written and scaffolding up, but not yet shippable. These render in
-  // the /projects Work-in-progress section and are kept off the homepage
-  // carousel. No live/demo links until they actually ship.
   {
     id: "boor",
     title: "Boor: AI Dungeons & Dragons Table",
     description:
       "A web-based virtual tabletop for running a persistent D&D campaign that keeps going when players cannot make it. When someone is absent, an AI plays their character in their voice and within limits they set in advance, so the party stays whole and the session happens as planned. The DM role is just as flexible: a human can run the game, or the AI can.",
-    tech: ["Python", "TypeScript"],
+    tech: [
+      "Python",
+      "FastAPI",
+      "Claude API",
+      "TypeScript",
+      "Next.js",
+      "Postgres",
+      "WebSockets",
+      "pytest",
+    ],
     github: "https://github.com/EvanWAppel/boor",
     method:
-      "Claude Code from a written PRD, a Python service and a TypeScript web client, with believable AI stand-ins as the north-star bet.",
-    wip: true,
+      "Built with Claude Code from a written PRD on the RECL loop. The language model proposes each in-character action, a pure guardrail layer checks it against the player's red lines, and a deterministic 5e rules engine adjudicates the result. Model-mocked pytest plus an eval harness keep it honest.",
+    proves:
+      "A bounded LLM agent that takes real in-character actions through a deterministic rules engine, refuses actions that cross the player's stated red lines, and is graded by an eval harness for mechanical validity and persona fidelity.",
+    detail:
+      "Boor is a virtual tabletop for a persistent D&D campaign that keeps going when a player cannot make it. Mark a player absent and an AI stands in for their character, acting in that player's voice and inside limits they set in advance. The interesting part is the agent architecture. The language model never invents a die roll or bends a rule; it reasons about what the character would do and emits a structured tool call, and a separate deterministic 5e rules engine adjudicates the outcome. Between the two sits a pure, tested guardrail layer that checks every proposed action against the character's standing red lines, so a tempting but forbidden move, such as swinging at a charmed ally, is refused and logged rather than executed. An eval harness scores the stand-in on three axes: mechanical validity, red-line adherence, and, with an LLM as judge, whether it still reads like the character. That reasons-here, adjudicates-there split, wrapped in guardrails and evals, is the whole point. It is the shape of a production agent, built small enough to see end to end.",
+    honestNote:
+      "What is real: the 5e rules engine, the async SQLAlchemy and Postgres data layer, Clerk auth, and the AI stand-in slice (structured tool-calling, the guardrail refusal layer, and the eval harness) all exist and are covered by a real test suite. The screenshot is the actual offline demo, which runs on a scripted reasoner with no API key so the flow is reproducible; the live-model path exists behind an env-gated test. Where I am still building: the real-time multiplayer table is written but not yet deployed, so there is no public live link yet, and the absent-player flow that hands live control to the AI mid-session is the next milestone.",
+    roleTags: ["AI Engineering", "Full-Stack"],
+    screenshot: "/assets/screenshots/boor.gif",
+    showcase: 7,
   },
+  // --- Work in progress ---------------------------------------------------
+  // Specs written and scaffolding up, but not yet shippable. These render in
+  // the /projects Work-in-progress section and are kept off the homepage
+  // carousel. No live/demo links until they actually ship.
   {
     id: "seer",
     title: "Seer: Handwriting to Markdown",
