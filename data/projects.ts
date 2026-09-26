@@ -222,20 +222,28 @@ export const projects: Project[] = [
   },
   {
     id: "weather",
-    title: "Weather: Ad-Free Forecast and Radar",
+    title: "Atmosphere: A Personal Weather App",
     description:
-      "An ad-free reproduction of the only two Weather Underground features worth keeping: a clean 10-day forecast and an interactive radar map. No ads, no trackers, no account. Every data source is keyless, so there are no secrets to configure.",
-    tech: ["Next.js", "TypeScript", "Tailwind CSS", "MapLibre", "uPlot", "Vercel"],
+      "A calm, ad-free personal weather app built around the two things a weather site is actually for: a 10-day forecast and live radar, over a dark, sky-reactive backdrop that animates with the current conditions and the time of day. It adds saved locations, a keyboard command palette, and an installable PWA. Every data source is keyless.",
+    tech: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "MapLibre",
+      "uPlot",
+      "PWA",
+      "Vercel",
+    ],
     github: "https://github.com/EvanWAppel/weather",
     live: "https://weather-iota-murex.vercel.app/",
     method:
-      "Claude Code from a PRD and task board, logic tested first, with data from keyless public APIs (Open-Meteo and RainViewer) so there are no secrets to configure.",
+      "Claude Code through a Requirements, Orchestrate, Check, Review loop from a PRD and task board: logic tested first, adversarially reviewed on every merge, with a unit and Playwright suite in CI and data from keyless public APIs (Open-Meteo, RainViewer).",
     proves:
-      "A full front end built on keyless public APIs, pairing an interactive radar map with forecast charts and nothing to configure.",
+      "A polished, accessible front end on keyless public APIs: an interactive radar map, forecast charts, a sky-reactive animated UI, favorites and a command palette, and an installable PWA, with nothing to configure.",
     detail:
-      "Weather keeps the only two Weather Underground features worth keeping, a clean 10-day forecast and an interactive radar map, and drops everything else: no ads, no trackers, no account. It renders forecast charts with uPlot and a live radar layer with MapLibre over OpenStreetMap. The design constraint was keylessness: every data source (Open-Meteo for forecast and geocoding, RainViewer for radar tiles) is public and needs no API key, so there is nothing to configure and no secret to leak.",
+      "Atmosphere is a personal weather app, a calm and ad-free take on the two features a weather site is actually for: a 10-day forecast (a current-conditions hero plus hourly trend charts) and an interactive precipitation radar (MapLibre over OpenStreetMap with RainViewer tiles). The signature is a dark glass UI over a sky-reactive backdrop that animates with the current conditions and the time of day, gated behind reduced-motion. It adds the conveniences of something you would open every morning: saved locations, a keyboard command palette, and sunrise and sunset times, plus a dynamic Open Graph share card and an installable PWA that falls back to your last forecast offline. The design constraint was keylessness: every data source (Open-Meteo forecast and geocoding, RainViewer radar) is public and needs no API key, so there is nothing to configure and no secret to leak.",
     honestNote:
-      "What is real: the forecast, geocoding search, and animated radar all run live off keyless public APIs. Where I was learning: it deliberately reproduces two features rather than the whole of a weather site, so the scope is narrow by design.",
+      "What is real: the forecast, geocoding, animated radar, favorites, and offline fallback all run live off keyless public APIs, with a unit and Playwright suite green in CI. It began as an ad-free reproduction of Weather Underground's two best features, then was reframed as a personal weather app. The scope stays deliberately those two features, done well.",
     roleTags: ["Full-Stack"],
     featured: true,
     logo: "/assets/logos/projects/weather.svg",
