@@ -220,6 +220,8 @@ export const projects: Project[] = [
       "What is real: v1 is shipped and played, with magic-link auth, the Postgres-backed game state, dictionary validation, and turn notifications all live. Where I was learning: it is invite-only by design and started as a single shared game, with concurrent games and wider invites the next step.",
     roleTags: ["Full-Stack"],
     featured: true,
+    showcase: 7,
+    screenshot: "/assets/screenshots/wordly.gif",
     logo: "/assets/logos/projects/wordly.svg",
   },
   {
