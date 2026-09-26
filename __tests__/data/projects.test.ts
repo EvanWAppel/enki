@@ -71,6 +71,7 @@ describe("projects data", () => {
       "spooky",
       "mccoy",
       "benten",
+      "wordly",
     ]);
     const ranks = ranked.map((p) => p.showcase);
     expect(new Set(ranks).size).toBe(ranks.length);
