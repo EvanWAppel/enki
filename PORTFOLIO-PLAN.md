@@ -97,12 +97,12 @@ bounded-LLM-agent architecture. No public live link yet (multiplayer table not d
 - [x] Showcased with `boor.gif` and full copy
 - [ ] (future) Deploy the multiplayer table → add a `live`/`demo` link
 
-### roodle — Async drawing game ⏳ ADDED as WIP
-Identified from its PRD: an async Pictionary / drawing-and-guessing game ("Draw Something
-without ads"), not a word game. Added in the roster-prune PR as a `wip` entry with correct copy.
-- [x] Defined what it is; added with accurate description + method
-- [ ] Live URL (from Evan) → drop `wip`, write shipped copy. PRD says "core game live" but no
-  public URL resolves yet (tracked in BLOCKED.md).
+### roodle — Draw and Guess with Friends ✅ DONE (featured, live)
+Live: https://roodle-web-production.up.railway.app/. Async Pictionary / drawing-and-guessing
+game (Next.js + Postgres/Drizzle + magic-link + canvas replay). Promoted from wip to a
+`featured` entry with full copy and a detail page.
+- [x] Live URL confirmed (200); dropped `wip`, wrote shipped copy
+- [ ] (optional) Screenshot (from Evan) + `showcase` rank
 
 ---
 
@@ -114,13 +114,13 @@ the "resumable local-first CLI" angle. No `live` link by nature (it is a termina
 - [x] Added featured with full copy (`proves`, `roleTags`, `detail`, `honestNote`)
 - [ ] (optional) Logo (`ansel.svg`) — currently uses the monogram fallback
 
-### niu_ma — async Chinese-standard mahjong ⛔ BLOCKED (no deployment)
-Private repo. FastAPI + pure rules engine, htmx frontend, Postgres, magic-link, Resend,
-Railway. **Deployment not confirmed** — no live URL found.
-- [ ] Confirm or create a Railway deployment; capture the live URL
-- [ ] Write a new entry: `description`, `tech`, `github`, `live`, `method`
-- [ ] `proves`/`roleTags`/`detail`/`honestNote` (deterministic tested rules engine is the story)
-- [ ] Logo + screenshot (from Evan — likely auth-gated)
+### niu_ma — Chinese-standard mahjong ⏳ ADDED as WIP (deploy failing)
+Added as a `wip` card with description + tech + method (FastAPI + pure deterministic rules
+engine, Postgres, htmx, magic-link, Resend, Railway). No live link: the given URL
+(niuma-production.up.railway.app) returns 404 on every attempt.
+- [x] Added as a wip entry with accurate copy
+- [ ] Healthy deployment + working URL (from Evan) → drop `wip`, write shipped copy, then
+  `proves`/`detail`/`honestNote` and a screenshot for the showcase (tracked in BLOCKED.md).
 
 ---
 
@@ -136,16 +136,16 @@ Removed from `data/projects.ts` in the roster-prune PR (test references updated)
 
 ---
 
-## Status (as of the roster-prune PR)
+## Status (all 16 roster projects on `main`)
 
-**Roster now matches the plan (15 of 16 live on `main`).** Present: guzzolene, enki, mccoy,
-olympic, elvis, groening, robbins, spooky, benten, wordly (showcase 7), weather/Atmosphere,
-boor (showcase 8), gregan, ansel, roodle (wip). Removed: lucre, bartleby, seer, wormsworth,
+**Complete.** All 16 roster projects now have cards: guzzolene, enki, mccoy, olympic, elvis,
+groening, robbins, spooky, benten, wordly (showcase 7), weather/Atmosphere, boor (showcase 8),
+gregan, ansel, roodle (live), and niu_ma (wip). Removed: lucre, bartleby, seer, wormsworth,
 and the four `learn-*` cards.
 
-**The one gap: `niu_ma`** (16th roster item) is not added — it has no confirmed deployment.
-Blocked on a live URL from Evan (see BLOCKED.md).
+**The one non-live card: `niu_ma`** ships as `wip` — its Railway URL 404s ("failing a lot"),
+so no live link until the deployment is healthy (see BLOCKED.md).
 
-**Promotions still available** (all need a screenshot from Evan, tracked in BLOCKED.md):
-`weather` and `gregan` into the showcase carousel; `roodle` from wip to featured once its
-live URL is confirmed.
+**Promotions still available** (each needs a screenshot from Evan, tracked in BLOCKED.md):
+`weather`, `gregan`, and `roodle` into the showcase carousel; `niu_ma` to featured once its
+deployment serves a 200.

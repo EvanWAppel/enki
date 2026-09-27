@@ -294,19 +294,38 @@ export const projects: Project[] = [
     featured: true,
     // Local CLI: no live link by nature; leads with the monogram fallback.
   },
+  {
+    id: "roodle",
+    title: "Roodle: Draw and Guess with Friends",
+    description:
+      "A small, private, ad-free drawing-and-guessing game, the Draw Something experience without the ads, coin shops, and upsells. A few friends take turns: one draws a word on a canvas, the others open the app later, watch the strokes replay, and guess by tapping letter tiles. Deliberately simple, cozy, and built for people who already know each other.",
+    tech: ["Next.js", "TypeScript", "Postgres", "Drizzle ORM", "Canvas", "Railway"],
+    github: "https://github.com/EvanWAppel/roodle",
+    live: "https://roodle-web-production.up.railway.app/",
+    method:
+      "Claude Code from a written PRD, with the turn and scoring logic tested first, then magic-link auth, a Postgres data model, and vector stroke capture for the drawing replay.",
+    proves:
+      "An async multiplayer game end to end, from magic-link auth and a Postgres data model to canvas stroke capture, replay, and tile-based guessing.",
+    detail:
+      "Roodle is a small, private drawing-and-guessing game for a circle of friends, the Draw Something experience with no ads, no coin shops, and no upsells. Play is asynchronous: you draw a word on a canvas, every stroke captured as vector data, and a friend opens the app later, watches the drawing replay, and guesses by tapping letter tiles. Under it sits magic-link email auth, a Postgres store modeled with Drizzle, and friend invites by email. It is built to be cozy and low-friction: drop in when you have a moment, get nudged when it is your turn.",
+    honestNote:
+      "What is real: the core game is live and playable, with magic-link auth, the Postgres-backed game state, canvas capture, and drawing replay all working. Where I am still building: it is invite-only by design and a visual redesign is in progress, so the look will keep changing.",
+    roleTags: ["Full-Stack"],
+    featured: true,
+  },
   // --- Work in progress ---------------------------------------------------
   // Specs written and scaffolding up, but not yet shippable. These render in
   // the /projects Work-in-progress section and are kept off the homepage
   // carousel. No live/demo links until they actually ship.
   {
-    id: "roodle",
-    title: "Roodle: Async Drawing Game",
+    id: "niu_ma",
+    title: "niu_ma: Chinese-Standard Mahjong",
     description:
-      "A small, private, ad-free drawing-and-guessing game, the Draw Something experience without the ads, coin shops, and upsells. A few friends take turns: one draws a word, the others open the app later, watch the drawing replay, and guess it by tapping letter tiles. Deliberately simple, cozy, and built for people who already know each other.",
-    tech: ["Next.js", "TypeScript", "Vercel"],
-    github: "https://github.com/EvanWAppel/roodle",
+      "Async Chinese Official (Guobiao) mahjong for a fixed group of four friends, a drop-in web app where turns happen over hours and days and the game state persists between visits. The rules and scoring engine is a pure, deterministic core kept free of time and IO so it can be exhaustively unit-tested.",
+    tech: ["Python", "FastAPI", "Postgres", "htmx", "Resend", "Railway"],
+    github: "https://github.com/EvanWAppel/niu_ma",
     method:
-      "Claude Code from a written PRD: an async turn-based drawing game with drawing replay and tile-based guessing, no ads and no microtransactions by design.",
+      "Claude Code from a written PRD, with a pure deterministic rules-and-scoring engine tested first, then FastAPI, a Postgres store, magic-link auth, and email nudges.",
     wip: true,
   },
 ];
