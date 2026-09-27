@@ -26,8 +26,26 @@ describe("projects data", () => {
 
   it("surfaces sign-in-free demos for the recruiter-facing apps", () => {
     const demos = new Set(projects.filter((p) => p.demo).map((p) => p.id));
-    expect(demos.has("lucre")).toBe(true);
     expect(demos.has("guzzolene")).toBe(true);
+  });
+
+  it("has pruned the archived and consolidated projects", () => {
+    const ids = new Set(projects.map((p) => p.id));
+    for (const gone of [
+      "lucre",
+      "bartleby",
+      "seer",
+      "wormsworth",
+      "learn-typescript",
+      "learn-sql",
+      "learn-ai",
+      "learn-spark-databricks",
+    ]) {
+      expect(ids.has(gone), `${gone} should be pruned from the roster`).toBe(false);
+    }
+    for (const present of ["gregan", "ansel", "roodle"]) {
+      expect(ids.has(present), `${present} should be on the roster`).toBe(true);
+    }
   });
 
   it("every project carries a method line describing the agentic build", () => {
