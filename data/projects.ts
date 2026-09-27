@@ -66,32 +66,6 @@ export const projects: Project[] = [
     logo: "/assets/logos/projects/olympic.png",
   },
   {
-    id: "lucre",
-    title: "Lucre: Personal Finance PWA",
-    description:
-      "A single-user personal-finance PWA covering balances, net worth, subscriptions, spending, and bill alerts, backed by Plaid for bank data and continuously-replicated SQLite.",
-    tech: ["Python", "FastAPI", "HTMX", "Plaid", "SQLite + Litestream", "Railway"],
-    github: "https://github.com/EvanWAppel/lucre",
-    live: "https://lucre-rust.vercel.app/login",
-    demo: "https://lucre-rust.vercel.app/demo/connect",
-    method:
-      "Claude Code, Plaid data ingestion and analysis, validated with pytest.",
-    featured: true,
-    // No graphical logo in repo (text wordmark only), left logo-less.
-  },
-  {
-    id: "bartleby",
-    title: "Bartleby: Collaborative Notes",
-    description:
-      "A self-hosted, real-time collaborative notes app for a small group of friends, with two first-class clients, a SvelteKit web editor and a Python TUI, editing the same documents live via a shared CRDT.",
-    tech: ["SvelteKit", "Node", "Python", "CRDT (Yjs)", "SQLite", "Docker"],
-    github: "https://github.com/EvanWAppel/bartleby",
-    method:
-      "Claude Code across two clients from one core, with tests holding the shared logic steady.",
-    featured: true,
-    logo: "/assets/logos/projects/bartleby.svg",
-  },
-  {
     id: "elvis",
     title: "Elvis: dbt + DuckDB Portfolio",
     description:
@@ -281,74 +255,58 @@ export const projects: Project[] = [
     showcase: 8,
     screenshot: "/assets/screenshots/boor.gif",
   },
+  {
+    id: "gregan",
+    title: "Gregan: Glendora Open-Data Explorer",
+    description:
+      "An interactive, multi-page explorer over free public data about Glendora, California and its San Gabriel foothills setting, surfaced as maps, charts, and searchable tables. It ports the Elvis and Robbins engine to a new city, fetching city, county, state, and federal open data into a DuckDB warehouse modeled with dbt.",
+    tech: ["dbt", "DuckDB", "Streamlit", "Altair", "PyDeck", "Railway"],
+    github: "https://github.com/EvanWAppel/gregan",
+    live: "https://gregan-production.up.railway.app/",
+    method:
+      "Claude Code on the RECL loop, a reproducible ELT-plus-dbt warehouse baked at build time, with dbt tests on the models.",
+    proves:
+      "Multi-source ingestion narrowed to one small city, pulling three access patterns (city ArcGIS, filtered county and federal files, and Socrata-style APIs) into one tested DuckDB and dbt warehouse.",
+    detail:
+      "Gregan is a Glendora, California open-data explorer built on the same Elvis, Robbins, and Groening engine: free public datasets fetched into a DuckDB warehouse, modeled with dbt, and served through a multi-page Streamlit app as maps, charts, and searchable tables. The interesting part is the sourcing. Glendora's data splits three ways, and that shape drives the warehouse: the city's own ArcGIS server for parks, street trees, and zoning; county, state, and federal files filtered down to Glendora for inspections, groundwater, air quality, and wildfire; and a logged DROP list for everything not machine-readable. It is the same reproducible pipeline pointed at a harder scope-a-region-to-one-city problem.",
+    honestNote:
+      "What is real: the ingestion patterns, the dbt models, and the live app all run on Railway. Where I was learning: it deliberately reuses the Elvis architecture, so the work is in the sourcing and the city-scoping, not a from-scratch design.",
+    roleTags: ["Analytics Engineering", "Data Engineering"],
+    featured: true,
+    // No graphical logo or screenshot in repo yet; card uses the monogram fallback.
+  },
+  {
+    id: "ansel",
+    title: "Ansel: Resumable Photo Captioning CLI",
+    description:
+      "A macOS command-line tool for captioning and tagging your Photos library incrementally, in short sessions spread over months. Progress lives in a local SQLite database keyed by each photo's UUID, so you can quit at any time, including Ctrl-C, and pick up exactly where you left off.",
+    tech: ["Python", "SQLite", "osxphotos", "photoscript", "uv"],
+    github: "https://github.com/EvanWAppel/ansel",
+    method:
+      "Claude Code, test-first, with reads through osxphotos and writes through photoscript's AppleScript bridge so captions and keywords are real Photos edits.",
+    proves:
+      "A resumable, local-first batch tool built around interruptibility, with a UUID-keyed SQLite checkpoint so a months-long job survives quitting at any point.",
+    detail:
+      "Ansel captions and tags a macOS Photos library from the terminal, designed for a job too large to finish in one sitting. It reads photo metadata through osxphotos and writes captions and keywords back through photoscript's AppleScript bridge, so every edit is a real Photos edit that syncs with iCloud. The design centers on interruptibility: progress is a local SQLite database keyed by photo UUID, so quitting at any moment, including Ctrl-C, loses nothing and the next run resumes exactly where the last one stopped. It is a small, honest local-first tool built for how the work actually happens, a little at a time.",
+    honestNote:
+      "What is real: the resumable pipeline, the SQLite checkpoint, and the real Photos writes all work on my own library. Where it is narrow: it is a personal macOS CLI with no web front end, built for my own archive rather than packaged for general use.",
+    roleTags: ["Developer Tooling"],
+    featured: true,
+    // Local CLI: no live link by nature; leads with the monogram fallback.
+  },
   // --- Work in progress ---------------------------------------------------
   // Specs written and scaffolding up, but not yet shippable. These render in
   // the /projects Work-in-progress section and are kept off the homepage
   // carousel. No live/demo links until they actually ship.
   {
-    id: "seer",
-    title: "Seer: Handwriting to Markdown",
+    id: "roodle",
+    title: "Roodle: Async Drawing Game",
     description:
-      "Turns phone photos of handwritten notebook pages into clean, versioned Markdown in a Git repo. Claude's vision model transcribes each page verbatim, flags uncertain words, and the author reviews the result side by side with the original before it is committed. The original images are preserved alongside the text, so the archive stays greppable and future-proof.",
-    tech: ["Claude API", "Markdown", "Git"],
-    github: "https://github.com/EvanWAppel/seer",
+      "A small, private, ad-free drawing-and-guessing game, the Draw Something experience without the ads, coin shops, and upsells. A few friends take turns: one draws a word, the others open the app later, watch the drawing replay, and guess it by tapping letter tiles. Deliberately simple, cozy, and built for people who already know each other.",
+    tech: ["Next.js", "TypeScript", "Vercel"],
+    github: "https://github.com/EvanWAppel/roodle",
     method:
-      "Claude Code from a PRD, vision transcription with a human review gate before anything is committed.",
-    wip: true,
-  },
-  {
-    id: "wormsworth",
-    title: "Wormsworth: Poetry Commonplace Book",
-    description:
-      "A poetry commonplace book that a machine can also read. Every entry does three jobs at once: a working notebook of notes on poets and poems, a structured dataset with consistent YAML frontmatter so the collection is queryable, and a context store an LLM can be handed as background. The design constraint that reconciles them is prose a human wants to read, wrapped in metadata a machine can parse.",
-    tech: ["Markdown", "YAML"],
-    github: "https://github.com/EvanWAppel/wormsworth",
-    method:
-      "A human-first notebook wrapped in machine-parseable metadata, with a status pipeline tracking what has actually been read versus merely shelved.",
-    wip: true,
-  },
-  {
-    id: "learn-typescript",
-    title: "learn_typescript: Graded TypeScript Ladder",
-    description:
-      "A graded-exercise learning ladder for TypeScript aimed at AI-development work. Each exercise ships a failing Vitest test as the spec, and you drive it green. The ladder starts at fundamentals like discriminated unions, narrowing, and generics, then climbs to runtime validation with zod, typed tool schemas, and a capstone agent loop that calls a live Anthropic model.",
-    tech: ["TypeScript", "Vitest", "zod", "Anthropic SDK"],
-    github: "https://github.com/EvanWAppel/learn_typescript",
-    method:
-      "Test-first by construction: every exercise is a failing spec you drive green, with a hidden reference generating the golden output.",
-    wip: true,
-  },
-  {
-    id: "learn-sql",
-    title: "learn_sql: Graded SQL Ladder",
-    description:
-      "A graded-exercise learning ladder for advanced analytical SQL, backed by DuckDB. Each exercise ships a failing test as the spec, and you drive it green against real, messy public data (the Olist e-commerce dataset). The ladder starts at intermediate level and drills window functions, set-based joins, and analytical patterns like funnels, cohorts, and gaps-and-islands.",
-    tech: ["SQL", "DuckDB", "Python", "pytest"],
-    github: "https://github.com/EvanWAppel/learn_sql",
-    method:
-      "Golden-output grading against a hidden reference on committed sample data, so exercises run offline and instantly.",
-    wip: true,
-  },
-  {
-    id: "learn-ai",
-    title: "learn_AI: Project-Driven AI Path",
-    description:
-      "A project-driven path into modern AI and machine learning that works through the full stack of an AI application: model, API, context, tools and agents, retrieval, evaluation, and deployment. The method is deliberately hands-on: read just enough theory to unblock the next build, make it move, then look inside to see why it worked. Local inference runs CPU-only through Ollama.",
-    tech: ["Python", "Ollama", "Anthropic SDK"],
-    github: "https://github.com/EvanWAppel/learn_AI",
-    method:
-      "Every module ends in a build, with math taught just in time through code rather than as a prerequisite gate.",
-    wip: true,
-  },
-  {
-    id: "learn-spark-databricks",
-    title: "learn_spark-databricks: Spark in a Weekend",
-    description:
-      "A sprint-based plan to go from an experienced data engineer who has not touched Spark to someone who can talk about Spark and Databricks credibly, by building one real pipeline end to end. It maps existing data-engineering knowledge (partitioning, ETL, schemas, idempotency) onto Spark's names for things, then drills the handful of places where Spark's execution model genuinely differs.",
-    tech: ["Spark", "Databricks", "Python", "Delta Lake"],
-    github: "https://github.com/EvanWAppel/learn_spark-databricks",
-    method:
-      "One real pipeline end to end, mapping existing engineering intuition onto Spark's execution model.",
+      "Claude Code from a written PRD: an async turn-based drawing game with drawing replay and tile-based guessing, no ads and no microtransactions by design.",
     wip: true,
   },
 ];

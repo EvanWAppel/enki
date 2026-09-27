@@ -68,10 +68,10 @@ Live: https://olympic-lime-six.vercel.app/. Thin copy, no screenshot.
 - [ ] Add `proves`, `roleTags`, `detail`, `honestNote`
 - [ ] Screenshot (from Evan) if promoting to showcase
 
-### gregan — Glendora open-data explorer
-Live: https://gregan-production.up.railway.app/. Being added by the orch session with
-description + `method` only; it is an Elvis-family explorer like the showcased robbins/groening.
-- [ ] Add `proves`, `roleTags`, `detail`, `honestNote` to match its siblings
+### gregan — Glendora open-data explorer ✅ DONE (featured)
+Live: https://gregan-production.up.railway.app/. Added in the roster-prune PR as a `featured`
+entry with full copy (`proves`, `roleTags`, `detail`, `honestNote`) matching its explorer siblings.
+- [x] Added featured with full copy and a detail page
 - [ ] Screenshot (from Evan) + `showcase` rank to sit alongside the other explorers
 
 ### wordly — Private word game ✅ DONE (showcased)
@@ -97,23 +97,24 @@ bounded-LLM-agent architecture. No public live link yet (multiplayer table not d
 - [x] Showcased with `boor.gif` and full copy
 - [ ] (future) Deploy the multiplayer table → add a `live`/`demo` link
 
-### roodle — (define it)
-WIP, **no description in the repo yet**. Being added by the orch session.
-- [ ] Decide what roodle is and whether it belongs; write the description
-- [ ] Ship it, then full copy + assets
+### roodle — Async drawing game ⏳ ADDED as WIP
+Identified from its PRD: an async Pictionary / drawing-and-guessing game ("Draw Something
+without ads"), not a word game. Added in the roster-prune PR as a `wip` entry with correct copy.
+- [x] Defined what it is; added with accurate description + method
+- [ ] Live URL (from Evan) → drop `wip`, write shipped copy. PRD says "core game live" but no
+  public URL resolves yet (tracked in BLOCKED.md).
 
 ---
 
 ## Tier D — new, not in the portfolio yet
 
-### ansel — macOS photo captioning CLI
-Public repo. This is a **terminal CLI**, not a web app (osxphotos + photoscript, SQLite
-progress store). No live URL by nature — model it like bartleby was: `github` + copy, no `live`.
-- [ ] Write a new `data/projects.ts` entry: `description`, `tech`, `github`, `method`
-- [ ] `proves`/`roleTags`/`detail`/`honestNote` (frame the "resumable local-first CLI" angle)
-- [ ] Logo (`ansel.svg`)
+### ansel — macOS photo captioning CLI ✅ DONE (featured, github-only)
+Added in the roster-prune PR as a `featured` entry with full copy and a detail page, framed on
+the "resumable local-first CLI" angle. No `live` link by nature (it is a terminal CLI).
+- [x] Added featured with full copy (`proves`, `roleTags`, `detail`, `honestNote`)
+- [ ] (optional) Logo (`ansel.svg`) — currently uses the monogram fallback
 
-### niu_ma — async Chinese-standard mahjong
+### niu_ma — async Chinese-standard mahjong ⛔ BLOCKED (no deployment)
 Private repo. FastAPI + pure rules engine, htmx frontend, Postgres, magic-link, Resend,
 Railway. **Deployment not confirmed** — no live URL found.
 - [ ] Confirm or create a Railway deployment; capture the live URL
@@ -125,25 +126,26 @@ Railway. **Deployment not confirmed** — no live URL found.
 
 ## Remove from the portfolio (not on the roster)
 
-Delete these entries from `data/projects.ts` (and their showcase/test references):
+Removed from `data/projects.ts` in the roster-prune PR (test references updated):
 
-- [ ] **lucre** — personal-finance PWA (already being archived by orch)
-- [ ] **bartleby** — collaborative CRDT notes (confirmed drop)
-- [ ] **seer** — handwriting → Markdown (already being archived by orch)
-- [ ] **wormsworth** — poetry commonplace book (wip)
-- [ ] **learn / learn-typescript / learn-sql / learn-ai / learn-spark-databricks** — learning ladders
+- [x] **lucre** — personal-finance PWA
+- [x] **bartleby** — collaborative CRDT notes
+- [x] **seer** — handwriting to Markdown
+- [x] **wormsworth** — poetry commonplace book
+- [x] **learn-typescript / learn-sql / learn-ai / learn-spark-databricks** — learning ladders
 
 ---
 
-## Status (as of the reconcile PR)
+## Status (as of the roster-prune PR)
 
-Landed on `main`: **wordly** (showcase 7), **weather → Atmosphere** (featured), **boor**
-(showcase 8, demo gif). The stale branches `weather-personal-app-refresh` (#37) and
-`feat/boor-showcase` (#35), plus the superseded `add-weather-wordly-projects`, are closed/deleted.
+**Roster now matches the plan (15 of 16 live on `main`).** Present: guzzolene, enki, mccoy,
+olympic, elvis, groening, robbins, spooky, benten, wordly (showcase 7), weather/Atmosphere,
+boor (showcase 8), gregan, ansel, roodle (wip). Removed: lucre, bartleby, seer, wormsworth,
+and the four `learn-*` cards.
 
-**Still pending — the roster prune** (not yet done on `main`): `main` still contains
-`lucre`, `bartleby`, `seer`, `wormsworth`, and the four separate `learn-*` cards, and does
-**not** yet have `gregan` or `roodle`. See "Remove from the portfolio" above and Tiers B–D.
-The `#37` branch carried a partial version of this prune (consolidated `learn` instead of
-dropping it, kept `bartleby`); it was intentionally left out of the reconcile so the prune
-lands once, matching this roster.
+**The one gap: `niu_ma`** (16th roster item) is not added — it has no confirmed deployment.
+Blocked on a live URL from Evan (see BLOCKED.md).
+
+**Promotions still available** (all need a screenshot from Evan, tracked in BLOCKED.md):
+`weather` and `gregan` into the showcase carousel; `roodle` from wip to featured once its
+live URL is confirmed.

@@ -19,3 +19,21 @@ project to lead with a real screenshot. Capturing screenshots needs a browser (o
 global guardrail), and wordly's board sits behind magic-link auth so it cannot be reached
 headlessly at all. Rather than fake or skip the screenshot invariant, both ship as featured
 now; either can be promoted to showcase once Evan supplies a PNG. Tracked in BLOCKED.md.
+
+## 2026-09-27 — Roster prune: align data/projects.ts to the 16-project roster
+
+**Context.** PORTFOLIO-PLAN.md locked a 16-project target roster, but `main` still carried
+archived and superseded cards. This pass prunes to match.
+
+**Chosen.** Remove `lucre`, `bartleby`, `seer`, `wormsworth`, and the four separate `learn-*`
+cards. Add `gregan` (featured, live Glendora open-data explorer), `ansel` (featured, macOS
+photo-captioning CLI, github-only), and `roodle` (wip, async drawing game). Hold `niu_ma`.
+
+**Rejected.** Consolidating the four `learn-*` into one `learn` card (the earlier #37/orch
+approach); keeping `bartleby`. Both conflict with the final roster, which drops `learn`
+entirely and drops `bartleby`.
+
+**Why.** The roster is the source of truth. `learn` and `bartleby` are not on it, so they go.
+`roodle` ships as wip because its PRD says the core game is live but no public URL could be
+confirmed (blocked on a URL from Evan). `niu_ma` is held out of this pass because it has no
+confirmed deployment; adding it would mean either omitting a live link or inventing one.
