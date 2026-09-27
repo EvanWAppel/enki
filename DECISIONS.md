@@ -37,3 +37,20 @@ entirely and drops `bartleby`.
 `roodle` ships as wip because its PRD says the core game is live but no public URL could be
 confirmed (blocked on a URL from Evan). `niu_ma` is held out of this pass because it has no
 confirmed deployment; adding it would mean either omitting a live link or inventing one.
+
+## 2026-09-27 — roodle goes live; niu_ma added as work-in-progress
+
+**Context.** Evan supplied deployment URLs for the two remaining roster projects:
+roodle at roodle-web-production.up.railway.app and niu_ma at niuma-production.up.railway.app,
+noting niu_ma "is failing a lot."
+
+**Chosen.** Promote `roodle` to a `featured`, live entry with full copy (it returns 200,
+titled "Roodle — draw & guess with friends"). Add `niu_ma` as a `wip` card with no live link.
+
+**Rejected.** Giving `niu_ma` a live link now.
+
+**Why.** `niu_ma`'s URL returns 404 on every attempt (a Railway no-active-deployment page),
+and the hostname variants 404 too, matching Evan's "failing a lot." Putting that link on a
+public portfolio would point recruiters at a broken page. It ships as `wip` (built, honestly
+described, no live link) until the deployment serves a 200. This completes all 16 roster
+projects on the site, 15 live/featured and niu_ma as the one work-in-progress.

@@ -43,9 +43,20 @@ describe("projects data", () => {
     ]) {
       expect(ids.has(gone), `${gone} should be pruned from the roster`).toBe(false);
     }
-    for (const present of ["gregan", "ansel", "roodle"]) {
+    for (const present of ["gregan", "ansel", "roodle", "niu_ma"]) {
       expect(ids.has(present), `${present} should be on the roster`).toBe(true);
     }
+  });
+
+  it("roodle is shipped (live, featured) and niu_ma is still work-in-progress", () => {
+    const roodle = projects.find((p) => p.id === "roodle");
+    expect(roodle?.wip, "roodle should be shipped, not wip").toBeFalsy();
+    expect(roodle?.featured).toBe(true);
+    expect(roodle?.live, "roodle needs a live URL").toMatch(/^https:\/\//);
+
+    const niuMa = projects.find((p) => p.id === "niu_ma");
+    expect(niuMa?.wip, "niu_ma has no stable deployment, stays wip").toBe(true);
+    expect(niuMa?.live, "niu_ma should not carry a live link while its deploy 404s").toBeUndefined();
   });
 
   it("every project carries a method line describing the agentic build", () => {
