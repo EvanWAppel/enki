@@ -95,14 +95,14 @@ describe("projects data", () => {
       .sort((a, b) => (a.showcase ?? 0) - (b.showcase ?? 0));
     expect(ranked.map((p) => p.id)).toEqual([
       "elvis",
+      "weather",
+      "mccoy",
       "robbins",
       "groening",
       "spooky",
-      "mccoy",
       "benten",
       "wordly",
       "boor",
-      "weather",
       "gregan",
       "roodle",
       "guzzolene",
