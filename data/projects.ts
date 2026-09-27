@@ -14,7 +14,16 @@ export const projects: Project[] = [
     demo: "https://guzzo-lene.com/demo",
     method:
       "Built with Claude Code on the RECL loop, with pytest guarding the data and the pipeline. Public on GitHub.",
+    proves:
+      "Turning a personal logbook into analysis, plotting real fuel-economy and price data against world events and WTI crude oil.",
+    detail:
+      "Guzzolene is a personal fuel journal: over two hundred fill-ups for one Mazda 3 Sport, logged since 2018 and turned into a running read on the cost of driving. It plots price per gallon over time with real world events marked on the timeline, average fill-up cost and gallons per fill-up, and cost per mile set against WTI crude oil prices. The point is context. A single tank means little, but years of them, lined up against the wider economy, tell a story about the road and the world beyond the pump.",
+    honestNote:
+      "What is real: the data is my own driving record going back to 2018, and every chart is drawn from it. Where it is narrow: it is one car and one driver by design, a personal journal rather than a general fuel-tracking product.",
+    roleTags: ["Data Engineering"],
     featured: true,
+    showcase: 12,
+    screenshot: "/assets/screenshots/guzzolene.gif",
     logo: "/assets/logos/projects/guzzolene.svg",
   },
   {
@@ -27,7 +36,16 @@ export const projects: Project[] = [
     live: "https://evanappel.me/",
     method:
       "Designed and shipped with agentic tooling, with Vitest holding the components steady. Public.",
+    proves:
+      "A fast, accessible, data-driven site where every project, resume, and essay is one typed record rendered by shared components.",
+    detail:
+      "enki is this website: a clean, editorial portfolio built with the Next.js App Router, Tailwind CSS, and TypeScript, deployed on Vercel. Everything on it is data-driven. Projects, resumes, writing, and the how-I-work page are typed records in one place, rendered by shared components, so adding or reordering a project is a one-line change and the whole site stays consistent. Vitest holds the components and the data shape steady. It is designed to load fast, read well in light or dark mode, and get out of the way of the work it presents.",
+    honestNote:
+      "What is real: the site is live, the content is genuinely data-driven, and the component and data tests run in CI. Where it is modest: it is a personal site, so the scope is my own material rather than a general-purpose CMS.",
+    roleTags: ["Full-Stack"],
     featured: true,
+    showcase: 14,
+    screenshot: "/assets/screenshots/portfolio.gif",
     logo: "/assets/logos/projects/enki.svg",
   },
   {
@@ -49,7 +67,7 @@ export const projects: Project[] = [
     roleTags: ["Full-Stack", "Forward Deployed"],
     featured: true,
     showcase: 5,
-    screenshot: "/assets/screenshots/mccoy.png",
+    screenshot: "/assets/screenshots/mccoy.gif",
     logo: "/assets/logos/projects/mccoy.png",
   },
   {
@@ -62,7 +80,16 @@ export const projects: Project[] = [
     live: "https://olympic-lime-six.vercel.app/",
     method:
       "Claude Code, multi-source data ingestion and visualization, verification-first.",
+    proves:
+      "A single dashboard that unifies several personal health sources into daily and weekly trends, streaks, and personal records.",
+    detail:
+      "Olympic is a personal health tracker that pulls several sources into one dashboard: a treadmill log, daily steps, weekly miles, and workout history. It shows the day's progress against a step goal, a streak of goal-hitting days, year-to-date miles, and charts for daily steps and weekly mileage, alongside personal records. The idea is a single, honest place to see whether the habits are actually moving, built on my own real data rather than a marketing dashboard.",
+    honestNote:
+      "What is real: it runs on my own multi-source health data, and the charts, streaks, and records are live. Where I was learning: it is single-user by design, built for my own tracking rather than hardened for many accounts.",
+    roleTags: ["Full-Stack"],
     featured: true,
+    showcase: 13,
+    screenshot: "/assets/screenshots/olympic.gif",
     logo: "/assets/logos/projects/olympic.png",
   },
   {
@@ -84,7 +111,7 @@ export const projects: Project[] = [
     roleTags: ["Analytics Engineering", "Data Engineering"],
     featured: true,
     showcase: 1,
-    screenshot: "/assets/screenshots/elvis.png",
+    screenshot: "/assets/screenshots/elvis.gif",
     logo: "/assets/logos/projects/elvis.svg",
   },
   {
@@ -106,7 +133,7 @@ export const projects: Project[] = [
     roleTags: ["Analytics Engineering", "Forward Deployed"],
     featured: true,
     showcase: 3,
-    screenshot: "/assets/screenshots/groening.png",
+    screenshot: "/assets/screenshots/groening.gif",
     // No graphical logo in repo yet; the card leads with the screenshot.
   },
   {
@@ -128,7 +155,7 @@ export const projects: Project[] = [
     roleTags: ["Analytics Engineering", "Data Engineering"],
     featured: true,
     showcase: 2,
-    screenshot: "/assets/screenshots/robbins.png",
+    screenshot: "/assets/screenshots/robbins.gif",
     // No graphical logo in repo yet; the card leads with the screenshot.
   },
   {
@@ -150,7 +177,7 @@ export const projects: Project[] = [
     roleTags: ["Data Engineering", "Developer Advocacy"],
     featured: true,
     showcase: 4,
-    screenshot: "/assets/screenshots/spooky.png",
+    screenshot: "/assets/screenshots/spooky.gif",
     logo: "/assets/logos/projects/spooky.svg",
   },
   {
@@ -172,7 +199,7 @@ export const projects: Project[] = [
     roleTags: ["Full-Stack", "Developer Advocacy"],
     featured: true,
     showcase: 6,
-    screenshot: "/assets/screenshots/benten.png",
+    screenshot: "/assets/screenshots/benten.gif",
     // No graphical logo in repo yet; the card leads with the screenshot.
   },
   {
@@ -224,6 +251,8 @@ export const projects: Project[] = [
       "What is real: the forecast, geocoding, animated radar, favorites, and offline fallback all run live off keyless public APIs, with a unit and Playwright suite green in CI. It began as an ad-free reproduction of Weather Underground's two best features, then was reframed as a personal weather app. The scope stays deliberately those two features, done well.",
     roleTags: ["Full-Stack"],
     featured: true,
+    showcase: 9,
+    screenshot: "/assets/screenshots/weather.gif",
     logo: "/assets/logos/projects/weather.svg",
   },
   {
@@ -273,7 +302,9 @@ export const projects: Project[] = [
       "What is real: the ingestion patterns, the dbt models, and the live app all run on Railway. Where I was learning: it deliberately reuses the Elvis architecture, so the work is in the sourcing and the city-scoping, not a from-scratch design.",
     roleTags: ["Analytics Engineering", "Data Engineering"],
     featured: true,
-    // No graphical logo or screenshot in repo yet; card uses the monogram fallback.
+    showcase: 10,
+    screenshot: "/assets/screenshots/gregan.gif",
+    // No graphical logo in repo yet; the card leads with the screenshot.
   },
   {
     id: "ansel",
@@ -312,6 +343,8 @@ export const projects: Project[] = [
       "What is real: the core game is live and playable, with magic-link auth, the Postgres-backed game state, canvas capture, and drawing replay all working. Where I am still building: it is invite-only by design and a visual redesign is in progress, so the look will keep changing.",
     roleTags: ["Full-Stack"],
     featured: true,
+    showcase: 11,
+    screenshot: "/assets/screenshots/roodle.gif",
   },
   // --- Work in progress ---------------------------------------------------
   // Specs written and scaffolding up, but not yet shippable. These render in
