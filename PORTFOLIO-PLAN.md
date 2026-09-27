@@ -74,25 +74,28 @@ description + `method` only; it is an Elvis-family explorer like the showcased r
 - [ ] Add `proves`, `roleTags`, `detail`, `honestNote` to match its siblings
 - [ ] Screenshot (from Evan) + `showcase` rank to sit alongside the other explorers
 
-### wordly — Private word game (DONE except screenshot)
-Live: https://wordly-seven-rust.vercel.app/. Full copy + `wordly.svg` already written on
-branch `add-weather-wordly-projects`.
-- [ ] Screenshot of a logged-in board (from Evan — auth-gated) → then `showcase` rank
+### wordly — Private word game ✅ DONE (showcased)
+Live: https://wordly-seven-rust.vercel.app/. Full copy + logo + a playable-demo gif; merged
+to `main` (#36) and holds `showcase` rank 7.
+- [x] Showcased with a real demo gif
 
-### weather — Ad-free forecast + radar (DONE except screenshot)
-Live: https://weather-iota-murex.vercel.app/. Full copy + `weather.svg` already written on
-branch `add-weather-wordly-projects`.
-- [ ] Screenshot of the forecast/radar view (from Evan) → then `showcase` rank
+### weather → Atmosphere — Personal weather app ✅ DONE (reframed)
+Live: https://weather-iota-murex.vercel.app/. Reframed from "ad-free forecast + radar" to
+**"Atmosphere: A Personal Weather App"** (sky-reactive UI, saved locations, command palette,
+PWA, Playwright suite); full copy + `weather.svg`. Merged to `main` via the reconcile PR.
+- [x] Reframed and shipped as a `featured` entry
+- [ ] (optional) Screenshot of the forecast/radar view (from Evan) → then a `showcase` rank
 
 ---
 
 ## Tier C — work-in-progress, ship first
 
-### boor — AI D&D virtual tabletop
-WIP, spec only, no deployment. Python service + TypeScript web client.
-- [ ] Ship a demoable deployment (or a sign-in-free `demo`)
-- [ ] Remove `wip`; write full copy (`proves`, `roleTags`, `detail`, `honestNote`)
-- [ ] Logo + screenshot
+### boor — AI D&D virtual tabletop ✅ DONE (showcased)
+Promoted to the showcase with a real offline-demo gif; merged to `main` via the reconcile PR
+at `showcase` rank 8. Full copy (`proves`, `roleTags`, `detail`, `honestNote`) frames the
+bounded-LLM-agent architecture. No public live link yet (multiplayer table not deployed).
+- [x] Showcased with `boor.gif` and full copy
+- [ ] (future) Deploy the multiplayer table → add a `live`/`demo` link
 
 ### roodle — (define it)
 WIP, **no description in the repo yet**. Being added by the orch session.
@@ -132,11 +135,15 @@ Delete these entries from `data/projects.ts` (and their showcase/test references
 
 ---
 
-## Coordination note (two in-flight branches)
+## Status (as of the reconcile PR)
 
-- `wordly` + `weather` are committed on worktree branch **`add-weather-wordly-projects`**
-  (`../enki-wordly-weather`), additive off HEAD.
-- The **orch** session is concurrently editing `data/projects.ts` on `main` (removing
-  lucre/seer, adding gregan/roodle, consolidating learn).
-- These will conflict in `data/projects.ts`, its test, and `DECISIONS.md`. Reconcile once,
-  then use this roster as the source of truth for the final set.
+Landed on `main`: **wordly** (showcase 7), **weather → Atmosphere** (featured), **boor**
+(showcase 8, demo gif). The stale branches `weather-personal-app-refresh` (#37) and
+`feat/boor-showcase` (#35), plus the superseded `add-weather-wordly-projects`, are closed/deleted.
+
+**Still pending — the roster prune** (not yet done on `main`): `main` still contains
+`lucre`, `bartleby`, `seer`, `wormsworth`, and the four separate `learn-*` cards, and does
+**not** yet have `gregan` or `roodle`. See "Remove from the portfolio" above and Tiers B–D.
+The `#37` branch carried a partial version of this prune (consolidated `learn` instead of
+dropping it, kept `bartleby`); it was intentionally left out of the reconcile so the prune
+lands once, matching this roster.
