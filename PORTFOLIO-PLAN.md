@@ -5,7 +5,7 @@ roster is 16 projects**; everything not on it gets removed. Each project below h
 checklist for the session that brings it to "portfolio state." Check items off as you go.
 
 _Drafted 2026-09-26. Roster chosen by Evan. bartleby confirmed dropped. Status refreshed
-2026-10-24 against `data/projects.ts` (after #42, #43)._
+2026-10-22 against `data/projects.ts` (after #42, #43)._
 
 ---
 
