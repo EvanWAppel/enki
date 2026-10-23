@@ -54,3 +54,21 @@ and the hostname variants 404 too, matching Evan's "failing a lot." Putting that
 public portfolio would point recruiters at a broken page. It ships as `wip` (built, honestly
 described, no live link) until the deployment serves a 200. This completes all 16 roster
 projects on the site, 15 live/featured and niu_ma as the one work-in-progress.
+
+## 2026-10-23 — Clear stale weather/gregan screenshot blockers; narrow the domain blocker
+
+**Context.** Two BLOCKED.md items asked Evan for PNG screenshots to promote weather and gregan
+into the showcase, but #42 already showcased both with animated GIFs
+(`/assets/screenshots/weather.gif`, `/assets/screenshots/gregan.gif` set as `screenshot` on
+`main`). The domain blocker still listed transfer and nameserver steps that are done: the
+registrar is Porkbun and NS records point at Cloudflare.
+
+**Chosen.** Delete both screenshot blockers. Reword the domain blocker to the one remaining step:
+cancel the Wix Premium plan and Wix domain auto-renew before Nov 28, 2026.
+
+**Rejected.** Keeping the screenshot items open until PNGs exist, or keeping the full multi-step
+domain checklist.
+
+**Why.** The GIFs satisfy the showcase screenshot invariant, so a PNG would add nothing. Leaving
+finished steps in an open blocker hides the one action that still has a deadline. Approved by
+Evan, blocker triage 2026-10-23.
