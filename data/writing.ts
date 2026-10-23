@@ -2,8 +2,9 @@
 // the markdown files; this sidecar holds the facts only Evan controls — the
 // lane, display order, cover image, and the canonical LinkedIn permalink + date.
 //
-// linkedInUrl / publishedAt are intentionally blank until Evan supplies the real
-// values (see BLOCKED.md). The pages render fully without them — the "Originally
+// linkedInUrl / publishedAt are filled for every essay except
+// in-praise-of-the-boring-pipeline, which stays blank until Evan supplies the real
+// values (see BLOCKED.md). A page renders fully without them: the "Originally
 // published on LinkedIn" backlink, the date line, and the canonical SEO tag each
 // appear only once their field is filled in. Never invent these.
 
@@ -14,9 +15,9 @@ export type WritingMeta = {
   order: number;
   /** Cover image under /public, or omit. */
   image?: string;
-  /** Canonical LinkedIn permalink — Evan to fill. */
+  /** Canonical LinkedIn permalink, or omit until Evan supplies it. */
   linkedInUrl?: string;
-  /** ISO date it went live on LinkedIn (e.g. "2025-07-16") — Evan to fill. */
+  /** ISO date it went live on LinkedIn (e.g. "2025-07-16"), or omit until Evan supplies it. */
   publishedAt?: string;
 };
 
