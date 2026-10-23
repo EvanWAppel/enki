@@ -17,12 +17,12 @@ npm ci            # install exactly what package-lock.json pins
 npm run dev       # dev server on http://localhost:3000
 npm test          # Vitest data + lib tests (run once)
 npm run test:watch
-npx tsc --noEmit  # typecheck
+npm run typecheck # tsc --noEmit
 npm run build     # production build
 ```
 
-CI (`.github/workflows/ci.yml`) runs `npm ci` and `npm test` on every pull request and
-push to `main`.
+CI (`.github/workflows/ci.yml`) runs `npm ci`, `npm test` and `npm run typecheck` on
+every pull request and push to `main`.
 
 ## Pages
 
