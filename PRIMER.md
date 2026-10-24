@@ -6,18 +6,20 @@
 project cards, writing, fiction, résumé and "how I work" pages are driven by typed data
 files under `data/`, guarded by Vitest data tests.
 
-**Current state (main @ 9a83cdd, 2026-10-23).**
+**Current state (main @ 83b77cb, 2026-10-23).**
 - 16-project roster complete; 14 projects showcased with animated GIFs (#42), top three
   elvis / weather / mccoy (#43). `ansel` is featured (no screenshot), `niu_ma` is `wip`.
 - The weekend run (PR #51, merged 2026-10-23) did all six tasks from the 2026-10-22 primer
   (see below). Also merged since: #50 (`project.toml`, PLAT-REG-01), #46-#48 Dependabot
   bumps (vitest 5, tailwind postcss, lucide), #52 (blocker protocol sync), #53 (stale
-  screenshot blockers cleared, domain blocker narrowed).
+  screenshot blockers cleared, domain blocker narrowed), #56 (Dependabot holds typescript
+  `>=7`: Next 16.2.x can't build with TS 7; see `.github/dependabot.yml`) and #54 (react +
+  react-dom + types to 19.3). #44 and #45 were closed.
 - `npm test`: **6 files, 50 tests, all pass** as measured 2026-10-22, before #51 added
   writing, README and CI tests; re-measure. `npx tsc --noEmit` (now `npm run typecheck`,
   also run in CI).
-- Open PRs: #54 (react + react-dom + types to 19.3), #44 (react / @types/react Dependabot),
-  #45 (typescript 7 Dependabot). Do not redo any of these.
+- Open PRs: Dependabot #57 (@vitejs/plugin-react 6.1.2), #58 (@types/node 26.6.5) and #60
+  (next 16.4.2). Do not redo any of these.
 - `TASKS.md` now exists and holds the `_system` platform handoffs; `PORTFOLIO-PLAN.md` was
   refreshed in #51.
 - `DOMAIN-MIGRATION.md` is gitignored and only exists in Evan's local checkout.
@@ -51,7 +53,8 @@ that needs Evan is in `BLOCKED.md`.
 
 - **Deploy anything** (Vercel, `vercel` CLI, Railway) or touch DNS / Cloudflare / Porkbun /
   Wix. The domain move is Evan's (BLOCKED.md).
-- **Merge any PR**, including #44, #45 and #54. typescript 7 is a major: Evan's call.
+- **Merge any PR**, including Dependabot #57, #58 and #60. Don't take typescript 7: it is held
+  in `.github/dependabot.yml` until next is bumped to >=16.4 in the same PR, and that's Evan's call.
 - **Take screenshots or use the browser** (global guardrail). No new showcase promotions that
   need images (ansel, niu_ma).
 - **Promote `niu_ma`** or add any live link that is not confirmed returning 200 via curl.
