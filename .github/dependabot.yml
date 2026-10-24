@@ -4,6 +4,13 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+    # Hold TypeScript 7: `next build` on Next 16.2.x doesn't recognise TS 7 (it
+    # tries to auto-install typescript and the build worker crashes), so the
+    # Vercel build fails. Next 16.4 builds fine with TS 7. Remove this ignore
+    # when next is bumped to >=16.4 and TS 7 is taken in the same PR.
+    ignore:
+      - dependency-name: "typescript"
+        update-types: ["version-update:semver-major"]
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
