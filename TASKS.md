@@ -45,3 +45,16 @@ auto-deploys).
   - **Check:** `cd ~/Documents/_system && uv run sys registry` shows this repo as `ok` (or
     `⚠ guardrail` if a paid key is still uncapped; that's a real open item, not a format error).
   - Format reference: `~/Documents/_system/docs/project-toml.md`.
+
+## Maintenance
+
+- [x] **Narrow the whole-project file trace from `lib/fiction.ts`** _(2026-10-24)_
+  - **Why:** `next build` warned "Dynamic filesystem access causes tracing of the whole
+    project" at `getFictionBySlug`: the candidate paths went through an array, so Turbopack
+    could not bound them and traced the entire repo (docs, `app/`, `public/`) into the
+    `/fiction` server functions.
+  - **Done:** paths built inline from literal segments; slugs validated against
+    `^[a-z0-9][a-z0-9-]*$` (also closes a `../` read outside `fiction/`);
+    `outputFileTracingExcludes` drops the unread `fiction/*.zip` and `fiction/Poetry.md`.
+    Tests in `__tests__/lib/fictionFs.test.ts`. Build is warning-free and the `/fiction`
+    traces hold only `fiction/stories` and `fiction/poetry`.
