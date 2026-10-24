@@ -1,0 +1,39 @@
+# Drafted by ~/Documents/_system on 2026-10-22; verified in enki's own session the same day
+# (PLAT-REG-01). Format: _system/docs/project-toml.md
+
+[project]
+name = "enki"
+group = "portfolio"
+kind = "site"
+status = "active"
+repo = "EvanWAppel/enki"
+visibility = "public"
+on_site = false             # enki *is* the site
+verified = true
+
+[deploy]
+host = "vercel"
+services = ["eps"]          # Vercel project is named "eps" (origin eps-three.vercel.app)
+domain = "evanappel.me"
+origin_urls_closed = false
+
+[auth]
+scheme = "none"
+access_list = ""
+target = "none"             # the site stays fully public
+
+[data]
+db = "none"
+
+[demo]
+status = "none"             # n/a: the whole site is public
+url = ""
+path = ""
+
+[keys]
+paid = []
+isolated = "n/a"
+spend_cap = "n/a"
+
+[platform]
+done = ["PLAT-REG-01"]
