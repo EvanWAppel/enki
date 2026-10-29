@@ -37,3 +37,12 @@ spend_cap = "n/a"
 
 [platform]
 done = ["PLAT-REG-01"]
+
+[commands]
+dev = "npm run dev"
+test = "npm run test"
+
+[meta]
+description = "Personal site / hub"
+language = "node"
+tags = ["hub"]
