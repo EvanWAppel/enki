@@ -34,6 +34,25 @@ auto-deploys).
     `demo` URL contains `railway.app` or `vercel.app`.
   - **Done when:** tests + lint green, PR open, deploy held for Evan's approval.
 
+- [ ] **PLAT-SITE-02 — "Try the demo" links for the live demos** _(handed off 2026-10-29)_
+  - **Why:** _system D-031/D-032: every app gets a public demo on `<app>-demo.evanappel.me`.
+    Seven are live (each returned HTTP 200 on 2026-10-29; re-check with `curl -sIL` first).
+  - **Cards that exist — set `demo`:**
+
+    | card `id` | `demo` |
+    |---|---|
+    | boor | `https://boor-demo.evanappel.me/` |
+    | wordly | `https://wordly-demo.evanappel.me/` (replaces the `/demo` path) |
+
+  - **No card yet — ask Evan before adding any** (new cards need his copy and ordering):
+    ragnarok, daltrey, bourdain, todo-dashboard, homestar, each at `https://<id>-demo.evanappel.me/`.
+  - **Do with PLAT-SITE-01** (same file, same test): no `live`/`demo` URL may point at a raw
+    `railway.app` / `vercel.app` origin.
+  - **Tests first:** extend `__tests__/data/projects.test.ts`: boor and wordly have a `demo` on
+    `*-demo.evanappel.me`.
+  - **Done when:** tests + lint green, PR open, deploy held for Evan's approval (pushing to
+    `main` auto-deploys), `"PLAT-SITE-02"` in `[platform] done`.
+
 - [x] **PLAT-REG-01 — Verify and commit `project.toml`** _(handed off 2026-10-22)_
   - **Why:** `_system` builds the registry of every project from each repo's own
     `project.toml` (replacing `portfolio/projects.toml`). `_system` drafted this repo's file
