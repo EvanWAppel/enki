@@ -40,9 +40,18 @@ done = ["PLAT-REG-01"]
 
 [commands]
 dev = "npm run dev"
-test = "npm run test"
+test = "npm test"
+setup = "npm ci"
+lint = "npm run typecheck"
 
 [meta]
 description = "Personal site / hub"
 language = "node"
 tags = ["hub"]
+
+[fleet]                     # joined 2026-11-01 (_system D-051); also has the `fleet` topic
+component = "enki"
+agents = ["claude", "codex"]
+default_model = "sonnet"
+default_branch = "main"
+max_minutes = 45
