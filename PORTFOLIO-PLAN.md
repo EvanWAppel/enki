@@ -51,7 +51,7 @@ carousel with full copy (`proves`, `roleTags`, `detail`, `honestNote`). A sessio
 needs to confirm the live link still resolves and the copy still reads true.
 
 - [ ] **elvis** — dbt + DuckDB, Las Vegas (showcase #1)
-- [ ] **weather** — Atmosphere, personal weather app (showcase #2)
+- [ ] **mondaugen** — personal weather app, formerly weather/Atmosphere (showcase #2)
 - [ ] **mccoy** — Spotify listening dashboard (showcase #3)
 - [ ] **robbins** — Seattle open-data explorer (showcase #4)
 - [ ] **groening** — Portland open-data explorer (showcase #5)

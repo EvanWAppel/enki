@@ -31,6 +31,10 @@ const nextConfig: NextConfig = {
   async headers() {
     return [{ source: "/:path*", headers: securityHeaders }];
   },
+  async redirects() {
+    // The weather project was renamed to Mondaugen; keep old links working.
+    return [{ source: "/projects/weather", destination: "/projects/mondaugen", permanent: true }];
+  },
 };
 
 export default nextConfig;

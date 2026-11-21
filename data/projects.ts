@@ -209,7 +209,7 @@ export const projects: Project[] = [
       "A private, invite-only word game in the Words With Friends style for a small circle of friends and family, with no ads, no paywalls, and no power-ups to buy. It is an installable web app: async turn-based play, a faithful 15 by 15 board and tile bag, live dictionary-checked scoring, and a ping when it is your turn.",
     tech: ["Next.js", "TypeScript", "Neon Postgres", "Drizzle ORM", "Resend", "Web Push", "Vercel"],
     github: "https://github.com/EvanWAppel/wordly",
-    live: "https://wordly.evanappel.me/",
+    // No live link: the game sits behind Cloudflare Access. The demo stays public.
     demo: "https://wordly.evanappel.me/demo",
     method:
       "Claude Code from a written PRD, with the game rules and scoring tested first, then magic-link auth, a Postgres data model, and email plus web-push notifications wired end to end.",
@@ -226,8 +226,8 @@ export const projects: Project[] = [
     logo: "/assets/logos/projects/wordly.svg",
   },
   {
-    id: "weather",
-    title: "Atmosphere: A Personal Weather App",
+    id: "mondaugen",
+    title: "Mondaugen: A Personal Weather App",
     description:
       "A calm, ad-free personal weather app built around the two things a weather site is actually for: a 10-day forecast and live radar, over a dark, sky-reactive backdrop that animates with the current conditions and the time of day. It adds saved locations, a keyboard command palette, and an installable PWA. Every data source is keyless.",
     tech: [
@@ -239,21 +239,21 @@ export const projects: Project[] = [
       "PWA",
       "Vercel",
     ],
-    github: "https://github.com/EvanWAppel/weather",
+    github: "https://github.com/EvanWAppel/mondaugen",
     live: "https://mondaugen.evanappel.me/",
     method:
       "Claude Code through a Requirements, Orchestrate, Check, Review loop from a PRD and task board: logic tested first, adversarially reviewed on every merge, with a unit and Playwright suite in CI and data from keyless public APIs (Open-Meteo, RainViewer).",
     proves:
       "A polished, accessible front end on keyless public APIs: an interactive radar map, forecast charts, a sky-reactive animated UI, favorites and a command palette, and an installable PWA, with nothing to configure.",
     detail:
-      "Atmosphere is a personal weather app, a calm and ad-free take on the two features a weather site is actually for: a 10-day forecast (a current-conditions hero plus hourly trend charts) and an interactive precipitation radar (MapLibre over OpenStreetMap with RainViewer tiles). The signature is a dark glass UI over a sky-reactive backdrop that animates with the current conditions and the time of day, gated behind reduced-motion. It adds the conveniences of something you would open every morning: saved locations, a keyboard command palette, and sunrise and sunset times, plus a dynamic Open Graph share card and an installable PWA that falls back to your last forecast offline. The design constraint was keylessness: every data source (Open-Meteo forecast and geocoding, RainViewer radar) is public and needs no API key, so there is nothing to configure and no secret to leak.",
+      "Mondaugen is a personal weather app, a calm and ad-free take on the two features a weather site is actually for: a 10-day forecast (a current-conditions hero plus hourly trend charts) and an interactive precipitation radar (MapLibre over OpenStreetMap with RainViewer tiles). The signature is a dark glass UI over a sky-reactive backdrop that animates with the current conditions and the time of day, gated behind reduced-motion. It adds the conveniences of something you would open every morning: saved locations, a keyboard command palette, and sunrise and sunset times, plus a dynamic Open Graph share card and an installable PWA that falls back to your last forecast offline. The design constraint was keylessness: every data source (Open-Meteo forecast and geocoding, RainViewer radar) is public and needs no API key, so there is nothing to configure and no secret to leak.",
     honestNote:
       "What is real: the forecast, geocoding, animated radar, favorites, and offline fallback all run live off keyless public APIs, with a unit and Playwright suite green in CI. It began as an ad-free reproduction of Weather Underground's two best features, then was reframed as a personal weather app. The scope stays deliberately those two features, done well.",
     roleTags: ["Full-Stack"],
     featured: true,
     showcase: 2,
-    screenshot: "/assets/screenshots/weather.gif",
-    logo: "/assets/logos/projects/weather.svg",
+    screenshot: "/assets/screenshots/mondaugen.gif",
+    logo: "/assets/logos/projects/mondaugen.svg",
   },
   {
     id: "boor",
