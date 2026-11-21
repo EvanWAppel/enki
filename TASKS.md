@@ -1,0 +1,79 @@
+# TASKS — enki
+
+`[ ]` todo · `[~]` in progress · `[x]` done · `[!]` blocked.
+
+## Platform (handed off from _system)
+
+Site tasks handed to this repo by the private `~/Documents/_system` platform repo. Do them
+here, in enki's own session. Nothing deploys without Evan's approval (pushing to `main`
+auto-deploys).
+
+- [ ] **PLAT-SITE-01 — Point project cards at `*.evanappel.me` subdomains** _(handed off 2026-10-22)_
+  - **Why:** `data/projects.ts` still links raw `*.up.railway.app` / `*.vercel.app` origins.
+    The subdomains are live, and the origins will later be closed behind Cloudflare Access.
+  - **Map** (each subdomain returned HTTP 200 on 2026-10-22; re-check with `curl -sI` first):
+
+    | card `id` | field | new URL |
+    |---|---|---|
+    | mccoy | live | `https://mccoy.evanappel.me/` |
+    | olympic | live | `https://olympic.evanappel.me/` |
+    | elvis | live | `https://elvis.evanappel.me/` |
+    | groening | live | `https://groening.evanappel.me/` |
+    | robbins | live | `https://robbins.evanappel.me/` |
+    | spooky | live | `https://spooky.evanappel.me/` |
+    | benten | demo | `https://benten.evanappel.me/` |
+    | wordly | live / demo | `https://wordly.evanappel.me/` · `/demo` |
+    | weather | live | `https://mondaugen.evanappel.me/` (no `weather.` subdomain exists) |
+    | gregan | live | `https://gregan.evanappel.me/` |
+    | roodle | live | `https://roodle.evanappel.me/` |
+
+  - **Also:** grep the repo (`app/`, `components/`, `data/`, `writing/`, `RECRUITER-PRIMER.md`)
+    for any other `railway.app` / `vercel.app` links. `siteConfig.url` is already
+    `https://evanappel.me`; nothing to do there.
+  - **Tests first:** add a `__tests__/data/projects.test.ts` case asserting that no `live` /
+    `demo` URL contains `railway.app` or `vercel.app`.
+  - **Done when:** tests + lint green, PR open, deploy held for Evan's approval.
+
+- [ ] **PLAT-SITE-02 — "Try the demo" links for the live demos** _(handed off 2026-10-29)_
+  - **Why:** _system D-031/D-032: every app gets a public demo on `<app>-demo.evanappel.me`.
+    Seven are live (each returned HTTP 200 on 2026-10-29; re-check with `curl -sIL` first).
+  - **Cards that exist — set `demo`:**
+
+    | card `id` | `demo` |
+    |---|---|
+    | boor | `https://boor-demo.evanappel.me/` |
+    | wordly | `https://wordly-demo.evanappel.me/` (replaces the `/demo` path) |
+
+  - **No card yet — ask Evan before adding any** (new cards need his copy and ordering):
+    ragnarok, daltrey, bourdain, todo-dashboard, homestar, each at `https://<id>-demo.evanappel.me/`.
+  - **Do with PLAT-SITE-01** (same file, same test): no `live`/`demo` URL may point at a raw
+    `railway.app` / `vercel.app` origin.
+  - **Tests first:** extend `__tests__/data/projects.test.ts`: boor and wordly have a `demo` on
+    `*-demo.evanappel.me`.
+  - **Done when:** tests + lint green, PR open, deploy held for Evan's approval (pushing to
+    `main` auto-deploys), `"PLAT-SITE-02"` in `[platform] done`.
+
+- [x] **PLAT-REG-01 — Verify and commit `project.toml`** _(handed off 2026-10-22)_
+  - **Why:** `_system` builds the registry of every project from each repo's own
+    `project.toml` (replacing `portfolio/projects.toml`). `_system` drafted this repo's file
+    from the code and the reorg inventory; only this session can confirm it.
+  - **Do:** read `project.toml` against the code and the live deploy (`curl -sI` the domain;
+    Railway/Vercel dashboards for service names). Fix anything wrong. Unsure → write
+    `"unknown"` and add a `BLOCKED.md` item, never guess. Then set `verified = true`, add
+    `"PLAT-REG-01"` to `[platform] done`, and commit on a branch → PR.
+  - **Check:** `cd ~/Documents/_system && uv run sys registry` shows this repo as `ok` (or
+    `⚠ guardrail` if a paid key is still uncapped; that's a real open item, not a format error).
+  - Format reference: `~/Documents/_system/docs/project-toml.md`.
+
+## Maintenance
+
+- [x] **Narrow the whole-project file trace from `lib/fiction.ts`** _(2026-10-24)_
+  - **Why:** `next build` warned "Dynamic filesystem access causes tracing of the whole
+    project" at `getFictionBySlug`: the candidate paths went through an array, so Turbopack
+    could not bound them and traced the entire repo (docs, `app/`, `public/`) into the
+    `/fiction` server functions.
+  - **Done:** paths built inline from literal segments; slugs validated against
+    `^[a-z0-9][a-z0-9-]*$` (also closes a `../` read outside `fiction/`);
+    `outputFileTracingExcludes` drops the unread `fiction/*.zip` and `fiction/Poetry.md`.
+    Tests in `__tests__/lib/fictionFs.test.ts`. Build is warning-free and the `/fiction`
+    traces hold only `fiction/stories` and `fiction/poetry`.

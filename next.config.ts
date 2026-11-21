@@ -28,6 +28,13 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
+  // lib/fiction.ts reads fiction/stories/*.md and fiction/poetry/*.md, so the
+  // tracer bounds the /fiction routes to fiction/. That folder also holds two
+  // source files no code reads (the original Drive export zip and the combined
+  // Poetry.md); keep them out of the server bundle.
+  outputFileTracingExcludes: {
+    "/fiction/**": ["./fiction/*.zip", "./fiction/Poetry.md"],
+  },
   async headers() {
     return [{ source: "/:path*", headers: securityHeaders }];
   },

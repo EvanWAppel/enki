@@ -55,18 +55,25 @@ export function getAllFiction(): { stories: FictionPiece[]; poems: FictionPiece[
   return { stories, poems };
 }
 
+// Slugs are file basenames: lowercase letters, digits and hyphens. Anything
+// else (notably "/" or "..") is rejected before touching the filesystem.
+const SLUG_RE = /^[a-z0-9][a-z0-9-]*$/;
+
+function readPiece(filePath: string, slug: string, type: "story" | "poem"): FictionPiece {
+  const raw = fs.readFileSync(filePath, "utf-8");
+  const { title, body } = parseMd(raw);
+  return { slug, title, type, excerpt: getExcerpt(body), content: body };
+}
+
 export function getFictionBySlug(slug: string): FictionPiece | null {
-  const candidates: Array<[string, "story" | "poem"]> = [
-    [path.join(FICTION_DIR, "stories", `${slug}.md`), "story"],
-    [path.join(FICTION_DIR, "poetry", `${slug}.md`), "poem"],
-  ];
-  for (const [filePath, type] of candidates) {
-    if (fs.existsSync(filePath)) {
-      const raw = fs.readFileSync(filePath, "utf-8");
-      const { title, body } = parseMd(raw);
-      return { slug, title, type, excerpt: getExcerpt(body), content: body };
-    }
-  }
+  if (!SLUG_RE.test(slug)) return null;
+  // Each path is built inline from literal segments so Turbopack's file tracer
+  // can scope it to fiction/stories or fiction/poetry. Routing the paths through
+  // an array (as this used to) defeats that analysis and traces the whole repo.
+  const storyPath = path.join(FICTION_DIR, "stories", `${slug}.md`);
+  if (fs.existsSync(storyPath)) return readPiece(storyPath, slug, "story");
+  const poemPath = path.join(FICTION_DIR, "poetry", `${slug}.md`);
+  if (fs.existsSync(poemPath)) return readPiece(poemPath, slug, "poem");
   return null;
 }
 
