@@ -24,6 +24,14 @@ describe("projects data", () => {
     }
   });
 
+  it("links live apps through evanappel.me subdomains, not raw platform hosts", () => {
+    for (const p of projects) {
+      for (const url of [p.live, p.demo]) {
+        if (url) expect(url, `${p.id}: ${url}`).not.toMatch(/\.(up\.railway|vercel)\.app/);
+      }
+    }
+  });
+
   it("surfaces sign-in-free demos for the recruiter-facing apps", () => {
     const demos = new Set(projects.filter((p) => p.demo).map((p) => p.id));
     expect(demos.has("guzzolene")).toBe(true);
@@ -65,12 +73,14 @@ describe("projects data", () => {
     }
   });
 
-  it("lists weather as a shipped (non-wip) featured project", () => {
-    const weather = projects.find((p) => p.id === "weather");
-    expect(weather, "weather project is missing").toBeTruthy();
-    expect(weather?.wip, "weather should be shipped, not work-in-progress").toBeFalsy();
-    expect(weather?.featured).toBe(true);
-    expect(weather?.live, "weather needs a live URL").toMatch(/^https:\/\//);
+  it("lists mondaugen (the weather app) as a shipped featured project", () => {
+    const mondaugen = projects.find((p) => p.id === "mondaugen");
+    expect(mondaugen, "mondaugen project is missing").toBeTruthy();
+    expect(mondaugen?.title).toMatch(/^Mondaugen:/);
+    expect(mondaugen?.wip, "mondaugen should be shipped, not work-in-progress").toBeFalsy();
+    expect(mondaugen?.featured).toBe(true);
+    expect(mondaugen?.live).toBe("https://mondaugen.evanappel.me/");
+    expect(projects.some((p) => p.id === "weather"), "old weather id should be gone").toBe(false);
   });
 
   it("lists wordly as a shipped featured project with a detail page", () => {
@@ -78,11 +88,14 @@ describe("projects data", () => {
     expect(wordly, "wordly project is missing").toBeTruthy();
     expect(wordly?.wip).toBeFalsy();
     expect(wordly?.featured).toBe(true);
-    expect(wordly?.live, "wordly needs a live URL").toMatch(/^https:\/\//);
+    expect(
+      wordly?.live,
+      "wordly's game is behind Cloudflare Access, so it carries no public live link",
+    ).toBeUndefined();
     expect(
       wordly?.demo,
-      "wordly needs a sign-in-free demo URL",
-    ).toMatch(/\/demo$/);
+      "wordly's demo must be the public demo host, not the Access-gated /demo path",
+    ).toBe("https://wordly-demo.evanappel.me/");
     expect(wordly?.proves, "wordly needs a proves line").toBeTruthy();
     expect((wordly?.roleTags?.length ?? 0), "wordly needs role tags").toBeGreaterThan(0);
     expect(wordly?.detail, "wordly needs a detail narrative").toBeTruthy();
@@ -95,7 +108,7 @@ describe("projects data", () => {
       .sort((a, b) => (a.showcase ?? 0) - (b.showcase ?? 0));
     expect(ranked.map((p) => p.id)).toEqual([
       "elvis",
-      "weather",
+      "mondaugen",
       "mccoy",
       "robbins",
       "groening",
