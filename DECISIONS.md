@@ -72,3 +72,27 @@ domain checklist.
 **Why.** The GIFs satisfy the showcase screenshot invariant, so a PNG would add nothing. Leaving
 finished steps in an open blocker hides the one action that still has a deadline. Approved by
 Evan, blocker triage 2026-10-23.
+
+## 2026-11-21 — Demo cards for five private-repo apps; employer-facing work leads the showcase
+
+**Context.** PLAT-SITE-02 asked for cards for the apps with public `<app>-demo.evanappel.me`
+hosts. ragnarok, daltrey, homestar, bourdain and todo-dashboard had no card, and all five repos
+are private. daltrey's own AGENTS.md said nothing about it should go anywhere public, and Jim Riley
+contributed daltrey's market research.
+
+**Chosen.** Add all five as showcased cards that link the public demo and no source repo. Lead
+the showcase with ragnarok, daltrey and homestar (so they are the homepage top three), then the
+geography explorers (robbins, groening, gregan), then the rest, with games (wordly, boor, roodle)
+last. Credit Jim Riley's market research on daltrey (not ragnarok, where he has no commits).
+Give boor its demo link.
+Screenshots are headless Playwright captures of each public demo, all on synthetic data.
+
+**Rejected.** Leaving daltrey off because of its private-repo rule; listing the five under
+"More projects" without screenshots (that would put them below the games); waiting on
+hand-made screenshots; and making the repos public to add GitHub links.
+
+**Why.** Evan ranked these three as the most impressive to employers and approved a public
+daltrey card. The showcase needs a real screenshot per card, and the demos already show only
+synthetic data. Naming the collaborator's actual contribution is honest about shared work. homestar's method
+line claims only test-first work, PR sign-offs and CI until its adversarial reviews are done.
+Evan confirmed the ordering, the daltrey card and figures, and the credit on 2026-11-21.
