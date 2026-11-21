@@ -209,8 +209,8 @@ export const projects: Project[] = [
       "A private, invite-only word game in the Words With Friends style for a small circle of friends and family, with no ads, no paywalls, and no power-ups to buy. It is an installable web app: async turn-based play, a faithful 15 by 15 board and tile bag, live dictionary-checked scoring, and a ping when it is your turn.",
     tech: ["Next.js", "TypeScript", "Neon Postgres", "Drizzle ORM", "Resend", "Web Push", "Vercel"],
     github: "https://github.com/EvanWAppel/wordly",
-    // No live link: the game sits behind Cloudflare Access. The demo stays public.
-    demo: "https://wordly.evanappel.me/demo",
+    // No live link: the game sits behind Cloudflare Access. The demo has its own public host.
+    demo: "https://wordly-demo.evanappel.me/",
     method:
       "Claude Code from a written PRD, with the game rules and scoring tested first, then magic-link auth, a Postgres data model, and email plus web-push notifications wired end to end.",
     proves:

@@ -94,8 +94,8 @@ describe("projects data", () => {
     ).toBeUndefined();
     expect(
       wordly?.demo,
-      "wordly needs a sign-in-free demo URL",
-    ).toMatch(/\/demo$/);
+      "wordly's demo must be the public demo host, not the Access-gated /demo path",
+    ).toBe("https://wordly-demo.evanappel.me/");
     expect(wordly?.proves, "wordly needs a proves line").toBeTruthy();
     expect((wordly?.roleTags?.length ?? 0), "wordly needs role tags").toBeGreaterThan(0);
     expect(wordly?.detail, "wordly needs a detail narrative").toBeTruthy();
