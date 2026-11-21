@@ -114,10 +114,16 @@ describe("projects data", () => {
     }
   });
 
-  it("credits Jim Riley on the projects built with him", () => {
-    for (const id of ["ragnarok", "daltrey"]) {
-      expect(projects.find((p) => p.id === id)?.method).toContain("Jim Riley");
-    }
+  it("credits Jim Riley's market research on daltrey only", () => {
+    expect(projects.find((p) => p.id === "daltrey")?.method).toContain(
+      "market research by Jim Riley",
+    );
+    const ragnarok = projects.find((p) => p.id === "ragnarok");
+    expect(`${ragnarok?.method} ${ragnarok?.honestNote}`).not.toContain("Jim Riley");
+  });
+
+  it("does not claim per-merge adversarial review for homestar", () => {
+    expect(projects.find((p) => p.id === "homestar")?.method).not.toMatch(/adversarial/i);
   });
 
   it("links boor's sign-in-free demo", () => {

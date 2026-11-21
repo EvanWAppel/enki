@@ -77,13 +77,14 @@ Evan, blocker triage 2026-10-23.
 
 **Context.** PLAT-SITE-02 asked for cards for the apps with public `<app>-demo.evanappel.me`
 hosts. ragnarok, daltrey, homestar, bourdain and todo-dashboard had no card, and all five repos
-are private. daltrey's own AGENTS.md said nothing about it should go anywhere public, and both
-ragnarok and daltrey were built with Jim Riley.
+are private. daltrey's own AGENTS.md said nothing about it should go anywhere public, and Jim Riley
+contributed daltrey's market research.
 
 **Chosen.** Add all five as showcased cards that link the public demo and no source repo. Lead
 the showcase with ragnarok, daltrey and homestar (so they are the homepage top three), then the
 geography explorers (robbins, groening, gregan), then the rest, with games (wordly, boor, roodle)
-last. Credit Jim Riley in the ragnarok and daltrey method lines. Give boor its demo link.
+last. Credit Jim Riley's market research on daltrey (not ragnarok, where he has no commits).
+Give boor its demo link.
 Screenshots are headless Playwright captures of each public demo, all on synthetic data.
 
 **Rejected.** Leaving daltrey off because of its private-repo rule; listing the five under
@@ -92,5 +93,6 @@ hand-made screenshots; and making the repos public to add GitHub links.
 
 **Why.** Evan ranked these three as the most impressive to employers and approved a public
 daltrey card. The showcase needs a real screenshot per card, and the demos already show only
-synthetic data. Naming the collaborator is honest about shared work. _Drafted by Claude; for Evan
-to confirm._
+synthetic data. Naming the collaborator's actual contribution is honest about shared work. homestar's method
+line claims only test-first work, PR sign-offs and CI until its adversarial reviews are done.
+Evan confirmed the ordering, the daltrey card and figures, and the credit on 2026-11-21.

@@ -13,13 +13,13 @@ export const projects: Project[] = [
     tech: ["Python", "FastAPI", "PostgreSQL", "SQLAlchemy", "Alembic", "Jinja", "Railway"],
     demo: "https://ragnarok-demo.evanappel.me/",
     method:
-      "Built with Jim Riley. Claude Code through the ROCRLL loop: tests first, review findings adjudicated in a decision log, and CI running lint, typecheck, and the full suite, plus a cold-clone check.",
+      "Claude Code through the ROCRLL loop: tests first, review findings adjudicated in a decision log, and CI running lint, typecheck, and the full suite, plus a cold-clone check.",
     proves:
       "Turning a regulated, multi-tenant business domain into a tested end-to-end system, from audience selection through compliance, delivery, measured results, and CRM write-back.",
     detail:
       "Ragnarok does a marketing department's job in software. A campaign starts with an audience, runs through a legal-first exclusion waterfall and a risk tier, routes the offer, checks it against the budget, ships, measures its A/B result, and writes the outcome back to a CRM. The domain is modeled on real rules (advisory, not legally reviewed): Reg Z disclosures, contact-consent exclusions, and fair-lending guardrails for the card bank, door hangers and Nextdoor drops for the landscapers. Everything runs on seeded synthetic businesses, so the whole system rebuilds the same way from a cold clone. The public demo is a read-only tour of the two landscaping firms.",
     honestNote:
-      "What is real: milestones M0 through M11 are merged (one backlog item open, and a split into three apps is planned), with per-user logins, a Postgres deployment, and the public demo. Where it stops: every customer, send, and CRM org is simulated, and the language-model features run on a deterministic stand-in in deployment until a security review clears real model calls. It was built with Jim Riley as a working tool, and the repo is private.",
+      "What is real: milestones M0 through M11 are merged (one backlog item open, and a split into three apps is planned), with per-user logins, a Postgres deployment, and the public demo. Where it stops: every customer, send, and CRM org is simulated, and the language-model features run on a deterministic stand-in in deployment until a security review clears real model calls. It is a working tool, and the repo is private.",
     roleTags: ["Full-Stack", "Analytics Engineering"],
     featured: true,
     showcase: 1,
@@ -33,13 +33,13 @@ export const projects: Project[] = [
     tech: ["Python", "FastAPI", "PostgreSQL", "Claude Haiku", "fastembed", "scikit-learn", "Railway"],
     demo: "https://daltrey-demo.evanappel.me/",
     method:
-      "Built with Jim Riley. Claude Code through the ROCRLL loop: tests first against recorded fixtures, an adversarial review on every pull request, and every trade-off logged in a decision record.",
+      "With market research by Jim Riley. Claude Code through the ROCRLL loop: tests first against recorded fixtures, an adversarial review on every pull request, and every trade-off logged in a decision record.",
     proves:
       "A cost-governed language-model pipeline that ran in production: ingest, dedupe, model scoring, embedding clustering, and human review, with spend estimated before it happens.",
     detail:
       "daltrey ingests requests for proposals from local-government open-data feeds (four in production, with two more wired in just before it was archived), normalizes and dedupes them, and asks Claude Haiku to score each one against a versioned capability profile. A local embedding model then clusters similar requests across jurisdictions, so the same records portal requested in three cities would show up as one cluster. Every stage is idempotent and can be rerun on its own, every score records the model and a hash of the prompt behind it, and spend is estimated before a run: the full backfill was priced at about $7.30 for 2,753 listings before it was approved. People make every in, out, or watch decision. The public demo runs on invented listings, so triage clicks work but nothing real is shown.",
     honestNote:
-      "What is real: ingest, scoring, and clustering ran in production, producing 2,739 assessments and 14 clusters, 7 of them spanning more than one jurisdiction. Where it stopped: the later phases (briefs, outreach drafts, prototypes) were never built, and the project was archived on 2026-11-01. It was built with Jim Riley, and the repo is private.",
+      "What is real: ingest, scoring, and clustering ran in production, producing 2,739 assessments and 14 clusters, 7 of them spanning more than one jurisdiction. Where it stopped: the later phases (briefs, outreach drafts, prototypes) were never built, and the project was archived on 2026-11-01. Jim Riley contributed the market research, and the repo is private.",
     roleTags: ["AI Engineering", "Data Engineering"],
     featured: true,
     showcase: 2,
@@ -53,7 +53,7 @@ export const projects: Project[] = [
     tech: ["Python", "dbt", "DuckDB", "Streamlit", "PyDeck", "Valhalla", "Railway"],
     demo: "https://homestar-demo.evanappel.me/",
     method:
-      "Claude Code through the ROCRLL loop: tests first, an adversarial review on every merge, and CI that builds the dbt warehouse from seeds and runs its data tests without any keys.",
+      "Claude Code, test-first, every modeling choice signed off and merged through pull requests, with CI that builds the dbt warehouse from seeds and runs its data tests without any keys.",
     proves:
       "A multi-source public-data warehouse turned into a decision product whose scores can be defended line by line.",
     detail:
