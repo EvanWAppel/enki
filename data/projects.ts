@@ -1,8 +1,70 @@
 import type { Project } from "@/types";
 
-// Order: the two most public, most visual projects first (per the projects-page
-// brief), then the rest. Copy follows Evan's house style: em-dash-free.
+// Order: employer-facing apps first (ragnarok, daltrey, homestar), then the
+// geography explorers, then the rest, with games last. `showcase` sets the lead
+// set's order; array order sets "More projects". Copy follows Evan's house style:
+// em-dash-free.
 export const projects: Project[] = [
+  {
+    id: "ragnarok",
+    title: "Ragnarok: A Marketing Department in Software",
+    description:
+      "A self-hostable marketing workspace that plans, writes, ships, and measures campaigns for simulated businesses: a credit-card bank and two landscaping firms. It builds in the parts real marketing teams fight over: compliance review, A/B tests and bandits, budget gates, audience exclusion rules, and a hand-off to a CRM.",
+    tech: ["Python", "FastAPI", "PostgreSQL", "SQLAlchemy", "Alembic", "Jinja", "Railway"],
+    demo: "https://ragnarok-demo.evanappel.me/",
+    method:
+      "Built with Jim Riley. Claude Code through the ROCRLL loop: tests first, an adversarial review logged on every merge, and CI running lint, typecheck, and the full suite from a cold clone.",
+    proves:
+      "Turning a regulated, multi-tenant business domain into a tested end-to-end system, from audience selection through compliance, delivery, measured results, and CRM write-back.",
+    detail:
+      "Ragnarok does a marketing department's job in software. A campaign starts with an audience, runs through a legal-first exclusion waterfall and a risk tier, routes the offer, checks it against the budget, ships, measures its A/B result, and writes the outcome back to a CRM. The domain detail is real: Reg Z disclosures and fair-lending exclusions for the card bank, door hangers and Nextdoor drops for the landscapers. Everything runs on seeded synthetic businesses, so the whole system rebuilds the same way from a cold clone. The public demo is a read-only tour of the two landscaping firms.",
+    honestNote:
+      "What is real: milestones M0 through M11 are merged, with per-user logins, a Postgres deployment, and the public demo. Where it stops: every customer, send, and CRM org is simulated, and the language-model features run on a deterministic stand-in in deployment until a security review clears real model calls. It was built with Jim Riley as a working tool, and the repo is private.",
+    roleTags: ["Full-Stack", "Analytics Engineering"],
+    featured: true,
+    showcase: 1,
+    screenshot: "/assets/screenshots/ragnarok.png",
+  },
+  {
+    id: "daltrey",
+    title: "daltrey: Public RFP Triage",
+    description:
+      "A research tool that pulls US local-government requests for proposals from open-data feeds, has a language model score each one for fit and for whether software could deliver it, and clusters similar requests across cities so a need that repeats becomes visible. A person makes every call.",
+    tech: ["Python", "FastAPI", "PostgreSQL", "Claude Haiku", "fastembed", "scikit-learn", "Railway"],
+    demo: "https://daltrey-demo.evanappel.me/",
+    method:
+      "Built with Jim Riley. Claude Code and Codex through the ROCRLL loop: tests first against recorded fixtures, an adversarial review on every pull request, and every trade-off logged in a decision record.",
+    proves:
+      "A cost-governed language-model pipeline running in production: ingest, dedupe, model scoring, embedding clustering, and human review, with spend estimated before it happens.",
+    detail:
+      "daltrey ingests requests for proposals from six city and county open-data feeds, normalizes and dedupes them, and asks Claude Haiku to score each one against a versioned capability profile. A local embedding model then clusters similar requests across jurisdictions, so the same records portal requested in three cities shows up as one opportunity. Every stage is idempotent and can be rerun on its own, every score records the model and prompt behind it, and spend is estimated before a run: the full backfill was priced at about $7.30 for 2,753 listings before it was approved. People make every in, out, or watch decision. The public demo runs on invented listings, so triage clicks work but nothing real is shown.",
+    honestNote:
+      "What is real: ingest, scoring, and clustering ran in production, producing 2,739 assessments and 14 clusters, 7 of them spanning more than one jurisdiction. Where it stopped: the later phases (briefs, outreach drafts, prototypes) were never built, and the project was archived on 2026-11-01. It was built with Jim Riley, and the repo is private.",
+    roleTags: ["AI Engineering", "Data Engineering"],
+    featured: true,
+    showcase: 2,
+    screenshot: "/assets/screenshots/daltrey.png",
+  },
+  {
+    id: "homestar",
+    title: "Homestar: Las Vegas Site Selection",
+    description:
+      "Site-selection reports for the Las Vegas metro. Give it a business type and a few candidate addresses, and it builds a trade area around each, scores them on demographics, competition, traffic, and zoning from public data, and ranks them in a report where every score traces back to its inputs.",
+    tech: ["Python", "dbt", "DuckDB", "Streamlit", "PyDeck", "Valhalla", "Railway"],
+    demo: "https://homestar-demo.evanappel.me/",
+    method:
+      "Claude Code through the ROCRLL loop: tests first, an adversarial review on every merge, and CI that builds the dbt warehouse from seeds and runs its data tests without any keys.",
+    proves:
+      "A multi-source public-data warehouse turned into a decision product whose scores can be defended line by line.",
+    detail:
+      "Homestar answers the question a small business asks before signing a lease: which of these sites is best? It draws trade areas as 1, 3, and 5 mile rings or as 5, 10, and 15 minute drive times from a self-hosted routing engine, then scores each site from Census, employment, OpenStreetMap, traffic count, transit, and county zoning data, all free and keyless. Every composite score breaks down into raw value, percentile against the metro, direction, weight, and contribution, and the contributions add up to the score. Missing data is excluded and the weights rebalanced rather than counted as zero, and the default weights cite published site-selection research. The demo is a fixed study: a comic shop choosing a second location among three Las Vegas sites.",
+    honestNote:
+      "What is real: all four signal families score on real public data, with drive-time trade areas, six business profiles, a weight-sensitivity analysis, and the demo deployed. Where it stops: rent is left out because there is no free feed, zoning covers Clark County and the City of Las Vegas only, and competitor counts for some business types are a floor because OpenStreetMap tagging is incomplete. The repo is private.",
+    roleTags: ["Analytics Engineering", "Data Engineering"],
+    featured: true,
+    showcase: 3,
+    screenshot: "/assets/screenshots/homestar.png",
+  },
   {
     id: "guzzolene",
     title: "Guzzolene: Gas Economics Tracker",
@@ -66,7 +128,7 @@ export const projects: Project[] = [
       "What is real: the OAuth integration, the weekly snapshots, and the live dashboard run on my own listening data. Where I was learning: it is single-user by design, built for one account rather than hardened for many.",
     roleTags: ["Full-Stack", "Forward Deployed"],
     featured: true,
-    showcase: 3,
+    showcase: 9,
     screenshot: "/assets/screenshots/mccoy.gif",
     logo: "/assets/logos/projects/mccoy.png",
   },
@@ -110,7 +172,7 @@ export const projects: Project[] = [
       "What is real: the pipeline runs, every model is tested, and the app is live. Where I was learning: this is portfolio work built to practice dbt patterns, not a system with production traffic behind it.",
     roleTags: ["Analytics Engineering", "Data Engineering"],
     featured: true,
-    showcase: 1,
+    showcase: 7,
     screenshot: "/assets/screenshots/elvis.gif",
     logo: "/assets/logos/projects/elvis.svg",
   },
@@ -176,7 +238,7 @@ export const projects: Project[] = [
       "What is real: the provenance model, the vote logic, and the tests, built with TDD against recorded API payloads plus legal-shape and provenance checks in CI. Where I was learning: the subject is deliberately low-stakes so I could focus on the data-modeling and testing ideas.",
     roleTags: ["Data Engineering", "Developer Advocacy"],
     featured: true,
-    showcase: 6,
+    showcase: 10,
     screenshot: "/assets/screenshots/spooky.gif",
     logo: "/assets/logos/projects/spooky.svg",
   },
@@ -198,9 +260,49 @@ export const projects: Project[] = [
       "What is real: the audio tools work in the browser, and the logic is tested first in pytest and Node. Where I was learning: it is a personal tool built for how I practice, so it favors my own workflow over general-purpose polish.",
     roleTags: ["Full-Stack", "Developer Advocacy"],
     featured: true,
-    showcase: 7,
+    showcase: 11,
     screenshot: "/assets/screenshots/benten.gif",
     // No graphical logo in repo yet; the card leads with the screenshot.
+  },
+  {
+    id: "bourdain",
+    title: "Bourdain: Attention-Budget Meal Planner",
+    description:
+      "A meal planner and recipe box that plans the week's dinners around an attention budget: how many minutes of a recipe need you hands-on, nearby, or just within earshot. It also builds lunches from leftovers, keeps a coffee journal, and makes one grocery list per trip to check off on a phone.",
+    tech: ["Python", "FastAPI", "Jinja", "SQLite", "Cloudflare Access", "Railway"],
+    demo: "https://bourdain-demo.evanappel.me/",
+    method:
+      "Claude Code through the ROCRLL loop: tests first, an adversarial review on every merge, and CI running lint, typecheck, and the suite on every pull request.",
+    proves:
+      "Turning a fuzzy everyday problem into a precise, testable domain model and a deterministic rule engine.",
+    detail:
+      "Bourdain plans dinners against an attention budget. Each recipe step carries minutes and a tier for how closely it needs watching (away, earshot, nearby, hands-on), and the weighted total, along with the critical-path clock time, decides which dinners fit a given evening. A seeded rule engine proposes the week, quick cook logs move recipes from candidate to keeper or never, and each week's plan learns from the last. There is no language model at runtime. Claude only drafted starter recipes, which were vetted by hand. The public demo runs on seed recipes and invented cook logs and resets on every restart.",
+    honestNote:
+      "What is real: the planner, lunches, coffee journal, grocery lists, and phone interface are live behind Google sign-in, with a public demo on sample data. Still open: an Instacart integration is only a local spike, and a known pantry-matching bug (garlic cloves matching the spice cloves) is recorded as a failing test until the fix is decided. The repo is private.",
+    roleTags: ["Full-Stack"],
+    featured: true,
+    showcase: 15,
+    screenshot: "/assets/screenshots/bourdain.png",
+  },
+  {
+    id: "todo-dashboard",
+    title: "Todo Dashboard: One List Everywhere",
+    description:
+      "A personal todo list that stays the same on every device: a web dashboard installable on a phone, a native macOS menu-bar app with a quick-capture shortcut, and a command-line tool. It handles drag-to-reorder, natural-language quick add, and a week calendar for scheduling.",
+    tech: ["Python", "FastAPI", "HTMX", "Neon Postgres", "Swift", "Vercel"],
+    demo: "https://todo-dashboard-demo.evanappel.me/",
+    method:
+      "Claude Code through the ROCRLL loop: every change starts with a failing test, with a fresh-context adversarial review and CI on every push.",
+    proves:
+      "Sync-safe system design at small scale: a single cloud writer with compare-and-swap updates, race tests, and least-privilege tokens across web, phone, Mac, and command line.",
+    detail:
+      "Todo Dashboard keeps one list in one place and lets every surface edit it. The cloud copy is the only writer, and every save is a compare-and-swap on a single Postgres document, with race tests proving a phone edit survives a simultaneous command-line write. Other tools file todos through a machine API, and a separate read-only token is limited to an allowlist of routes. The Mac app wraps the dashboard in a native window with a global quick-capture shortcut, and a background job keeps a read-only markdown copy on disk. The public demo runs on invented todos held in memory and resets every 15 minutes.",
+    honestNote:
+      "What is real: the web app, phone install, Mac app, command-line tool, and machine API are all in daily use, backed by over 400 tests. Still open: sign-in is a shared password, with Cloudflare Access planned, and a redesign is waiting on visual sign-off. The repo is private.",
+    roleTags: ["Full-Stack"],
+    featured: true,
+    showcase: 16,
+    screenshot: "/assets/screenshots/todo-dashboard.png",
   },
   {
     id: "wordly",
@@ -221,7 +323,7 @@ export const projects: Project[] = [
       "What is real: v1 is shipped and played, with magic-link auth, the Postgres-backed game state, dictionary validation, and turn notifications all live. Where I was learning: it is invite-only by design and started as a single shared game, with concurrent games and wider invites the next step.",
     roleTags: ["Full-Stack"],
     featured: true,
-    showcase: 8,
+    showcase: 17,
     screenshot: "/assets/screenshots/wordly.gif",
     logo: "/assets/logos/projects/wordly.svg",
   },
@@ -251,7 +353,7 @@ export const projects: Project[] = [
       "What is real: the forecast, geocoding, animated radar, favorites, and offline fallback all run live off keyless public APIs, with a unit and Playwright suite green in CI. It began as an ad-free reproduction of Weather Underground's two best features, then was reframed as a personal weather app. The scope stays deliberately those two features, done well.",
     roleTags: ["Full-Stack"],
     featured: true,
-    showcase: 2,
+    showcase: 8,
     screenshot: "/assets/screenshots/mondaugen.gif",
     logo: "/assets/logos/projects/mondaugen.svg",
   },
@@ -271,6 +373,7 @@ export const projects: Project[] = [
       "pytest",
     ],
     github: "https://github.com/EvanWAppel/boor",
+    demo: "https://boor-demo.evanappel.me/",
     method:
       "Built with Claude Code from a written PRD on the RECL loop. The language model proposes each in-character action, a pure guardrail layer checks it against the player's red lines, and a deterministic 5e rules engine adjudicates the result. Model-mocked pytest plus an eval harness keep it honest.",
     proves:
@@ -281,7 +384,7 @@ export const projects: Project[] = [
       "What is real: the 5e rules engine, the async SQLAlchemy and Postgres data layer, Clerk auth, and the AI stand-in slice (structured tool-calling, the guardrail refusal layer, and the eval harness) all exist and are covered by a real test suite. The screenshot is the actual offline demo, which runs on a scripted reasoner with no API key so the flow is reproducible; the live-model path exists behind an env-gated test. Where I am still building: the real-time multiplayer table is written but not yet deployed, so there is no public live link yet, and the absent-player flow that hands live control to the AI mid-session is the next milestone.",
     roleTags: ["AI Engineering", "Full-Stack"],
     featured: true,
-    showcase: 9,
+    showcase: 18,
     screenshot: "/assets/screenshots/boor.gif",
   },
   {
@@ -302,7 +405,7 @@ export const projects: Project[] = [
       "What is real: the ingestion patterns, the dbt models, and the live app all run on Railway. Where I was learning: it deliberately reuses the Elvis architecture, so the work is in the sourcing and the city-scoping, not a from-scratch design.",
     roleTags: ["Analytics Engineering", "Data Engineering"],
     featured: true,
-    showcase: 10,
+    showcase: 6,
     screenshot: "/assets/screenshots/gregan.gif",
     // No graphical logo in repo yet; the card leads with the screenshot.
   },
@@ -343,7 +446,7 @@ export const projects: Project[] = [
       "What is real: the core game is live and playable, with magic-link auth, the Postgres-backed game state, canvas capture, and drawing replay all working. Where I am still building: it is invite-only by design and a visual redesign is in progress, so the look will keep changing.",
     roleTags: ["Full-Stack"],
     featured: true,
-    showcase: 11,
+    showcase: 19,
     screenshot: "/assets/screenshots/roodle.gif",
   },
   // --- Work in progress ---------------------------------------------------

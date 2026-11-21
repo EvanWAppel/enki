@@ -8,7 +8,7 @@ Site tasks handed to this repo by the private `~/Documents/_system` platform rep
 here, in enki's own session. Nothing deploys without Evan's approval (pushing to `main`
 auto-deploys).
 
-- [ ] **PLAT-SITE-01 — Point project cards at `*.evanappel.me` subdomains** _(handed off 2026-10-22)_
+- [x] **PLAT-SITE-01 — Point project cards at `*.evanappel.me` subdomains** _(handed off 2026-10-22; done in #76, 2026-11-21)_
   - **Why:** `data/projects.ts` still links raw `*.up.railway.app` / `*.vercel.app` origins.
     The subdomains are live, and the origins will later be closed behind Cloudflare Access.
   - **Map** (each subdomain returned HTTP 200 on 2026-10-22; re-check with `curl -sI` first):
@@ -34,7 +34,7 @@ auto-deploys).
     `demo` URL contains `railway.app` or `vercel.app`.
   - **Done when:** tests + lint green, PR open, deploy held for Evan's approval.
 
-- [ ] **PLAT-SITE-02 — "Try the demo" links for the live demos** _(handed off 2026-10-29)_
+- [x] **PLAT-SITE-02 — "Try the demo" links for the live demos** _(handed off 2026-10-29; done 2026-11-21: wordly in #76; boor demo plus cards for ragnarok, daltrey, homestar, bourdain and todo-dashboard in the demo-cards PR, ordered per Evan 2026-11-21)_
   - **Why:** _system D-031/D-032: every app gets a public demo on `<app>-demo.evanappel.me`.
     Seven are live (each returned HTTP 200 on 2026-10-29; re-check with `curl -sIL` first).
   - **Cards that exist — set `demo`:**

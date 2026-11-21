@@ -102,25 +102,53 @@ describe("projects data", () => {
     expect(wordly?.honestNote, "wordly needs an honest note").toBeTruthy();
   });
 
+  it("carries a card for each public -demo app, linked to its demo host", () => {
+    // These repos are private, so the cards link the public demo and no source.
+    for (const id of ["ragnarok", "daltrey", "homestar", "bourdain", "todo-dashboard"]) {
+      const p = projects.find((x) => x.id === id);
+      expect(p, `${id} card is missing`).toBeTruthy();
+      expect(p?.demo).toBe(`https://${id}-demo.evanappel.me/`);
+      expect(p?.github, `${id}'s repo is private`).toBeUndefined();
+      expect(p?.wip).toBeFalsy();
+      expect(p?.detail, `${id} needs a detail page`).toBeTruthy();
+    }
+  });
+
+  it("credits Jim Riley on the projects built with him", () => {
+    for (const id of ["ragnarok", "daltrey"]) {
+      expect(projects.find((p) => p.id === id)?.method).toContain("Jim Riley");
+    }
+  });
+
+  it("links boor's sign-in-free demo", () => {
+    expect(projects.find((p) => p.id === "boor")?.demo).toBe("https://boor-demo.evanappel.me/");
+  });
+
   it("curates the expected showcase set with unique ranks", () => {
     const ranked = projects
       .filter((p) => p.showcase != null)
       .sort((a, b) => (a.showcase ?? 0) - (b.showcase ?? 0));
+    // Employer-facing apps lead, then the geography explorers, games last.
     expect(ranked.map((p) => p.id)).toEqual([
+      "ragnarok",
+      "daltrey",
+      "homestar",
+      "robbins",
+      "groening",
+      "gregan",
       "elvis",
       "mondaugen",
       "mccoy",
-      "robbins",
-      "groening",
       "spooky",
       "benten",
-      "wordly",
-      "boor",
-      "gregan",
-      "roodle",
       "guzzolene",
       "olympic",
       "portfolio",
+      "bourdain",
+      "todo-dashboard",
+      "wordly",
+      "boor",
+      "roodle",
     ]);
     const ranks = ranked.map((p) => p.showcase);
     expect(new Set(ranks).size).toBe(ranks.length);
