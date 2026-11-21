@@ -13,13 +13,13 @@ export const projects: Project[] = [
     tech: ["Python", "FastAPI", "PostgreSQL", "SQLAlchemy", "Alembic", "Jinja", "Railway"],
     demo: "https://ragnarok-demo.evanappel.me/",
     method:
-      "Built with Jim Riley. Claude Code through the ROCRLL loop: tests first, an adversarial review logged on every merge, and CI running lint, typecheck, and the full suite from a cold clone.",
+      "Built with Jim Riley. Claude Code through the ROCRLL loop: tests first, review findings adjudicated in a decision log, and CI running lint, typecheck, and the full suite, plus a cold-clone check.",
     proves:
       "Turning a regulated, multi-tenant business domain into a tested end-to-end system, from audience selection through compliance, delivery, measured results, and CRM write-back.",
     detail:
-      "Ragnarok does a marketing department's job in software. A campaign starts with an audience, runs through a legal-first exclusion waterfall and a risk tier, routes the offer, checks it against the budget, ships, measures its A/B result, and writes the outcome back to a CRM. The domain detail is real: Reg Z disclosures and fair-lending exclusions for the card bank, door hangers and Nextdoor drops for the landscapers. Everything runs on seeded synthetic businesses, so the whole system rebuilds the same way from a cold clone. The public demo is a read-only tour of the two landscaping firms.",
+      "Ragnarok does a marketing department's job in software. A campaign starts with an audience, runs through a legal-first exclusion waterfall and a risk tier, routes the offer, checks it against the budget, ships, measures its A/B result, and writes the outcome back to a CRM. The domain is modeled on real rules (advisory, not legally reviewed): Reg Z disclosures, contact-consent exclusions, and fair-lending guardrails for the card bank, door hangers and Nextdoor drops for the landscapers. Everything runs on seeded synthetic businesses, so the whole system rebuilds the same way from a cold clone. The public demo is a read-only tour of the two landscaping firms.",
     honestNote:
-      "What is real: milestones M0 through M11 are merged, with per-user logins, a Postgres deployment, and the public demo. Where it stops: every customer, send, and CRM org is simulated, and the language-model features run on a deterministic stand-in in deployment until a security review clears real model calls. It was built with Jim Riley as a working tool, and the repo is private.",
+      "What is real: milestones M0 through M11 are merged (one backlog item open, and a split into three apps is planned), with per-user logins, a Postgres deployment, and the public demo. Where it stops: every customer, send, and CRM org is simulated, and the language-model features run on a deterministic stand-in in deployment until a security review clears real model calls. It was built with Jim Riley as a working tool, and the repo is private.",
     roleTags: ["Full-Stack", "Analytics Engineering"],
     featured: true,
     showcase: 1,
@@ -33,11 +33,11 @@ export const projects: Project[] = [
     tech: ["Python", "FastAPI", "PostgreSQL", "Claude Haiku", "fastembed", "scikit-learn", "Railway"],
     demo: "https://daltrey-demo.evanappel.me/",
     method:
-      "Built with Jim Riley. Claude Code and Codex through the ROCRLL loop: tests first against recorded fixtures, an adversarial review on every pull request, and every trade-off logged in a decision record.",
+      "Built with Jim Riley. Claude Code through the ROCRLL loop: tests first against recorded fixtures, an adversarial review on every pull request, and every trade-off logged in a decision record.",
     proves:
-      "A cost-governed language-model pipeline running in production: ingest, dedupe, model scoring, embedding clustering, and human review, with spend estimated before it happens.",
+      "A cost-governed language-model pipeline that ran in production: ingest, dedupe, model scoring, embedding clustering, and human review, with spend estimated before it happens.",
     detail:
-      "daltrey ingests requests for proposals from six city and county open-data feeds, normalizes and dedupes them, and asks Claude Haiku to score each one against a versioned capability profile. A local embedding model then clusters similar requests across jurisdictions, so the same records portal requested in three cities shows up as one opportunity. Every stage is idempotent and can be rerun on its own, every score records the model and prompt behind it, and spend is estimated before a run: the full backfill was priced at about $7.30 for 2,753 listings before it was approved. People make every in, out, or watch decision. The public demo runs on invented listings, so triage clicks work but nothing real is shown.",
+      "daltrey ingests requests for proposals from local-government open-data feeds (four in production, with two more wired in just before it was archived), normalizes and dedupes them, and asks Claude Haiku to score each one against a versioned capability profile. A local embedding model then clusters similar requests across jurisdictions, so the same records portal requested in three cities would show up as one cluster. Every stage is idempotent and can be rerun on its own, every score records the model and a hash of the prompt behind it, and spend is estimated before a run: the full backfill was priced at about $7.30 for 2,753 listings before it was approved. People make every in, out, or watch decision. The public demo runs on invented listings, so triage clicks work but nothing real is shown.",
     honestNote:
       "What is real: ingest, scoring, and clustering ran in production, producing 2,739 assessments and 14 clusters, 7 of them spanning more than one jurisdiction. Where it stopped: the later phases (briefs, outreach drafts, prototypes) were never built, and the project was archived on 2026-11-01. It was built with Jim Riley, and the repo is private.",
     roleTags: ["AI Engineering", "Data Engineering"],
@@ -57,9 +57,9 @@ export const projects: Project[] = [
     proves:
       "A multi-source public-data warehouse turned into a decision product whose scores can be defended line by line.",
     detail:
-      "Homestar answers the question a small business asks before signing a lease: which of these sites is best? It draws trade areas as 1, 3, and 5 mile rings or as 5, 10, and 15 minute drive times from a self-hosted routing engine, then scores each site from Census, employment, OpenStreetMap, traffic count, transit, and county zoning data, all free and keyless. Every composite score breaks down into raw value, percentile against the metro, direction, weight, and contribution, and the contributions add up to the score. Missing data is excluded and the weights rebalanced rather than counted as zero, and the default weights cite published site-selection research. The demo is a fixed study: a comic shop choosing a second location among three Las Vegas sites.",
+      "Homestar answers the question a small business asks before signing a lease: which of these sites is best? It draws trade areas as 1, 3, and 5 mile rings or as 5, 10, and 15 minute drive times from a self-hosted routing engine, then scores each site from Census, employment, OpenStreetMap, traffic count, transit, and county zoning data, all free public sources (only Census needs a free key). Every composite score breaks down into raw value, percentile against the metro, direction, weight, and contribution, and the contributions add up to the score. Missing data is excluded and the weights rebalanced rather than counted as zero, and the retail profiles' default weights follow published site-selection research. The demo is a fixed study: a comic shop choosing a second location among three Las Vegas sites.",
     honestNote:
-      "What is real: all four signal families score on real public data, with drive-time trade areas, six business profiles, a weight-sensitivity analysis, and the demo deployed. Where it stops: rent is left out because there is no free feed, zoning covers Clark County and the City of Las Vegas only, and competitor counts for some business types are a floor because OpenStreetMap tagging is incomplete. The repo is private.",
+      "What is real: all four signal families score on real public data, with drive-time trade areas, six business profiles, a weight-sensitivity analysis, and the demo deployed. Where it stops: rent is left out because there is no free feed, zoning covers Clark County and the City of Las Vegas only, and orthodontist competitor counts are a floor because OpenStreetMap tagging is incomplete. The repo is private.",
     roleTags: ["Analytics Engineering", "Data Engineering"],
     featured: true,
     showcase: 3,
@@ -276,7 +276,7 @@ export const projects: Project[] = [
     proves:
       "Turning a fuzzy everyday problem into a precise, testable domain model and a deterministic rule engine.",
     detail:
-      "Bourdain plans dinners against an attention budget. Each recipe step carries minutes and a tier for how closely it needs watching (away, earshot, nearby, hands-on), and the weighted total, along with the critical-path clock time, decides which dinners fit a given evening. A seeded rule engine proposes the week, quick cook logs move recipes from candidate to keeper or never, and each week's plan learns from the last. There is no language model at runtime. Claude only drafted starter recipes, which were vetted by hand. The public demo runs on seed recipes and invented cook logs and resets on every restart.",
+      "Bourdain plans dinners against an attention budget. Each recipe step carries minutes and a tier for how closely it needs watching (away, earshot, nearby, hands-on), and the weighted total, along with the critical-path clock time, decides which dinners fit a given evening. A seeded rule engine proposes the week, quick cook logs move recipes from candidate to trial to keeper, maybe, or never, and the next plan reacts: never-again dishes drop out and higher-rated keepers come first. There is no language model at runtime. Claude only drafted starter recipes, which were vetted by hand. The public demo runs on seed recipes and invented cook logs and resets on restart or once it passes 2,000 rows.",
     honestNote:
       "What is real: the planner, lunches, coffee journal, grocery lists, and phone interface are live behind Google sign-in, with a public demo on sample data. Still open: an Instacart integration is only a local spike, and a known pantry-matching bug (garlic cloves matching the spice cloves) is recorded as a failing test until the fix is decided. The repo is private.",
     roleTags: ["Full-Stack"],
@@ -292,13 +292,13 @@ export const projects: Project[] = [
     tech: ["Python", "FastAPI", "HTMX", "Neon Postgres", "Swift", "Vercel"],
     demo: "https://todo-dashboard-demo.evanappel.me/",
     method:
-      "Claude Code through the ROCRLL loop: every change starts with a failing test, with a fresh-context adversarial review and CI on every push.",
+      "Claude Code through the ROCRLL loop: every change starts with a failing test, with a fresh-context adversarial review on every merge and CI on every pull request.",
     proves:
       "Sync-safe system design at small scale: a single cloud writer with compare-and-swap updates, race tests, and least-privilege tokens across web, phone, Mac, and command line.",
     detail:
       "Todo Dashboard keeps one list in one place and lets every surface edit it. The cloud copy is the only writer, and every save is a compare-and-swap on a single Postgres document, with race tests proving a phone edit survives a simultaneous command-line write. Other tools file todos through a machine API, and a separate read-only token is limited to an allowlist of routes. The Mac app wraps the dashboard in a native window with a global quick-capture shortcut, and a background job keeps a read-only markdown copy on disk. The public demo runs on invented todos held in memory and resets every 15 minutes.",
     honestNote:
-      "What is real: the web app, phone install, Mac app, command-line tool, and machine API are all in daily use, backed by over 400 tests. Still open: sign-in is a shared password, with Cloudflare Access planned, and a redesign is waiting on visual sign-off. The repo is private.",
+      "What is real: the web app, phone install, Mac app, command-line tool, and machine API are built and deployed, backed by over 400 tests. Still open: sign-in is a shared password, with Cloudflare Access planned, and a finished redesign is waiting on visual sign-off. The repo is private.",
     roleTags: ["Full-Stack"],
     featured: true,
     showcase: 16,
@@ -381,7 +381,7 @@ export const projects: Project[] = [
     detail:
       "Boor is a virtual tabletop for a persistent D&D campaign that keeps going when a player cannot make it. Mark a player absent and an AI stands in for their character, acting in that player's voice and inside limits they set in advance. The interesting part is the agent architecture. The language model never invents a die roll or bends a rule; it reasons about what the character would do and emits a structured tool call, and a separate deterministic 5e rules engine adjudicates the outcome. Between the two sits a pure, tested guardrail layer that checks every proposed action against the character's standing red lines, so a tempting but forbidden move, such as swinging at a charmed ally, is refused and logged rather than executed. An eval harness scores the stand-in on three axes: mechanical validity, red-line adherence, and, with an LLM as judge, whether it still reads like the character. That reasons-here, adjudicates-there split, wrapped in guardrails and evals, is the whole point. It is the shape of a production agent, built small enough to see end to end.",
     honestNote:
-      "What is real: the 5e rules engine, the async SQLAlchemy and Postgres data layer, Clerk auth, and the AI stand-in slice (structured tool-calling, the guardrail refusal layer, and the eval harness) all exist and are covered by a real test suite. The screenshot is the actual offline demo, which runs on a scripted reasoner with no API key so the flow is reproducible; the live-model path exists behind an env-gated test. Where I am still building: the real-time multiplayer table is written but not yet deployed, so there is no public live link yet, and the absent-player flow that hands live control to the AI mid-session is the next milestone.",
+      "What is real: the 5e rules engine, the async SQLAlchemy and Postgres data layer, Clerk auth, and the AI stand-in slice (structured tool-calling, the guardrail refusal layer, and the eval harness) all exist and are covered by a real test suite. The screenshot is the actual offline demo, which runs on a scripted reasoner with no API key so the flow is reproducible; the live-model path exists behind an env-gated test. Where I am still building: the real-time multiplayer table is written but not yet deployed, so the only public link is the guest demo sandbox (AI off, reset daily), and the absent-player flow that hands live control to the AI mid-session is the next milestone.",
     roleTags: ["AI Engineering", "Full-Stack"],
     featured: true,
     showcase: 18,
