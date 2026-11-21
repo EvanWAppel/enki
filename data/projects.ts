@@ -55,7 +55,7 @@ export const projects: Project[] = [
       "A personal Spotify listening-habits dashboard with a DJ-style record-flipping playlist builder. Visualizes weekly listening trends and turns them into new playlists.",
     tech: ["Python", "Plotly Dash", "Spotify API", "Railway"],
     github: "https://github.com/EvanWAppel/mccoy",
-    live: "https://web-production-bee9a.up.railway.app/",
+    live: "https://mccoy.evanappel.me/",
     method:
       "Claude Code with external-API integration (Spotify), tested end to end.",
     proves:
@@ -77,7 +77,7 @@ export const projects: Project[] = [
       "A personal health-tracking app that ingests data from multiple sources, including ResMed/CPAP therapy data, into one unified dashboard.",
     tech: ["Next.js", "TypeScript"],
     github: "https://github.com/EvanWAppel/olympic",
-    live: "https://olympic-lime-six.vercel.app/",
+    live: "https://olympic.evanappel.me/",
     method:
       "Claude Code, multi-source data ingestion and visualization, verification-first.",
     proves:
@@ -99,7 +99,7 @@ export const projects: Project[] = [
       "Named after Las Vegas's most recognizable figure, this project explores free datasets about the Las Vegas Valley using dbt and DuckDB, surfaced through a Streamlit app. Built to learn analytics-engineering patterns: modular transformations, testing, and dimensional modeling.",
     tech: ["dbt", "DuckDB", "Streamlit", "SQL", "Python", "Railway"],
     github: "https://github.com/EvanWAppel/elvis",
-    live: "https://elvis-production-e07a.up.railway.app/",
+    live: "https://elvis.evanappel.me/",
     method:
       "Claude Code, analytics-engineering patterns, with dbt tests on every model.",
     proves:
@@ -121,7 +121,7 @@ export const projects: Project[] = [
       "An interactive, multi-page explorer over free public datasets about the Portland, OR metro (Multnomah, Washington, and Clackamas counties), surfaced as maps, charts, and searchable tables. A Portland port of Elvis: same architecture, a DuckDB warehouse modeled with dbt, different city.",
     tech: ["dbt", "DuckDB", "Streamlit", "Altair", "PyDeck", "Railway"],
     github: "https://github.com/EvanWAppel/groening",
-    live: "https://groening-production.up.railway.app/",
+    live: "https://groening.evanappel.me/",
     method:
       "Claude Code, a reproducible ELT-plus-dbt warehouse baked at build time, with the city-specific config isolated to one file.",
     proves:
@@ -143,7 +143,7 @@ export const projects: Project[] = [
       "An interactive, multi-page explorer over free public datasets about the Seattle metro (King County core, extending to Pierce and Snohomish), presented as maps, trends, and searchable tables. Ingests two access patterns, Socrata's SODA API and ArcGIS FeatureServers, into a DuckDB warehouse modeled with dbt.",
     tech: ["dbt", "DuckDB", "Streamlit", "Altair", "PyDeck", "Railway"],
     github: "https://github.com/EvanWAppel/robbins",
-    live: "https://robbins-production.up.railway.app/",
+    live: "https://robbins.evanappel.me/",
     method:
       "Claude Code, multi-source ingestion across two public-data APIs, warehouse baked fresh on every deploy.",
     proves:
@@ -165,7 +165,7 @@ export const projects: Project[] = [
       "An episode data explorer for The X-Files, built around the fact that nobody agrees which episodes are 'mythology.' It stores three sources' verdicts per episode, derives a defensible label by vote, and renders the disagreement as a first-class feature with contested-episode badges and per-source breakdowns.",
     tech: ["Python", "Plotly Dash", "pandas", "Railway"],
     github: "https://github.com/EvanWAppel/spooky",
-    live: "https://web-production-61a00.up.railway.app/",
+    live: "https://spooky.evanappel.me/",
     method:
       "Claude Code with TDD against recorded API payloads, plus legal-shape and provenance tests in CI.",
     proves:
@@ -187,7 +187,7 @@ export const projects: Project[] = [
       "A personal music workshop named after the Japanese goddess of music: practice logs, theory notes, a riff library, and composition sketches, paired with an interactive app for playing chord progressions on a fretboard, recording and overdubbing takes, building effect chains, and searching tabs. Everything it writes stays clean, hand-editable Markdown.",
     tech: ["Python", "JavaScript", "Web Audio API", "Node", "Railway"],
     github: "https://github.com/EvanWAppel/benten",
-    demo: "https://benten-production.up.railway.app/",
+    demo: "https://benten.evanappel.me/",
     method:
       "Claude Code, logic tested first with pytest and Node, then the interface, then a full walk through in a real browser.",
     proves:
@@ -209,8 +209,8 @@ export const projects: Project[] = [
       "A private, invite-only word game in the Words With Friends style for a small circle of friends and family, with no ads, no paywalls, and no power-ups to buy. It is an installable web app: async turn-based play, a faithful 15 by 15 board and tile bag, live dictionary-checked scoring, and a ping when it is your turn.",
     tech: ["Next.js", "TypeScript", "Neon Postgres", "Drizzle ORM", "Resend", "Web Push", "Vercel"],
     github: "https://github.com/EvanWAppel/wordly",
-    live: "https://wordly-seven-rust.vercel.app/",
-    demo: "https://wordly-seven-rust.vercel.app/demo",
+    live: "https://wordly.evanappel.me/",
+    demo: "https://wordly.evanappel.me/demo",
     method:
       "Claude Code from a written PRD, with the game rules and scoring tested first, then magic-link auth, a Postgres data model, and email plus web-push notifications wired end to end.",
     proves:
@@ -240,7 +240,7 @@ export const projects: Project[] = [
       "Vercel",
     ],
     github: "https://github.com/EvanWAppel/weather",
-    live: "https://weather-iota-murex.vercel.app/",
+    live: "https://mondaugen.evanappel.me/",
     method:
       "Claude Code through a Requirements, Orchestrate, Check, Review loop from a PRD and task board: logic tested first, adversarially reviewed on every merge, with a unit and Playwright suite in CI and data from keyless public APIs (Open-Meteo, RainViewer).",
     proves:
@@ -291,7 +291,7 @@ export const projects: Project[] = [
       "An interactive, multi-page explorer over free public data about Glendora, California and its San Gabriel foothills setting, surfaced as maps, charts, and searchable tables. It ports the Elvis and Robbins engine to a new city, fetching city, county, state, and federal open data into a DuckDB warehouse modeled with dbt.",
     tech: ["dbt", "DuckDB", "Streamlit", "Altair", "PyDeck", "Railway"],
     github: "https://github.com/EvanWAppel/gregan",
-    live: "https://gregan-production.up.railway.app/",
+    live: "https://gregan.evanappel.me/",
     method:
       "Claude Code on the RECL loop, a reproducible ELT-plus-dbt warehouse baked at build time, with dbt tests on the models.",
     proves:
@@ -332,7 +332,7 @@ export const projects: Project[] = [
       "A small, private, ad-free drawing-and-guessing game, the Draw Something experience without the ads, coin shops, and upsells. A few friends take turns: one draws a word on a canvas, the others open the app later, watch the strokes replay, and guess by tapping letter tiles. Deliberately simple, cozy, and built for people who already know each other.",
     tech: ["Next.js", "TypeScript", "Postgres", "Drizzle ORM", "Canvas", "Railway"],
     github: "https://github.com/EvanWAppel/roodle",
-    live: "https://roodle-web-production.up.railway.app/",
+    live: "https://roodle.evanappel.me/",
     method:
       "Claude Code from a written PRD, with the turn and scoring logic tested first, then magic-link auth, a Postgres data model, and vector stroke capture for the drawing replay.",
     proves:

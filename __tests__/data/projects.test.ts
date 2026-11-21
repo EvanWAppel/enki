@@ -24,6 +24,14 @@ describe("projects data", () => {
     }
   });
 
+  it("links live apps through evanappel.me subdomains, not raw platform hosts", () => {
+    for (const p of projects) {
+      for (const url of [p.live, p.demo]) {
+        if (url) expect(url, `${p.id}: ${url}`).not.toMatch(/\.(up\.railway|vercel)\.app/);
+      }
+    }
+  });
+
   it("surfaces sign-in-free demos for the recruiter-facing apps", () => {
     const demos = new Set(projects.filter((p) => p.demo).map((p) => p.id));
     expect(demos.has("guzzolene")).toBe(true);
