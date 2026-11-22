@@ -103,7 +103,7 @@ export default async function FictionPiecePage({
           </Link>
 
           {/* Cover image */}
-          <div className="relative w-full h-64 rounded-xl overflow-hidden mb-8 bg-neutral-100">
+          <div className="relative w-full h-64 rounded-xl overflow-hidden mb-8 bg-neutral-100 dark:bg-neutral-800">
             <Image
               src={cover}
               alt={piece.title}
@@ -115,16 +115,16 @@ export default async function FictionPiecePage({
           </div>
 
           <div className="flex items-center gap-2 mb-4">
-            <span className="text-xs font-medium px-2 py-0.5 rounded-full bg-neutral-100 text-muted capitalize">
+            <span className="text-xs font-medium px-2 py-0.5 rounded-full bg-neutral-100 dark:bg-neutral-800 text-muted capitalize">
               {piece.type}
             </span>
           </div>
 
-          <h1 className="text-3xl font-bold text-neutral-900 mb-10">
+          <h1 className="text-3xl font-bold text-neutral-900 dark:text-white mb-10">
             {piece.title}
           </h1>
 
-          <article className="text-neutral-800 text-base">
+          <article className="text-neutral-800 dark:text-neutral-200 text-base">
             {sections.map((section, i) =>
               section.type === "html" ? (
                 <div
@@ -132,7 +132,7 @@ export default async function FictionPiecePage({
                   dangerouslySetInnerHTML={{ __html: section.content }}
                 />
               ) : (
-                <div key={i} className="my-8 rounded-lg overflow-hidden bg-neutral-100">
+                <div key={i} className="my-8 rounded-lg overflow-hidden bg-neutral-100 dark:bg-neutral-800">
                   <Image
                     src={section.src}
                     alt=""
