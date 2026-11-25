@@ -55,7 +55,7 @@ export default function WritingList({ essays }: { essays: Essay[] }) {
             onClick={() => setFilter(lane)}
             className={`px-4 py-1.5 rounded-full text-sm font-medium transition-colors ${
               filter === lane
-                ? "bg-accent text-white"
+                ? "bg-accent text-white dark:text-neutral-950"
                 : "bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400 hover:bg-neutral-200 dark:hover:bg-neutral-700"
             }`}
           >

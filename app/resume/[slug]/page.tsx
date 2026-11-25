@@ -39,7 +39,7 @@ export default async function ResumePage({
           <a
             href={variant.path}
             download
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-lg border border-accent text-accent text-sm font-medium hover:bg-accent hover:text-white transition-colors"
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-lg border border-accent text-accent text-sm font-medium hover:bg-accent hover:text-white dark:hover:text-neutral-950 transition-colors"
           >
             Download PDF
           </a>
