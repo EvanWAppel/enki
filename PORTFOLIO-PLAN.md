@@ -91,13 +91,14 @@ so it stays out of the carousel.
 - [x] Added featured with full copy (`proves`, `roleTags`, `detail`, `honestNote`)
 - [ ] (optional) Logo (`ansel.svg`), currently the monogram fallback
 
-### niu_ma — Chinese-standard mahjong ⏳ WIP (deploy failing)
+### niu_ma — Chinese-standard mahjong ⏸ PARKED (Evan, 2026-11-25)
+Parked: stays a `wip` card with no links; not being worked on. Revisit via EA-186.
 A `wip` card with description + tech + method (FastAPI + pure deterministic rules engine,
 Postgres, htmx, magic-link, Resend, Railway). No live link: the given URL
 (niuma-production.up.railway.app) returned 404 on every attempt.
 - [x] Added as a wip entry with accurate copy
 - [ ] Healthy deployment + working URL (from Evan) → drop `wip`, write shipped copy, then
-  `proves`/`detail`/`honestNote` and a screenshot for the showcase (tracked in BLOCKED.md).
+  `proves`/`detail`/`honestNote` and a screenshot for the showcase (tracked in Jira EA-186).
 
 ### Done (kept for history)
 - [x] guzzolene: full copy + GIF, promoted to showcase (#42)
